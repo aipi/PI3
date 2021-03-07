@@ -20,7 +20,7 @@ namespace PI3
 
         private void btnCriarPartida_Click(object sender, EventArgs e)
         {
-            Jogo.CriarPartida("Partida 2", "1234");
+            Jogo.CriarPartida("Partida 2", "12345");
         }
 
         private void btnListMatches_Click(object sender, EventArgs e)
