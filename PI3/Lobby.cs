@@ -11,36 +11,17 @@ using CantStopServer;
 
 namespace PI3
 {
-    public partial class Lobby : Form
+    public partial class LobbyForm : Form
     {
-        public Lobby()
+        public LobbyForm()
         {
             InitializeComponent();
         }
 
-        private void btnCriarPartida_Click(object sender, EventArgs e)
-        {
-            Jogo.CriarPartida("Partida 2", "2035");
-        }
-
         private void btnListMatches_Click(object sender, EventArgs e)
         {
-            string listMatches = Jogo.ListarPartidas("T");
-            listMatches = listMatches.Replace("\r", "");
-            string[] lines = listMatches.Split('\n');
-            List<Match> matches = new List<Match>();
-
-            for (int i = 0; i < lines.Length - 1; i++)
-            {
-
-                if (lines[i] != "")
-                {
-                    Match match = new Match();
-                    match.setter(lines[i]);
-                    matches.Add(match);
-                }
-            }
-            dgvListMatches.DataSource = matches;
+            filterMatches.Visible = true;
+            filterMatches.SelectedItem = "Todos";
         }
 
         private void btnListGamers_Click(object sender, EventArgs e)
@@ -61,7 +42,39 @@ namespace PI3
                 }
             }
             dgvListGamers.DataSource = gamers;
+        }
 
+        private void btnStartMatch_Click(object sender, EventArgs e)
+        {
+            int selectedGame = Convert.ToInt32(dgvListMatches.CurrentRow.Cells["id"].Value);
+            string partida = Jogo.IniciarPartida(selectedGame, "1234");
+            lblGamersList.Text = partida;
+        }
+
+        private void btnCreateMatch_Click(object sender, EventArgs e)
+        {
+            string partida = Jogo.CriarPartida("Partida 2", "12345");
+            Console.WriteLine(partida);
+        }
+
+        private void filterMatches_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string listMatches = Jogo.ListarPartidas(filterMatches.SelectedItem.ToString().Substring(0, 1));
+            listMatches = listMatches.Replace("\r", "");
+            string[] lines = listMatches.Split('\n');
+            List<Match> matches = new List<Match>();
+
+            for (int i = 0; i < lines.Length - 1; i++)
+            {
+
+                if (lines[i] != "")
+                {
+                    Match match = new Match();
+                    match.setter(lines[i]);
+                    matches.Add(match);
+                }
+            }
+            dgvListMatches.DataSource = matches;
         }
     }
 }
