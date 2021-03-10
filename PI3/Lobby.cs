@@ -11,8 +11,7 @@ using CantStopServer;
 
 namespace PI3
 {
-    public partial class LobbyForm : Form
-    {
+    public partial class LobbyForm : Form{
         public LobbyForm()
         {
             InitializeComponent();
@@ -75,6 +74,11 @@ namespace PI3
                 }
             }
             dgvListMatches.DataSource = matches;
+        }
+
+        private void LobbyForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

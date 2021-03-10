@@ -47,7 +47,8 @@ namespace PI3
             // 
             this.btnCreateMatch.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCreateMatch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnCreateMatch.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCreateMatch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreateMatch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCreateMatch.Location = new System.Drawing.Point(12, 124);
             this.btnCreateMatch.Name = "btnCreateMatch";
             this.btnCreateMatch.Size = new System.Drawing.Size(190, 39);
@@ -59,8 +60,9 @@ namespace PI3
             // btnListMatches
             // 
             this.btnListMatches.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnListMatches.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnListMatches.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnListMatches.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnListMatches.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListMatches.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnListMatches.Location = new System.Drawing.Point(12, 34);
             this.btnListMatches.Name = "btnListMatches";
             this.btnListMatches.Size = new System.Drawing.Size(190, 39);
@@ -73,7 +75,9 @@ namespace PI3
             // 
             this.btnStartMatch.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnStartMatch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnStartMatch.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnStartMatch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStartMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartMatch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnStartMatch.Location = new System.Drawing.Point(12, 169);
             this.btnStartMatch.Name = "btnStartMatch";
             this.btnStartMatch.Size = new System.Drawing.Size(190, 39);
@@ -99,7 +103,10 @@ namespace PI3
             // 
             this.btnListGamers.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnListGamers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnListGamers.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnListGamers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListGamers.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnListGamers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnListGamers.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnListGamers.Location = new System.Drawing.Point(12, 79);
             this.btnListGamers.Name = "btnListGamers";
             this.btnListGamers.Size = new System.Drawing.Size(190, 39);
@@ -124,9 +131,10 @@ namespace PI3
             // lblMatchesList
             // 
             this.lblMatchesList.AutoSize = true;
-            this.lblMatchesList.Location = new System.Drawing.Point(252, 34);
+            this.lblMatchesList.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMatchesList.Location = new System.Drawing.Point(249, 28);
             this.lblMatchesList.Name = "lblMatchesList";
-            this.lblMatchesList.Size = new System.Drawing.Size(127, 20);
+            this.lblMatchesList.Size = new System.Drawing.Size(273, 37);
             this.lblMatchesList.TabIndex = 10;
             this.lblMatchesList.Text = "Lista de Partidas";
             // 
@@ -158,6 +166,7 @@ namespace PI3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(956, 499);
             this.Controls.Add(this.filterMatches);
             this.Controls.Add(this.lblGamersList);
@@ -170,6 +179,8 @@ namespace PI3
             this.Controls.Add(this.btnCreateMatch);
             this.Name = "LobbyForm";
             this.Text = "Lobby";
+            this.TransparencyKey = System.Drawing.Color.Snow;
+            this.Load += new System.EventHandler(this.LobbyForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListMatches)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListGamers)).EndInit();
             this.ResumeLayout(false);
