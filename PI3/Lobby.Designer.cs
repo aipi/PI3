@@ -29,6 +29,7 @@ namespace PI3
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LobbyForm));
             this.btnCreateMatch = new System.Windows.Forms.Button();
             this.btnListMatches = new System.Windows.Forms.Button();
             this.btnStartMatch = new System.Windows.Forms.Button();
@@ -177,6 +178,7 @@ namespace PI3
             this.Controls.Add(this.dgvListMatches);
             this.Controls.Add(this.btnListMatches);
             this.Controls.Add(this.btnCreateMatch);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LobbyForm";
             this.Text = "Lobby";
             this.TransparencyKey = System.Drawing.Color.Snow;
