@@ -40,6 +40,7 @@ namespace PI3
             this.lblGamersList = new System.Windows.Forms.Label();
             this.helpLobby = new System.Windows.Forms.HelpProvider();
             this.filterMatches = new System.Windows.Forms.ComboBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListMatches)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListGamers)).BeginInit();
             this.SuspendLayout();
@@ -163,6 +164,10 @@ namespace PI3
             this.filterMatches.Visible = false;
             this.filterMatches.SelectedIndexChanged += new System.EventHandler(this.filterMatches_SelectedIndexChanged);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // LobbyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -202,6 +207,7 @@ namespace PI3
         private System.Windows.Forms.Label lblGamersList;
         private System.Windows.Forms.HelpProvider helpLobby;
         private System.Windows.Forms.ComboBox filterMatches;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

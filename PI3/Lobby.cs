@@ -19,6 +19,7 @@ namespace PI3
 
         private void btnListMatches_Click(object sender, EventArgs e)
         {
+          
             filterMatches.Visible = true;
             filterMatches.SelectedItem = "Todos";
         }
@@ -45,9 +46,15 @@ namespace PI3
 
         private void btnStartMatch_Click(object sender, EventArgs e)
         {
-            int selectedGame = Convert.ToInt32(dgvListMatches.CurrentRow.Cells["id"].Value);
-            string partida = Jogo.IniciarPartida(selectedGame, "1234");
-            lblGamersList.Text = partida;
+            this.Hide();
+            Iniciar_Jogo j2 = new Iniciar_Jogo();
+            j2.Show();
+
+            //int selectedGame = Convert.ToInt32(dgvListMatches.CurrentRow.Cells["id"].Value);
+            //string partida = Jogo.IniciarPartida(selectedGame, "1234");
+            //lblGamersList.Text = partida;
+
+
         }
 
         private void btnCreateMatch_Click(object sender, EventArgs e)
@@ -77,6 +84,11 @@ namespace PI3
         }
 
         private void LobbyForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
         }
