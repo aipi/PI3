@@ -59,6 +59,13 @@ namespace PI3
 
         private void btnCreateMatch_Click(object sender, EventArgs e)
         {
+            Iniciar_Jogo p1 = new Iniciar_Jogo();
+            string Nome = textBox1.Text;
+            string Senha = textBox2.Text;
+            Convert.ToInt32(Jogo.CriarPartida(Nome, Senha));
+            textBox1.Text = "";
+            textBox2.Text = "";
+
             string partida = Jogo.CriarPartida("Partida 2", "12345");
             Console.WriteLine(partida);
         }
@@ -89,6 +96,11 @@ namespace PI3
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
