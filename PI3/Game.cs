@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PI3
 {
-    public partial class Iniciar_Jogo : Form
+    public partial class Game : Form
     {
-        public Iniciar_Jogo()
+        public Game()
         {
             InitializeComponent();
         }

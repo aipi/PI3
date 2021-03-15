@@ -19,13 +19,30 @@ namespace PI3
 
         private void btnListMatches_Click(object sender, EventArgs e)
         {
-          
-            filterMatches.Visible = true;
+            this.Size = new Size(670, 350);
+            this.visible(new List<Control> {
+                lblMatchesList, filterMatches, dgvListMatches, btnStartMatch, btnListGamers
+            });
+            List<Control> unvisibleControls = new List<Control> {
+                pbBackground
+            };
+            if (dgvListMatches.Visible)
+            {
+                unvisibleControls.Add(lblGamersList);
+                unvisibleControls.Add(dgvListGamers);
+            }
+            this.unvisible(unvisibleControls);
             filterMatches.SelectedItem = "Todos";
         }
 
         private void btnListGamers_Click(object sender, EventArgs e)
         {
+            this.visible(new List<Control>{
+                lblGamersList, dgvListGamers
+            });
+            this.unvisible(new List<Control>{
+                lblMatchesList, filterMatches, dgvListMatches
+            });
             int selectedMatch = Convert.ToInt32(dgvListMatches.CurrentRow.Cells["id"].Value);
             string listGamers = Jogo.ListarJogadores(selectedMatch);
             listGamers = listGamers.Replace("\r", "");
@@ -47,32 +64,25 @@ namespace PI3
         private void btnStartMatch_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Iniciar_Jogo j2 = new Iniciar_Jogo();
-            j2.Show();
-
-            //int selectedGame = Convert.ToInt32(dgvListMatches.CurrentRow.Cells["id"].Value);
-            //string partida = Jogo.IniciarPartida(selectedGame, "1234");
-            //lblGamersList.Text = partida;
-
-
+            Game startGame = new Game();
+            startGame.Show();
         }
 
         private void btnCreateMatch_Click(object sender, EventArgs e)
         {
-            Iniciar_Jogo p1 = new Iniciar_Jogo();
-            string Nome = textBox1.Text;
-            string Senha = textBox2.Text;
-            Convert.ToInt32(Jogo.CriarPartida(Nome, Senha));
-            textBox1.Text = "";
-            textBox2.Text = "";
-
-            string partida = Jogo.CriarPartida("Partida 2", "12345");
-            Console.WriteLine(partida);
+            this.visible(new List<Control> {
+                lblName, lblPassword, txtboxName, txtboxPassword, btnCancel, btnConfirm
+            });
+            this.unvisible(new List<Control> {
+                btnCreateMatch, btnStartMatch, btnListGamers, btnListMatches
+            });
         }
 
         private void filterMatches_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string listMatches = Jogo.ListarPartidas(filterMatches.SelectedItem.ToString().Substring(0, 1));
+            string listMatches = Jogo.ListarPartidas(
+                filterMatches.SelectedItem.ToString().Substring(0, 1)
+            );
             listMatches = listMatches.Replace("\r", "");
             string[] lines = listMatches.Split('\n');
             List<Match> matches = new List<Match>();
@@ -90,18 +100,50 @@ namespace PI3
             dgvListMatches.DataSource = matches;
         }
 
-        private void LobbyForm_Load(object sender, EventArgs e)
+        private void btnConfirm_Click(object sender, EventArgs e)
         {
+            this.unvisible(new List<Control> {
+                lblName, lblPassword, txtboxName, txtboxPassword, btnCancel, btnConfirm
+            });
+
+            this.visible(new List<Control> {
+                btnCreateMatch, btnStartMatch, btnListGamers, btnListMatches
+            });
+
+            Game p1 = new Game();
+            Convert.ToInt32(Jogo.CriarPartida(txtboxName.Text, txtboxPassword.Text));
+            txtboxName.Text = "";
+            txtboxPassword.Text = "";
+
+            string partida = Jogo.CriarPartida("Partida 2", "12345");
+            Console.WriteLine(partida);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.unvisible(new List<Control> {
+                lblName, txtboxName, lblPassword, txtboxPassword, btnConfirm, btnCancel
+            });
+            this.visible(new List<Control> {
+                btnCreateMatch, btnStartMatch, btnListMatches, btnListGamers
+            });
+        }
+
+        private void unvisible(List<Control> unvisibleControls)
+        {
+            for (int i = 0; i < unvisibleControls.Count; i++)
+            {
+                unvisibleControls[i].Visible = false;
+            }
 
         }
 
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        private void visible(List<Control> visibleControls)
         {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+            for (int i = 0; i < visibleControls.Count; i++)
+            {
+                visibleControls[i].Visible = true;
+            }
 
         }
     }
