@@ -12,16 +12,19 @@ using CantStopServer;
 namespace PI3
 {
     public partial class LobbyForm : Form{
+        private int selectedMatchID;
+
         public LobbyForm()
         {
             InitializeComponent();
+            lblVersion.Text = "Versão: " + Jogo.Versao;
         }
 
         private void btnListMatches_Click(object sender, EventArgs e)
         {
             this.Size = new Size(670, 350);
             this.visible(new List<Control> {
-                lblMatchesList, filterMatches, dgvListMatches, btnStartMatch, btnListGamers
+                lblMatchesList, filterMatches, dgvListMatches, btnListGamers
             });
             List<Control> unvisibleControls = new List<Control> {
                 pbBackground
@@ -30,6 +33,8 @@ namespace PI3
             {
                 unvisibleControls.Add(lblGamersList);
                 unvisibleControls.Add(dgvListGamers);
+                unvisibleControls.Add(lblStartPassword);
+                unvisibleControls.Add(txtboxStartPassword);
             }
             this.unvisible(unvisibleControls);
             filterMatches.SelectedItem = "Todos";
@@ -38,13 +43,13 @@ namespace PI3
         private void btnListGamers_Click(object sender, EventArgs e)
         {
             this.visible(new List<Control>{
-                lblGamersList, dgvListGamers
+                lblGamersList, dgvListGamers, btnStartMatch, lblStartPassword, txtboxStartPassword, btnCreateGamer
             });
             this.unvisible(new List<Control>{
                 lblMatchesList, filterMatches, dgvListMatches
             });
-            int selectedMatch = Convert.ToInt32(dgvListMatches.CurrentRow.Cells["id"].Value);
-            string listGamers = Jogo.ListarJogadores(selectedMatch);
+            this.selectedMatchID = Convert.ToInt32(dgvListMatches.CurrentRow.Cells["id"].Value);
+            string listGamers = Jogo.ListarJogadores(this.selectedMatchID);
             listGamers = listGamers.Replace("\r", "");
             string[] lines = listGamers.Split('\n');
             List<Gamer> gamers = new List<Gamer>();
@@ -64,19 +69,24 @@ namespace PI3
         private void btnStartMatch_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Game startGame = new Game();
+            int gamerId = Convert.ToInt32(dgvListGamers.CurrentRow.Cells["id"].Value);
+            string gamerName = Convert.ToString(dgvListGamers.CurrentRow.Cells["name"].Value);
+            string gamerColor = Convert.ToString(dgvListGamers.CurrentRow.Cells["color"].Value);
+            string password = txtboxStartPassword.Text;
+            Game startGame = new Game(gamerId, gamerName, gamerColor, password);
             startGame.Show();
         }
 
         private void btnCreateMatch_Click(object sender, EventArgs e)
         {
             this.visible(new List<Control> {
-                lblName, lblPassword, txtboxName, txtboxPassword, btnCancel, btnConfirm
+                lblName, lblPassword, txtboxName, txtboxPassword, btnCancel, btnConfirmCreateMatch
             });
             this.unvisible(new List<Control> {
                 btnCreateMatch, btnStartMatch, btnListGamers, btnListMatches
             });
         }
+        
 
         private void filterMatches_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -100,35 +110,55 @@ namespace PI3
             dgvListMatches.DataSource = matches;
         }
 
-        private void btnConfirm_Click(object sender, EventArgs e)
+        private void btnConfirmCreateMatch_Click(object sender, EventArgs e)
         {
             this.unvisible(new List<Control> {
-                lblName, lblPassword, txtboxName, txtboxPassword, btnCancel, btnConfirm
+                lblName, lblPassword, txtboxName, txtboxPassword, btnCancel, btnConfirmCreateMatch
             });
 
             this.visible(new List<Control> {
-                btnCreateMatch, btnStartMatch, btnListGamers, btnListMatches
+                btnCreateMatch, btnListGamers, btnListMatches
             });
-
-            Game p1 = new Game();
-            Convert.ToInt32(Jogo.CriarPartida(txtboxName.Text, txtboxPassword.Text));
+            string partida = Jogo.CriarPartida(txtboxName.Text, txtboxPassword.Text);
             txtboxName.Text = "";
             txtboxPassword.Text = "";
-
-            string partida = Jogo.CriarPartida("Partida 2", "12345");
-            Console.WriteLine(partida);
+            filterMatches.SelectedItem = "Abertas";
+            this.btnListMatches_Click(sender, e);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.unvisible(new List<Control> {
-                lblName, txtboxName, lblPassword, txtboxPassword, btnConfirm, btnCancel
+                lblName, txtboxName, lblPassword, txtboxPassword, btnConfirmCreateMatch, btnCancel
             });
             this.visible(new List<Control> {
                 btnCreateMatch, btnStartMatch, btnListMatches, btnListGamers
             });
         }
 
+        private void btnConfirmCreateGamer_Click(object sender, EventArgs e)
+        {
+            this.unvisible(new List<Control> {
+                lblName, lblPassword, txtboxName, txtboxPassword, btnCancel, btnConfirmCreateMatch, btnConfirmCreateGamer
+            });
+
+            this.visible(new List<Control> {
+                btnCreateMatch, btnListGamers, btnListMatches
+            });
+            string idPartida = Jogo.EntrarPartida(this.selectedMatchID, txtboxName.Text, txtboxPassword.Text);
+            txtboxName.Text = "";
+            txtboxPassword.Text = "";
+            this.btnListGamers_Click(sender, e);
+        }
+        private void btnCreateGamer_Click(object sender, EventArgs e)
+        {
+            this.visible(new List<Control> {
+                lblName, lblPassword, txtboxName, txtboxPassword, btnCancel, btnConfirmCreateGamer, btnConfirmCreateMatch
+            });
+            this.unvisible(new List<Control> {
+                btnCreateMatch, btnStartMatch, btnListGamers, btnListMatches, btnCreateGamer
+            });
+        }
         private void unvisible(List<Control> unvisibleControls)
         {
             for (int i = 0; i < unvisibleControls.Count; i++)

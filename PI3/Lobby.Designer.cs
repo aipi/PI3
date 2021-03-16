@@ -33,10 +33,10 @@ namespace PI3
             this.btnCreateMatch = new System.Windows.Forms.Button();
             this.btnStartMatch = new System.Windows.Forms.Button();
             this.dgvListMatches = new System.Windows.Forms.DataGridView();
-            this.btnListGamers = new System.Windows.Forms.Button();
             this.dgvListGamers = new System.Windows.Forms.DataGridView();
             this.lblMatchesList = new System.Windows.Forms.Label();
             this.helpLobby = new System.Windows.Forms.HelpProvider();
+            this.btnListMatches = new System.Windows.Forms.Button();
             this.filterMatches = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.txtboxName = new System.Windows.Forms.TextBox();
@@ -46,8 +46,13 @@ namespace PI3
             this.pbBackground = new System.Windows.Forms.PictureBox();
             this.lblGamersList = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnConfirm = new System.Windows.Forms.Button();
-            this.btnListMatches = new System.Windows.Forms.Button();
+            this.btnConfirmCreateMatch = new System.Windows.Forms.Button();
+            this.lblVersion = new System.Windows.Forms.Label();
+            this.lblStartPassword = new System.Windows.Forms.Label();
+            this.txtboxStartPassword = new System.Windows.Forms.TextBox();
+            this.btnConfirmCreateGamer = new System.Windows.Forms.Button();
+            this.btnCreateGamer = new System.Windows.Forms.Button();
+            this.btnListGamers = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListMatches)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListGamers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).BeginInit();
@@ -74,7 +79,7 @@ namespace PI3
             this.btnStartMatch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStartMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartMatch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnStartMatch.Location = new System.Drawing.Point(12, 169);
+            this.btnStartMatch.Location = new System.Drawing.Point(246, 316);
             this.btnStartMatch.Name = "btnStartMatch";
             this.btnStartMatch.Size = new System.Drawing.Size(190, 39);
             this.btnStartMatch.TabIndex = 6;
@@ -96,23 +101,6 @@ namespace PI3
             this.dgvListMatches.Size = new System.Drawing.Size(723, 392);
             this.dgvListMatches.TabIndex = 5;
             this.dgvListMatches.Visible = false;
-            // 
-            // btnListGamers
-            // 
-            this.btnListGamers.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnListGamers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnListGamers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnListGamers.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnListGamers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnListGamers.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnListGamers.Location = new System.Drawing.Point(13, 124);
-            this.btnListGamers.Name = "btnListGamers";
-            this.btnListGamers.Size = new System.Drawing.Size(190, 39);
-            this.btnListGamers.TabIndex = 8;
-            this.btnListGamers.Text = "LISTAR JOGADORES";
-            this.btnListGamers.UseVisualStyleBackColor = false;
-            this.btnListGamers.Visible = false;
-            this.btnListGamers.Click += new System.EventHandler(this.btnListGamers_Click);
             // 
             // dgvListGamers
             // 
@@ -138,6 +126,21 @@ namespace PI3
             this.lblMatchesList.TabIndex = 10;
             this.lblMatchesList.Text = "Lista de Partidas";
             this.lblMatchesList.Visible = false;
+            // 
+            // btnListMatches
+            // 
+            this.btnListMatches.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnListMatches.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnListMatches.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListMatches.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnListMatches.Location = new System.Drawing.Point(12, 82);
+            this.btnListMatches.Name = "btnListMatches";
+            this.helpLobby.SetShowHelp(this.btnListMatches, false);
+            this.btnListMatches.Size = new System.Drawing.Size(190, 39);
+            this.btnListMatches.TabIndex = 4;
+            this.btnListMatches.Text = "LISTAR PARTIDAS";
+            this.btnListMatches.UseVisualStyleBackColor = false;
+            this.btnListMatches.Click += new System.EventHandler(this.btnListMatches_Click);
             // 
             // filterMatches
             // 
@@ -231,36 +234,96 @@ namespace PI3
             this.btnCancel.Visible = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // btnConfirm
+            // btnConfirmCreateMatch
             // 
-            this.btnConfirm.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnConfirm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnConfirm.Location = new System.Drawing.Point(13, 169);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(190, 39);
-            this.btnConfirm.TabIndex = 20;
-            this.btnConfirm.Text = "CRIAR";
-            this.btnConfirm.UseVisualStyleBackColor = false;
-            this.btnConfirm.Visible = false;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            this.btnConfirmCreateMatch.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnConfirmCreateMatch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnConfirmCreateMatch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmCreateMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmCreateMatch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnConfirmCreateMatch.Location = new System.Drawing.Point(13, 169);
+            this.btnConfirmCreateMatch.Name = "btnConfirmCreateMatch";
+            this.btnConfirmCreateMatch.Size = new System.Drawing.Size(190, 39);
+            this.btnConfirmCreateMatch.TabIndex = 20;
+            this.btnConfirmCreateMatch.Text = "CRIAR";
+            this.btnConfirmCreateMatch.UseVisualStyleBackColor = false;
+            this.btnConfirmCreateMatch.Visible = false;
+            this.btnConfirmCreateMatch.Click += new System.EventHandler(this.btnConfirmCreateMatch_Click);
             // 
-            // btnListMatches
+            // lblVersion
             // 
-            this.btnListMatches.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnListMatches.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnListMatches.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnListMatches.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnListMatches.Location = new System.Drawing.Point(12, 82);
-            this.btnListMatches.Name = "btnListMatches";
-            this.helpLobby.SetShowHelp(this.btnListMatches, false);
-            this.btnListMatches.Size = new System.Drawing.Size(190, 39);
-            this.btnListMatches.TabIndex = 4;
-            this.btnListMatches.Text = "LISTAR PARTIDAS";
-            this.btnListMatches.UseVisualStyleBackColor = false;
-            this.btnListMatches.Click += new System.EventHandler(this.btnListMatches_Click);
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Location = new System.Drawing.Point(8, 440);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(0, 20);
+            this.lblVersion.TabIndex = 21;
+            // 
+            // lblStartPassword
+            // 
+            this.lblStartPassword.AutoSize = true;
+            this.lblStartPassword.Location = new System.Drawing.Point(242, 249);
+            this.lblStartPassword.Name = "lblStartPassword";
+            this.lblStartPassword.Size = new System.Drawing.Size(56, 20);
+            this.lblStartPassword.TabIndex = 23;
+            this.lblStartPassword.Text = "Senha";
+            this.lblStartPassword.Visible = false;
+            // 
+            // txtboxStartPassword
+            // 
+            this.txtboxStartPassword.Location = new System.Drawing.Point(246, 272);
+            this.txtboxStartPassword.Name = "txtboxStartPassword";
+            this.txtboxStartPassword.Size = new System.Drawing.Size(189, 26);
+            this.txtboxStartPassword.TabIndex = 22;
+            this.txtboxStartPassword.Visible = false;
+            // 
+            // btnConfirmCreateGamer
+            // 
+            this.btnConfirmCreateGamer.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnConfirmCreateGamer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnConfirmCreateGamer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmCreateGamer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmCreateGamer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnConfirmCreateGamer.Location = new System.Drawing.Point(13, 169);
+            this.btnConfirmCreateGamer.Name = "btnConfirmCreateGamer";
+            this.btnConfirmCreateGamer.Size = new System.Drawing.Size(190, 39);
+            this.btnConfirmCreateGamer.TabIndex = 24;
+            this.btnConfirmCreateGamer.Text = "CRIAR";
+            this.btnConfirmCreateGamer.UseVisualStyleBackColor = false;
+            this.btnConfirmCreateGamer.Visible = false;
+            this.btnConfirmCreateGamer.Click += new System.EventHandler(this.btnConfirmCreateGamer_Click);
+            // 
+            // btnCreateGamer
+            // 
+            this.btnCreateGamer.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnCreateGamer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnCreateGamer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreateGamer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateGamer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCreateGamer.Location = new System.Drawing.Point(13, 169);
+            this.btnCreateGamer.Name = "btnCreateGamer";
+            this.btnCreateGamer.Size = new System.Drawing.Size(190, 39);
+            this.btnCreateGamer.TabIndex = 25;
+            this.btnCreateGamer.Text = "CRIAR JOGADOR";
+            this.btnCreateGamer.UseVisualStyleBackColor = false;
+            this.btnCreateGamer.Visible = false;
+            this.btnCreateGamer.Click += new System.EventHandler(this.btnCreateGamer_Click);
+            // 
+            // btnListGamers
+            // 
+            this.btnListGamers.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnListGamers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnListGamers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListGamers.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnListGamers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnListGamers.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnListGamers.Location = new System.Drawing.Point(13, 124);
+            this.btnListGamers.Name = "btnListGamers";
+            this.btnListGamers.Size = new System.Drawing.Size(190, 39);
+            this.btnListGamers.TabIndex = 8;
+            this.btnListGamers.Text = "LISTAR JOGADORES";
+            this.btnListGamers.UseVisualStyleBackColor = false;
+            this.btnListGamers.Visible = false;
+            this.btnListGamers.Click += new System.EventHandler(this.btnListGamers_Click);
             // 
             // LobbyForm
             // 
@@ -268,6 +331,11 @@ namespace PI3
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(675, 470);
+            this.Controls.Add(this.btnCreateGamer);
+            this.Controls.Add(this.btnConfirmCreateGamer);
+            this.Controls.Add(this.lblStartPassword);
+            this.Controls.Add(this.txtboxStartPassword);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblGamersList);
             this.Controls.Add(this.lblPassword);
@@ -278,12 +346,12 @@ namespace PI3
             this.Controls.Add(this.lblMatchesList);
             this.Controls.Add(this.dgvListGamers);
             this.Controls.Add(this.btnListGamers);
-            this.Controls.Add(this.dgvListMatches);
             this.Controls.Add(this.btnListMatches);
             this.Controls.Add(this.btnCreateMatch);
-            this.Controls.Add(this.pbBackground);
             this.Controls.Add(this.btnStartMatch);
-            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.btnConfirmCreateMatch);
+            this.Controls.Add(this.dgvListMatches);
+            this.Controls.Add(this.pbBackground);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LobbyForm";
             this.Text = "Can\'t Stop Lobby";
@@ -301,7 +369,6 @@ namespace PI3
         private System.Windows.Forms.Button btnCreateMatch;
         private System.Windows.Forms.Button btnStartMatch;
         private System.Windows.Forms.DataGridView dgvListMatches;
-        private System.Windows.Forms.Button btnListGamers;
         private System.Windows.Forms.DataGridView dgvListGamers;
         private System.Windows.Forms.Label lblMatchesList;
         private System.Windows.Forms.HelpProvider helpLobby;
@@ -314,8 +381,14 @@ namespace PI3
         private System.Windows.Forms.PictureBox pbBackground;
         private System.Windows.Forms.Label lblGamersList;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.Button btnConfirmCreateMatch;
         private System.Windows.Forms.Button btnListMatches;
+        private System.Windows.Forms.Label lblVersion;
+        private System.Windows.Forms.Label lblStartPassword;
+        private System.Windows.Forms.TextBox txtboxStartPassword;
+        private System.Windows.Forms.Button btnConfirmCreateGamer;
+        private System.Windows.Forms.Button btnCreateGamer;
+        private System.Windows.Forms.Button btnListGamers;
     }
 }
 
