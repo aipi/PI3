@@ -146,6 +146,25 @@ namespace PI3
                 btnCreateMatch, btnListGamers, btnListMatches
             });
             string idPartida = Jogo.EntrarPartida(this.selectedMatchID, txtboxName.Text, txtboxPassword.Text);
+            
+            /* while(ultimaChamada.AddSeconds(tempoEspera) > DateTime.Now)
+            	System.Threading.Thread.Sleep(delay);
+
+                if(this.selectedMatchID ==0 || senha =="")
+	                return "ERRO: id ou Senha da partida está vazio";
+
+                if(nome =="")
+	                return "Erro";
+
+                if(senha.Length > 10)
+                	return "ERRO: senha mais de 10 caracteres";
+
+                if(nome.Length >50)
+	                return "ERRO: nome mais de 50 caracteres";
+
+                 string retorno = "";
+            */
+            
             txtboxName.Text = "";
             txtboxPassword.Text = "";
             this.btnListGamers_Click(sender, e);
