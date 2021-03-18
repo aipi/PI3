@@ -87,7 +87,6 @@ namespace PI3
             });
         }
         
-
         private void filterMatches_SelectedIndexChanged(object sender, EventArgs e)
         {
             string listMatches = Jogo.ListarPartidas(
@@ -112,18 +111,41 @@ namespace PI3
 
         private void btnConfirmCreateMatch_Click(object sender, EventArgs e)
         {
-            this.unvisible(new List<Control> {
-                lblName, lblPassword, txtboxName, txtboxPassword, btnCancel, btnConfirmCreateMatch
-            });
-
-            this.visible(new List<Control> {
-                btnCreateMatch, btnListGamers, btnListMatches
-            });
             string partida = Jogo.CriarPartida(txtboxName.Text, txtboxPassword.Text);
+            if (txtboxPassword.Text == "" || txtboxName.Text == ""){
+                MessageBox.Show(
+                    partida,
+                    partida,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            } else if (txtboxPassword.Text.Length > 10) {
+                MessageBox.Show(
+                    partida,
+                    partida,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            } else if (txtboxName.Text.Length > 50) {
+                MessageBox.Show(
+                    partida,
+                    partida,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            } else {
+                filterMatches.SelectedItem = "Abertas";
+                this.btnListMatches_Click(sender, e);
+                this.unvisible(new List<Control> {
+                    lblName, lblPassword, txtboxName, txtboxPassword, btnCancel, btnConfirmCreateMatch
+                });
+
+                this.visible(new List<Control> {
+                    btnCreateMatch, btnListGamers, btnListMatches
+                });
+            }
             txtboxName.Text = "";
             txtboxPassword.Text = "";
-            filterMatches.SelectedItem = "Abertas";
-            this.btnListMatches_Click(sender, e);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -134,50 +156,68 @@ namespace PI3
             this.visible(new List<Control> {
                 btnCreateMatch, btnStartMatch, btnListMatches, btnListGamers
             });
+            if (pbBackground.Visible) {
+                btnStartMatch.Visible = false;
+            }
         }
 
         private void btnConfirmCreateGamer_Click(object sender, EventArgs e)
         {
-            this.unvisible(new List<Control> {
-                lblName, lblPassword, txtboxName, txtboxPassword, btnCancel, btnConfirmCreateMatch, btnConfirmCreateGamer
-            });
-
-            this.visible(new List<Control> {
-                btnCreateMatch, btnListGamers, btnListMatches
-            });
             string idPartida = Jogo.EntrarPartida(this.selectedMatchID, txtboxName.Text, txtboxPassword.Text);
-            
-            /* while(ultimaChamada.AddSeconds(tempoEspera) > DateTime.Now)
-            	System.Threading.Thread.Sleep(delay);
 
-                if(this.selectedMatchID ==0 || senha =="")
-	                return "ERRO: id ou Senha da partida está vazio";
+            if (txtboxPassword.Text == "" || txtboxName.Text == "") {
+                MessageBox.Show(
+                    idPartida,
+                    idPartida,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            } else if (txtboxPassword.Text.Length > 10) {
+                MessageBox.Show(
+                    idPartida,
+                    idPartida,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            } else if (txtboxName.Text.Length > 50) {
+                MessageBox.Show(
+                    idPartida,
+                    idPartida,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            } else if (idPartida.Contains("ERRO:Senha Incorreta!")) {
+                MessageBox.Show(
+                    idPartida,
+                    idPartida,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
 
-                if(nome =="")
-	                return "Erro";
+            } else {
+                this.btnListGamers_Click(sender, e);
+                this.unvisible(new List<Control> {
+                    lblName, lblPassword, txtboxName, txtboxPassword, btnCancel, btnConfirmCreateMatch, btnConfirmCreateGamer
+                });
 
-                if(senha.Length > 10)
-                	return "ERRO: senha mais de 10 caracteres";
-
-                if(nome.Length >50)
-	                return "ERRO: nome mais de 50 caracteres";
-
-                 string retorno = "";
-            */
-            
+                    this.visible(new List<Control> {
+                    btnCreateMatch, btnListGamers, btnListMatches
+                });
+            }
             txtboxName.Text = "";
             txtboxPassword.Text = "";
-            this.btnListGamers_Click(sender, e);
         }
+
         private void btnCreateGamer_Click(object sender, EventArgs e)
         {
             this.visible(new List<Control> {
-                lblName, lblPassword, txtboxName, txtboxPassword, btnCancel, btnConfirmCreateGamer, btnConfirmCreateMatch
+                lblName, lblPassword, txtboxName, txtboxPassword, btnCancel, btnConfirmCreateGamer, btnConfirmCreateGamer
             });
             this.unvisible(new List<Control> {
-                btnCreateMatch, btnStartMatch, btnListGamers, btnListMatches, btnCreateGamer
+                btnCreateMatch, btnListGamers, btnListMatches, btnCreateGamer, btnConfirmCreateMatch
             });
         }
+
         private void unvisible(List<Control> unvisibleControls)
         {
             for (int i = 0; i < unvisibleControls.Count; i++)

@@ -29,6 +29,7 @@ namespace PI3
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LobbyForm));
             this.btnCreateMatch = new System.Windows.Forms.Button();
             this.btnStartMatch = new System.Windows.Forms.Button();
@@ -53,9 +54,11 @@ namespace PI3
             this.btnConfirmCreateGamer = new System.Windows.Forms.Button();
             this.btnCreateGamer = new System.Windows.Forms.Button();
             this.btnListGamers = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListMatches)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListGamers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCreateMatch
@@ -325,14 +328,16 @@ namespace PI3
             this.btnListGamers.Visible = false;
             this.btnListGamers.Click += new System.EventHandler(this.btnListGamers_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // LobbyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(675, 470);
-            this.Controls.Add(this.btnCreateGamer);
-            this.Controls.Add(this.btnConfirmCreateGamer);
             this.Controls.Add(this.lblStartPassword);
             this.Controls.Add(this.txtboxStartPassword);
             this.Controls.Add(this.lblVersion);
@@ -352,6 +357,8 @@ namespace PI3
             this.Controls.Add(this.btnConfirmCreateMatch);
             this.Controls.Add(this.dgvListMatches);
             this.Controls.Add(this.pbBackground);
+            this.Controls.Add(this.btnCreateGamer);
+            this.Controls.Add(this.btnConfirmCreateGamer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LobbyForm";
             this.Text = "Can\'t Stop Lobby";
@@ -359,6 +366,7 @@ namespace PI3
             ((System.ComponentModel.ISupportInitialize)(this.dgvListMatches)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListGamers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,6 +397,7 @@ namespace PI3
         private System.Windows.Forms.Button btnConfirmCreateGamer;
         private System.Windows.Forms.Button btnCreateGamer;
         private System.Windows.Forms.Button btnListGamers;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
 
