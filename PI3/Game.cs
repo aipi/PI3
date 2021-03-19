@@ -7,19 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CantStopServer;
 
 namespace PI3
 {
     public partial class Game : Form
     {
-        public Game(int id, string gamerName, string gamerColor, string gamerPassword)
+        private int ID;
+        private string Password;
+        private string Color;
+
+        public Game(int id, string password, string color)
         {
-            int GamerID = id;
-            string GamerName = gamerName;
-            string GamerColor = gamerColor;
-            string GamerPassword = gamerPassword;
+            this.ID = id;
+            this.Password = password;
+            this.Color = color;
             InitializeComponent();
-            label1.Text = GamerID + " " + GamerName + " " + GamerColor + " " + GamerPassword;
+            string iniciarPartida = Jogo.IniciarPartida(this.ID, this.Password);
+            label1.Text = iniciarPartida + " " + this.Password + " " + this.Color + " ";
         }
     }
 }

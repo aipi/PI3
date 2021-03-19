@@ -49,8 +49,6 @@ namespace PI3
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnConfirmCreateMatch = new System.Windows.Forms.Button();
             this.lblVersion = new System.Windows.Forms.Label();
-            this.lblStartPassword = new System.Windows.Forms.Label();
-            this.txtboxStartPassword = new System.Windows.Forms.TextBox();
             this.btnConfirmCreateGamer = new System.Windows.Forms.Button();
             this.btnCreateGamer = new System.Windows.Forms.Button();
             this.btnListGamers = new System.Windows.Forms.Button();
@@ -82,7 +80,7 @@ namespace PI3
             this.btnStartMatch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStartMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartMatch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnStartMatch.Location = new System.Drawing.Point(246, 316);
+            this.btnStartMatch.Location = new System.Drawing.Point(246, 248);
             this.btnStartMatch.Name = "btnStartMatch";
             this.btnStartMatch.Size = new System.Drawing.Size(190, 39);
             this.btnStartMatch.TabIndex = 6;
@@ -261,24 +259,6 @@ namespace PI3
             this.lblVersion.Size = new System.Drawing.Size(0, 20);
             this.lblVersion.TabIndex = 21;
             // 
-            // lblStartPassword
-            // 
-            this.lblStartPassword.AutoSize = true;
-            this.lblStartPassword.Location = new System.Drawing.Point(242, 249);
-            this.lblStartPassword.Name = "lblStartPassword";
-            this.lblStartPassword.Size = new System.Drawing.Size(56, 20);
-            this.lblStartPassword.TabIndex = 23;
-            this.lblStartPassword.Text = "Senha";
-            this.lblStartPassword.Visible = false;
-            // 
-            // txtboxStartPassword
-            // 
-            this.txtboxStartPassword.Location = new System.Drawing.Point(246, 272);
-            this.txtboxStartPassword.Name = "txtboxStartPassword";
-            this.txtboxStartPassword.Size = new System.Drawing.Size(189, 26);
-            this.txtboxStartPassword.TabIndex = 22;
-            this.txtboxStartPassword.Visible = false;
-            // 
             // btnConfirmCreateGamer
             // 
             this.btnConfirmCreateGamer.BackColor = System.Drawing.Color.MediumSeaGreen;
@@ -338,8 +318,6 @@ namespace PI3
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(675, 470);
-            this.Controls.Add(this.lblStartPassword);
-            this.Controls.Add(this.txtboxStartPassword);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblGamersList);
@@ -392,8 +370,6 @@ namespace PI3
         private System.Windows.Forms.Button btnConfirmCreateMatch;
         private System.Windows.Forms.Button btnListMatches;
         private System.Windows.Forms.Label lblVersion;
-        private System.Windows.Forms.Label lblStartPassword;
-        private System.Windows.Forms.TextBox txtboxStartPassword;
         private System.Windows.Forms.Button btnConfirmCreateGamer;
         private System.Windows.Forms.Button btnCreateGamer;
         private System.Windows.Forms.Button btnListGamers;

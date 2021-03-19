@@ -13,6 +13,9 @@ namespace PI3
 {
     public partial class LobbyForm : Form{
         private int selectedMatchID;
+        private int ID;
+        private string Password;
+        private string Color;
 
         public LobbyForm()
         {
@@ -33,8 +36,6 @@ namespace PI3
             {
                 unvisibleControls.Add(lblGamersList);
                 unvisibleControls.Add(dgvListGamers);
-                unvisibleControls.Add(lblStartPassword);
-                unvisibleControls.Add(txtboxStartPassword);
             }
             this.unvisible(unvisibleControls);
             filterMatches.SelectedItem = "Todos";
@@ -43,7 +44,7 @@ namespace PI3
         private void btnListGamers_Click(object sender, EventArgs e)
         {
             this.visible(new List<Control>{
-                lblGamersList, dgvListGamers, btnStartMatch, lblStartPassword, txtboxStartPassword, btnCreateGamer
+                lblGamersList, dgvListGamers, btnStartMatch, btnCreateGamer
             });
             this.unvisible(new List<Control>{
                 lblMatchesList, filterMatches, dgvListMatches
@@ -69,11 +70,7 @@ namespace PI3
         private void btnStartMatch_Click(object sender, EventArgs e)
         {
             this.Hide();
-            int gamerId = Convert.ToInt32(dgvListGamers.CurrentRow.Cells["id"].Value);
-            string gamerName = Convert.ToString(dgvListGamers.CurrentRow.Cells["name"].Value);
-            string gamerColor = Convert.ToString(dgvListGamers.CurrentRow.Cells["color"].Value);
-            string password = txtboxStartPassword.Text;
-            Game startGame = new Game(gamerId, gamerName, gamerColor, password);
+            Game startGame = new Game(this.ID, this.Password, this.Color);
             startGame.Show();
         }
 
@@ -163,33 +160,33 @@ namespace PI3
 
         private void btnConfirmCreateGamer_Click(object sender, EventArgs e)
         {
-            string idPartida = Jogo.EntrarPartida(this.selectedMatchID, txtboxName.Text, txtboxPassword.Text);
+            string matchData= Jogo.EntrarPartida(this.selectedMatchID, txtboxName.Text, txtboxPassword.Text);
 
             if (txtboxPassword.Text == "" || txtboxName.Text == "") {
                 MessageBox.Show(
-                    idPartida,
-                    idPartida,
+                    matchData,
+                    matchData,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
             } else if (txtboxPassword.Text.Length > 10) {
                 MessageBox.Show(
-                    idPartida,
-                    idPartida,
+                    matchData,
+                    matchData,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
             } else if (txtboxName.Text.Length > 50) {
                 MessageBox.Show(
-                    idPartida,
-                    idPartida,
+                    matchData,
+                    matchData,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
-            } else if (idPartida.Contains("ERRO:Senha Incorreta!")) {
+            } else if (matchData.Contains("ERRO:Senha Incorreta!")) {
                 MessageBox.Show(
-                    idPartida,
-                    idPartida,
+                    matchData,
+                    matchData,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
@@ -203,6 +200,11 @@ namespace PI3
                     this.visible(new List<Control> {
                     btnCreateMatch, btnListGamers, btnListMatches
                 });
+                matchData = matchData.Replace("\r", "").Replace("\n", "");
+                string[] data = matchData.Split(',');
+                this.ID = Convert.ToInt32(data[0]);
+                this.Password = data[1];
+                this.Color = data[2];
             }
             txtboxName.Text = "";
             txtboxPassword.Text = "";
