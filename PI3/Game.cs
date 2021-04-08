@@ -17,7 +17,7 @@ namespace PI3
         private string Password;
         private string Color;
         private int[,] Dices;
-        private PictureBox pictureBox;
+        private PictureBox[,] pBDices;
 
         public Game(int id, string password, string color)
         {
@@ -27,14 +27,14 @@ namespace PI3
             InitializeComponent();
             string iniciarPartida = Jogo.IniciarPartida(this.ID, this.Password);
             this.Dices = new int[4, 2];
-            this.pictureBox = new PictureBox();
+            this.pBDices = new PictureBox[4, 2];
         }
 
         private void btnRollDice_Click(object sender, EventArgs e)
         {
             string rollDice = Jogo.RolarDados(this.ID, this.Password);
             string[] lines = rollDice.Replace("\r", "").Split('\n');
-            for (int i = 0; i < lines.Length - 2; i++) 
+            for (int i = 0; i < lines.Length - 1; i++)
             {
                 if (lines[i] != "")
                 {
@@ -44,19 +44,47 @@ namespace PI3
                     for (int j = 0; j < values.Length; j++)
                     {
                         this.Dices[i, j] = (int)Char.GetNumericValue(values[j]);
-                        var x = (int)Char.GetNumericValue(values[j]);
+                        this.showDices(i, j);
                     }
                 }
             }
-
-            this.pictureBox.Image = pB001.Image;
-            this.pictureBox.Width = pB001.Width;
-            this.pictureBox.Height = pB001.Height;
-            this.pictureBox.Top = pB001.Top;
-            this.pictureBox.Left = pB001.Left;
-            this.pictureBox.Show();
-            this.Controls.Add(this.pictureBox);
-            Console.WriteLine(this.pictureBox);
         }
+
+        private void showDices(int i, int j)
+        {
+            PictureBox pbDice;
+            switch (this.Dices[i, j])
+            {
+                case 1:
+                    pbDice = pB1;
+                    break;
+                case 2:
+                    pbDice = pB2;
+                    break;
+                case 3:
+                    pbDice = pB3;
+                    break;
+                case 4:
+                    pbDice = pB4;
+                    break;
+                case 5:
+                    pbDice = pB5;
+                    break;
+                case 6:
+                    pbDice = pB6;
+                    break;
+                default:
+                    pbDice = pB1;
+                    break;
+            }
+            this.pBDices[i, j] = new PictureBox();
+            this.pBDices[i, j].Image = pbDice.Image;
+            this.pBDices[i, j].Width = pbDice.Width;
+            this.pBDices[i, j].Height = pbDice.Height;
+            this.pBDices[i, j].SizeMode = PictureBoxSizeMode.StretchImage;
+            this.pBDices[i, j].Location = new Point((j + 1) * 40, (i + 1) * 40);
+            this.Controls.Add(this.pBDices[i, j]);
+        }
+
     }
 }
