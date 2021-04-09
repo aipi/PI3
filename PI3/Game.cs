@@ -85,5 +85,19 @@ namespace PI3
             this.Controls.Add(this.pBDices[i, j]);
         }
 
+        private void Game_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pB2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Tabuleiro_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
