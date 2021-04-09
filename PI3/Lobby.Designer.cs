@@ -170,7 +170,6 @@ namespace PI3
             this.txtboxName.Size = new System.Drawing.Size(190, 26);
             this.txtboxName.TabIndex = 13;
             this.txtboxName.Visible = false;
-            this.txtboxName.TextChanged += new System.EventHandler(this.txtboxName_TextChanged);
             // 
             // txtboxPassword
             // 
@@ -209,7 +208,6 @@ namespace PI3
             this.pbBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBackground.TabIndex = 17;
             this.pbBackground.TabStop = false;
-            this.pbBackground.Click += new System.EventHandler(this.pbBackground_Click);
             // 
             // lblGamersList
             // 
@@ -355,7 +353,6 @@ namespace PI3
             this.Name = "LobbyForm";
             this.Text = "Can\'t Stop Lobby";
             this.TransparencyKey = System.Drawing.Color.Snow;
-            this.Load += new System.EventHandler(this.LobbyForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListMatches)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListGamers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).EndInit();
