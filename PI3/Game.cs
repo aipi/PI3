@@ -40,7 +40,6 @@ namespace PI3
                 {
                     string value = lines[i];
                     char[] values = value.ToCharArray();
-                    Console.WriteLine(lines[i]);
                     for (int j = 0; j < values.Length; j++)
                     {
                         this.Dices[i, j] = (int)Char.GetNumericValue(values[j]);

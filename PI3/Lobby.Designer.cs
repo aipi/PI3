@@ -53,6 +53,7 @@ namespace PI3
             this.btnCreateGamer = new System.Windows.Forms.Button();
             this.btnListGamers = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListMatches)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListGamers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).BeginInit();
@@ -312,12 +313,23 @@ namespace PI3
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(41, 301);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // LobbyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(675, 470);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblGamersList);
@@ -374,6 +386,7 @@ namespace PI3
         private System.Windows.Forms.Button btnCreateGamer;
         private System.Windows.Forms.Button btnListGamers;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button button1;
     }
 }
 

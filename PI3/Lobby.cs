@@ -237,5 +237,11 @@ namespace PI3
             }
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string x = "2,1,1,B\r\n6,2,1,B\r\n7,1,2,B\r\n7,4,1,B\r\n9,1,2,B\r\n12,1,2,B\r\n";
+            Console.WriteLine(x);
+        }
     }
 }
