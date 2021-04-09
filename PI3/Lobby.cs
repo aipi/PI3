@@ -237,5 +237,20 @@ namespace PI3
             }
 
         }
+
+        private void pbBackground_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LobbyForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtboxName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

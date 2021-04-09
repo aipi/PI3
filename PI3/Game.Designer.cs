@@ -29,6 +29,7 @@ namespace PI3
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.pB5 = new System.Windows.Forms.PictureBox();
             this.pB6 = new System.Windows.Forms.PictureBox();
             this.pB4 = new System.Windows.Forms.PictureBox();
@@ -36,12 +37,14 @@ namespace PI3
             this.pB2 = new System.Windows.Forms.PictureBox();
             this.pB1 = new System.Windows.Forms.PictureBox();
             this.btnRollDice = new System.Windows.Forms.Button();
+            this.Tabuleiro = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pB5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tabuleiro)).BeginInit();
             this.SuspendLayout();
             // 
             // pB5
@@ -98,6 +101,7 @@ namespace PI3
             this.pB2.TabIndex = 35;
             this.pB2.TabStop = false;
             this.pB2.Visible = false;
+            this.pB2.Click += new System.EventHandler(this.pB2_Click);
             // 
             // pB1
             // 
@@ -120,11 +124,25 @@ namespace PI3
             this.btnRollDice.UseVisualStyleBackColor = true;
             this.btnRollDice.Click += new System.EventHandler(this.btnRollDice_Click);
             // 
+            // Tabuleiro
+            // 
+            this.Tabuleiro.Image = ((System.Drawing.Image)(resources.GetObject("Tabuleiro.Image")));
+            this.Tabuleiro.InitialImage = null;
+            this.Tabuleiro.Location = new System.Drawing.Point(362, 1);
+            this.Tabuleiro.Name = "Tabuleiro";
+            this.Tabuleiro.Size = new System.Drawing.Size(435, 442);
+            this.Tabuleiro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Tabuleiro.TabIndex = 40;
+            this.Tabuleiro.TabStop = false;
+            this.Tabuleiro.Click += new System.EventHandler(this.Tabuleiro_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Tabuleiro);
             this.Controls.Add(this.pB5);
             this.Controls.Add(this.pB6);
             this.Controls.Add(this.pB4);
@@ -134,12 +152,14 @@ namespace PI3
             this.Controls.Add(this.btnRollDice);
             this.Name = "Game";
             this.Text = "Can\'t Stop";
+            this.Load += new System.EventHandler(this.Game_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pB5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tabuleiro)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -153,5 +173,6 @@ namespace PI3
         private System.Windows.Forms.PictureBox pB2;
         private System.Windows.Forms.PictureBox pB1;
         private System.Windows.Forms.Button btnRollDice;
+        private System.Windows.Forms.PictureBox Tabuleiro;
     }
 }
