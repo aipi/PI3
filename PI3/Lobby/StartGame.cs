@@ -12,35 +12,22 @@ namespace PI3.Lobby
 {
     public partial class StartGame : Form
     {
-        public StartGame()
+        private int ID;
+        private string Password;
+        private string Color;
+        public StartGame(int ID, string Password, string Color)
         {
             InitializeComponent();
-            btnCreateMatch.MouseEnter += OnMouseEnterBtnCreateMatch;
-            btnListMatches.MouseEnter += OnMouseEnterBtnListMatches;
+            this.ID = ID;
+            this.Password = Password;
+            this.Color = Color;
         }
 
-        private void OnMouseEnterBtnCreateMatch(object sender, EventArgs e)
-        {
-            btnCreateMatch.Cursor = System.Windows.Forms.Cursors.Hand;
-        }
-
-        private void OnMouseEnterBtnListMatches(object sender, EventArgs e)
-        {
-            btnListMatches.Cursor = System.Windows.Forms.Cursors.Hand;
-        }
-
-        private void btnCreateMatch_Click(object sender, EventArgs e)
+        private void btnStartGame_Click(object sender, EventArgs e)
         {
             this.Hide();
-            CreateMatch match = new CreateMatch();
-            match.Show();
-        }
-
-        private void btnListMatches_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ListMatches listaPartidas = new ListMatches();
-            listaPartidas.Show();
+            Play.CantStop playGame = new Play.CantStop();
+            playGame.Show();
         }
     }
 }

@@ -13,13 +13,13 @@ namespace PI3.Lobby
 {
     public partial class CreateGamer : Form
     {
-        private int idPartida;
-        public CreateGamer(int idPartida)
+        private int matchID;
+        public CreateGamer(int matchID)
         {
             InitializeComponent();
             btnCancel.MouseEnter += this.OnMouseEnterBtnCancel;
             btnCreate.MouseEnter += this.OnMouseEnterBtnCreate;
-            this.idPartida = idPartida;
+            this.matchID = matchID;
         }
 
         private void OnMouseEnterBtnCreate(object sender, EventArgs e)
@@ -33,21 +33,29 @@ namespace PI3.Lobby
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            ListGamers gamersList = new ListGamers(this.matchID);
+            gamersList.Show();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            string partida = Jogo.EntrarPartida(this.idPartida, tbName.Text, tbPassword.Text);
-            if (partida.Contains("ERRO"))
+            string match = Jogo.EntrarPartida(this.matchID, tbName.Text, tbPassword.Text);
+            if (match.Contains("ERRO"))
             {
-                lblError.Text = partida;
+                lblError.Text = match;
                 lblError.Visible = true;
             }
             else
             {
-                // this.Hide();
-                // ListMatches matchList = new ListMatches();
-                // matchList.Show();
+                match = match.Replace("\r", "").Replace("\n", "");
+                string[] data = match.Split(',');
+                int ID = Convert.ToInt32(data[0]);
+                string Password = data[1];
+                string Color = data[2];
+                this.Hide();
+                StartGame gamerList = new StartGame(ID, Password, Color);
+                gamerList.Show();
             }
         }
     }

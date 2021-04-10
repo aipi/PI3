@@ -81,6 +81,12 @@
     <Compile Include="Lobby\CreateMatch.Designer.cs">
       <DependentUpon>CreateMatch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lobby\StartGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lobby\StartGame.Designer.cs">
+      <DependentUpon>StartGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lobby\ListGamers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,11 +99,11 @@
     <Compile Include="Lobby\ListMatches.Designer.cs">
       <DependentUpon>ListMatches.cs</DependentUpon>
     </Compile>
-    <Compile Include="Lobby\StartGame.cs">
+    <Compile Include="Lobby\GameLobby.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Lobby\StartGame.Designer.cs">
-      <DependentUpon>StartGame.cs</DependentUpon>
+    <Compile Include="Lobby\GameLobby.Designer.cs">
+      <DependentUpon>GameLobby.cs</DependentUpon>
     </Compile>
     <Compile Include="Match.cs" />
     <Compile Include="Play\CantStop.cs">
@@ -123,14 +129,17 @@
     <EmbeddedResource Include="Lobby\CreateMatch.resx">
       <DependentUpon>CreateMatch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Lobby\StartGame.resx">
+      <DependentUpon>StartGame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Lobby\ListGamers.resx">
       <DependentUpon>ListGamers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Lobby\ListMatches.resx">
       <DependentUpon>ListMatches.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Lobby\StartGame.resx">
-      <DependentUpon>StartGame.cs</DependentUpon>
+    <EmbeddedResource Include="Lobby\GameLobby.resx">
+      <DependentUpon>GameLobby.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Play\CantStop.resx">
       <DependentUpon>CantStop.cs</DependentUpon>

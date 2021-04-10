@@ -113,6 +113,7 @@ namespace PI3
             this.pB1.TabIndex = 34;
             this.pB1.TabStop = false;
             this.pB1.Visible = false;
+            this.pB1.Click += new System.EventHandler(this.pB1_Click);
             // 
             // btnRollDice
             // 

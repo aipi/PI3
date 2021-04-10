@@ -22,7 +22,7 @@ namespace PI3.Lobby
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            StartGame start = new StartGame();
+            GameLobby start = new GameLobby();
             start.Show();
         }
 
@@ -50,8 +50,9 @@ namespace PI3.Lobby
 
         private void btnListMatches_Click(object sender, EventArgs e)
         {
+            int matchID = Convert.ToInt32(dgvListMatches.CurrentRow.Cells["id"].Value);
             this.Hide();
-            ListGamers gamers = new ListGamers();
+            ListGamers gamers = new ListGamers(matchID);
             gamers.Show();
         }
     }

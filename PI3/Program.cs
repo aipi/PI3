@@ -16,7 +16,7 @@ namespace PI3.Lobby
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StartGame());
+            Application.Run(new GameLobby());
         }
     }
 }

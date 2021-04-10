@@ -43,6 +43,7 @@ namespace PI3.Lobby
             this.dgvListGamers.Location = new System.Drawing.Point(27, 56);
             this.dgvListGamers.MultiSelect = false;
             this.dgvListGamers.Name = "dgvListGamers";
+            this.dgvListGamers.RowHeadersVisible = false;
             this.dgvListGamers.RowHeadersWidth = 62;
             this.dgvListGamers.RowTemplate.Height = 28;
             this.dgvListGamers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -62,6 +63,7 @@ namespace PI3.Lobby
             this.btnStartMatch.TabIndex = 11;
             this.btnStartMatch.Text = "INICIAR PARTIDA";
             this.btnStartMatch.UseVisualStyleBackColor = false;
+            this.btnStartMatch.Click += new System.EventHandler(this.btnStartMatch_Click);
             // 
             // btnBack
             // 
@@ -91,6 +93,7 @@ namespace PI3.Lobby
             this.btnCreateGamer.TabIndex = 16;
             this.btnCreateGamer.Text = "CRIAR JOGADOR";
             this.btnCreateGamer.UseVisualStyleBackColor = false;
+            this.btnCreateGamer.Click += new System.EventHandler(this.btnCreateGamer_Click);
             // 
             // ListGamers
             // 

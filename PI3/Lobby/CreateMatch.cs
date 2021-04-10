@@ -33,7 +33,7 @@ namespace PI3.Lobby
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Hide();
-            StartGame start = new StartGame();
+            GameLobby start = new GameLobby();
             start.Show();
         }
 
