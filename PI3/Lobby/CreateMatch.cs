@@ -47,9 +47,9 @@ namespace PI3.Lobby
             }
             else 
             {
-                // this.Hide();
-                // ListMatches matchList = new ListMatches();
-                // matchList.Show();
+                this.Hide();
+                ListMatches matchList = new ListMatches();
+                matchList.Show();
             }
         }
     }

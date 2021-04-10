@@ -44,7 +44,6 @@ namespace PI3
             this.txtboxPassword = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.pbBackground = new System.Windows.Forms.PictureBox();
             this.lblGamersList = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnConfirmCreateMatch = new System.Windows.Forms.Button();
@@ -54,10 +53,11 @@ namespace PI3
             this.btnListGamers = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.button1 = new System.Windows.Forms.Button();
+            this.pbBackground = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListMatches)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListGamers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCreateMatch
@@ -199,16 +199,6 @@ namespace PI3
             this.lblPassword.Text = "Senha";
             this.lblPassword.Visible = false;
             // 
-            // pbBackground
-            // 
-            this.pbBackground.Image = global::PI3.Properties.Resources.background;
-            this.pbBackground.Location = new System.Drawing.Point(246, 34);
-            this.pbBackground.Name = "pbBackground";
-            this.pbBackground.Size = new System.Drawing.Size(423, 426);
-            this.pbBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbBackground.TabIndex = 17;
-            this.pbBackground.TabStop = false;
-            // 
             // lblGamersList
             // 
             this.lblGamersList.AutoSize = true;
@@ -323,6 +313,16 @@ namespace PI3
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // pbBackground
+            // 
+            this.pbBackground.Image = global::PI3.Properties.Resources.background;
+            this.pbBackground.Location = new System.Drawing.Point(246, 34);
+            this.pbBackground.Name = "pbBackground";
+            this.pbBackground.Size = new System.Drawing.Size(423, 426);
+            this.pbBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBackground.TabIndex = 17;
+            this.pbBackground.TabStop = false;
+            // 
             // LobbyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -355,8 +355,8 @@ namespace PI3
             this.TransparencyKey = System.Drawing.Color.Snow;
             ((System.ComponentModel.ISupportInitialize)(this.dgvListMatches)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListGamers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

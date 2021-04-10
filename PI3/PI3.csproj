@@ -123,6 +123,9 @@
     <EmbeddedResource Include="Lobby\CreateMatch.resx">
       <DependentUpon>CreateMatch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Lobby\ListGamers.resx">
+      <DependentUpon>ListGamers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Lobby\ListMatches.resx">
       <DependentUpon>ListMatches.cs</DependentUpon>
     </EmbeddedResource>

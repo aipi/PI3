@@ -245,5 +245,7 @@ namespace PI3
             Board board = new Board(boardData);
             board.Show();
         }
+
+       
     }
 }

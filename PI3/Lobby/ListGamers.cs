@@ -16,5 +16,12 @@ namespace PI3.Lobby
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ListMatches matchesList = new ListMatches();
+            matchesList.Show();
+        }
     }
 }

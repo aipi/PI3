@@ -48,5 +48,11 @@ namespace PI3.Lobby
             dgvListMatches.DataSource = matches;
         }
 
+        private void btnListMatches_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ListGamers gamers = new ListGamers();
+            gamers.Show();
+        }
     }
 }

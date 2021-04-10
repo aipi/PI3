@@ -63,6 +63,7 @@ namespace PI3.Lobby
             this.btnListMatches.TabIndex = 7;
             this.btnListMatches.Text = "LISTAR JOGADORES";
             this.btnListMatches.UseVisualStyleBackColor = false;
+            this.btnListMatches.Click += new System.EventHandler(this.btnListMatches_Click);
             // 
             // btnBack
             // 
