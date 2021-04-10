@@ -69,7 +69,31 @@
     <Compile Include="Lobby.Designer.cs">
       <DependentUpon>Lobby.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lobby\CreateGamer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lobby\CreateGamer.Designer.cs">
+      <DependentUpon>CreateGamer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lobby\CreateMatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lobby\CreateMatch.Designer.cs">
+      <DependentUpon>CreateMatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lobby\StartGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lobby\StartGame.Designer.cs">
+      <DependentUpon>StartGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="Match.cs" />
+    <Compile Include="Play\CantStop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Play\CantStop.Designer.cs">
+      <DependentUpon>CantStop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Board.resx">
@@ -80,6 +104,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Lobby.resx">
       <DependentUpon>Lobby.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lobby\CreateGamer.resx">
+      <DependentUpon>CreateGamer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lobby\CreateMatch.resx">
+      <DependentUpon>CreateMatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lobby\StartGame.resx">
+      <DependentUpon>StartGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Play\CantStop.resx">
+      <DependentUpon>CantStop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -124,6 +160,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dice6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logotipo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tipo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\montanha.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
