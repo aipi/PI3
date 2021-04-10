@@ -31,7 +31,16 @@ namespace PI3.Lobby
 
         private void btnCreateMatch_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            CreateMatch match = new CreateMatch();
+            match.Show();
+        }
 
+        private void btnListMatches_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ListMatches listaPartidas = new ListMatches();
+            listaPartidas.Show();
         }
     }
 }

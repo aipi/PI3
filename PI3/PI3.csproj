@@ -81,6 +81,12 @@
     <Compile Include="Lobby\CreateMatch.Designer.cs">
       <DependentUpon>CreateMatch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lobby\ListMatches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lobby\ListMatches.Designer.cs">
+      <DependentUpon>ListMatches.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lobby\StartGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Lobby\CreateMatch.resx">
       <DependentUpon>CreateMatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lobby\ListMatches.resx">
+      <DependentUpon>ListMatches.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Lobby\StartGame.resx">
       <DependentUpon>StartGame.cs</DependentUpon>

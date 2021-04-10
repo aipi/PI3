@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PI3.Play
+namespace PI3.Lobby
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace PI3.Play
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CantStop());
+            Application.Run(new StartGame());
         }
     }
 }

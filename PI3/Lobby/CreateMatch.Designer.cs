@@ -36,6 +36,7 @@ namespace PI3.Lobby
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
+            this.lblError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,12 +93,13 @@ namespace PI3.Lobby
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(158, 488);
+            this.btnCancel.Location = new System.Drawing.Point(158, 498);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(307, 85);
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "CANCELAR";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnCreate
             // 
@@ -106,12 +108,24 @@ namespace PI3.Lobby
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreate.ForeColor = System.Drawing.Color.White;
-            this.btnCreate.Location = new System.Drawing.Point(158, 387);
+            this.btnCreate.Location = new System.Drawing.Point(158, 397);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(307, 85);
             this.btnCreate.TabIndex = 12;
             this.btnCreate.Text = "CRIAR";
             this.btnCreate.UseVisualStyleBackColor = false;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(154, 370);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(44, 20);
+            this.lblError.TabIndex = 19;
+            this.lblError.Text = "Error";
+            this.lblError.Visible = false;
             // 
             // CreateMatch
             // 
@@ -119,6 +133,7 @@ namespace PI3.Lobby
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
             this.ClientSize = new System.Drawing.Size(621, 604);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.tbName);
@@ -143,5 +158,6 @@ namespace PI3.Lobby
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.Label lblError;
     }
 }

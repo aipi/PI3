@@ -52,7 +52,7 @@ namespace PI3.Lobby
             this.btnCreateMatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateMatch.ForeColor = System.Drawing.Color.White;
-            this.btnCreateMatch.Location = new System.Drawing.Point(148, 375);
+            this.btnCreateMatch.Location = new System.Drawing.Point(148, 384);
             this.btnCreateMatch.Name = "btnCreateMatch";
             this.btnCreateMatch.Size = new System.Drawing.Size(307, 85);
             this.btnCreateMatch.TabIndex = 2;
@@ -67,12 +67,13 @@ namespace PI3.Lobby
             this.btnListMatches.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListMatches.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListMatches.ForeColor = System.Drawing.Color.White;
-            this.btnListMatches.Location = new System.Drawing.Point(148, 476);
+            this.btnListMatches.Location = new System.Drawing.Point(148, 485);
             this.btnListMatches.Name = "btnListMatches";
             this.btnListMatches.Size = new System.Drawing.Size(307, 85);
             this.btnListMatches.TabIndex = 3;
             this.btnListMatches.Text = "LISTAR PARTIDAS";
             this.btnListMatches.UseVisualStyleBackColor = false;
+            this.btnListMatches.Click += new System.EventHandler(this.btnListMatches_Click);
             // 
             // StartGame
             // 
