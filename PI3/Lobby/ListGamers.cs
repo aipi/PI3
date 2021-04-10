@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PI3.Lobby
 {
-    public partial class Form1 : Form
+    public partial class ListGamers : Form
     {
-        public Form1()
+        public ListGamers()
         {
             InitializeComponent();
         }

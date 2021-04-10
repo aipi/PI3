@@ -81,6 +81,12 @@
     <Compile Include="Lobby\CreateMatch.Designer.cs">
       <DependentUpon>CreateMatch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lobby\ListGamers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lobby\ListGamers.Designer.cs">
+      <DependentUpon>ListGamers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lobby\ListMatches.cs">
       <SubType>Form</SubType>
     </Compile>

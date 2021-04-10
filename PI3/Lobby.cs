@@ -23,6 +23,24 @@ namespace PI3
             lblVersion.Text = "Versão: " + Jogo.Versao;
         }
 
+        private void btnListMatches_Click(object sender, EventArgs e)
+        {
+            this.Size = new Size(670, 350);
+            this.visible(new List<Control> {
+                lblMatchesList, filterMatches, dgvListMatches, btnListGamers
+            });
+            List<Control> unvisibleControls = new List<Control> {
+                pbBackground
+            };
+            if (dgvListMatches.Visible)
+            {
+                unvisibleControls.Add(lblGamersList);
+                unvisibleControls.Add(dgvListGamers);
+            }
+            this.unvisible(unvisibleControls);
+            filterMatches.SelectedItem = "Todos";
+        }
+
         private void btnListGamers_Click(object sender, EventArgs e)
         {
             this.visible(new List<Control>{

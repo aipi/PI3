@@ -1,7 +1,7 @@
 ﻿
 namespace PI3.Lobby
 {
-    partial class Form1
+    partial class ListGamers
     {
         /// <summary>
         /// Required designer variable.
