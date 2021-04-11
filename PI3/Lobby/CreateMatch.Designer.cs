@@ -29,6 +29,7 @@ namespace PI3.Lobby
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateMatch));
             this.lblName = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -141,6 +142,7 @@ namespace PI3.Lobby
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnCreate);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateMatch";
             this.Text = "Criar Partida";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -29,6 +29,7 @@ namespace PI3.Lobby
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListMatches));
             this.dgvListMatches = new System.Windows.Forms.DataGridView();
             this.btnListMatches = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
@@ -105,6 +106,7 @@ namespace PI3.Lobby
             this.Controls.Add(this.btnListMatches);
             this.Controls.Add(this.dgvListMatches);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ListMatches";
             this.Text = "Listar Partidas";
             ((System.ComponentModel.ISupportInitialize)(this.dgvListMatches)).EndInit();

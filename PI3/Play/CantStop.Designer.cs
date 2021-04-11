@@ -29,6 +29,7 @@ namespace PI3.Play
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CantStop));
             this.btnRollDice = new System.Windows.Forms.Button();
             this.btnPause = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -280,8 +281,9 @@ namespace PI3.Play
             this.Controls.Add(this.btnRollDice);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbBackground);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CantStop";
-            this.Text = "CantStop";
+            this.Text = "Can\'t Stop";
             ((System.ComponentModel.ISupportInitialize)(this.pbRed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb5)).EndInit();

@@ -29,6 +29,7 @@ namespace PI3.Lobby
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListGamers));
             this.dgvListGamers = new System.Windows.Forms.DataGridView();
             this.btnStartMatch = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
@@ -105,6 +106,7 @@ namespace PI3.Lobby
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnStartMatch);
             this.Controls.Add(this.dgvListGamers);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ListGamers";
             this.Text = "Listar Jogadores";
             ((System.ComponentModel.ISupportInitialize)(this.dgvListGamers)).EndInit();

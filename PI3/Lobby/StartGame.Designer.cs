@@ -29,6 +29,7 @@ namespace PI3.Lobby
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartGame));
             this.btnStartGame = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -67,8 +68,9 @@ namespace PI3.Lobby
             this.ClientSize = new System.Drawing.Size(621, 604);
             this.Controls.Add(this.btnStartGame);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StartGame";
-            this.Text = "Form1";
+            this.Text = "Iniciar Partida";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

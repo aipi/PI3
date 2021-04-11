@@ -29,6 +29,7 @@ namespace PI3.Lobby
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameLobby));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCreateMatch = new System.Windows.Forms.Button();
             this.btnListMatches = new System.Windows.Forms.Button();
@@ -75,7 +76,7 @@ namespace PI3.Lobby
             this.btnListMatches.UseVisualStyleBackColor = false;
             this.btnListMatches.Click += new System.EventHandler(this.btnListMatches_Click);
             // 
-            // StartGame
+            // GameLobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -84,7 +85,8 @@ namespace PI3.Lobby
             this.Controls.Add(this.btnListMatches);
             this.Controls.Add(this.btnCreateMatch);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "StartGame";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "GameLobby";
             this.Text = "Can\'t Stop";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
