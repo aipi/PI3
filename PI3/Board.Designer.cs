@@ -44,6 +44,7 @@ namespace PI3
             this.Tabuleiro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Tabuleiro.TabIndex = 41;
             this.Tabuleiro.TabStop = false;
+            this.Tabuleiro.Click += new System.EventHandler(this.Tabuleiro_Click);
             // 
             // Board
             // 

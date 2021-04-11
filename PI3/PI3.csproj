@@ -56,7 +56,8 @@
     <Compile Include="Board.Designer.cs">
       <DependentUpon>Board.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gamer.cs" />
+    <Compile Include="Play\Board.cs" />
+    <Compile Include="Play\Gamer.cs" />
     <Compile Include="Game.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +215,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\61.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amarelo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vermellho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\verde.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\azul.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amarelo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vermelho1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\azul1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\verde1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

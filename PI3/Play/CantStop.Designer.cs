@@ -34,22 +34,30 @@ namespace PI3.Play
             this.tbName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.btnMoviment = new System.Windows.Forms.Button();
+            this.pbRed = new System.Windows.Forms.PictureBox();
+            this.pb6 = new System.Windows.Forms.PictureBox();
+            this.pb5 = new System.Windows.Forms.PictureBox();
+            this.pb4 = new System.Windows.Forms.PictureBox();
+            this.pb3 = new System.Windows.Forms.PictureBox();
+            this.pb2 = new System.Windows.Forms.PictureBox();
             this.pb1 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pb2 = new System.Windows.Forms.PictureBox();
-            this.pb3 = new System.Windows.Forms.PictureBox();
-            this.pb5 = new System.Windows.Forms.PictureBox();
-            this.pb6 = new System.Windows.Forms.PictureBox();
-            this.pb4 = new System.Windows.Forms.PictureBox();
+            this.pbBackground = new System.Windows.Forms.PictureBox();
+            this.pbYellow = new System.Windows.Forms.PictureBox();
+            this.pbGreen = new System.Windows.Forms.PictureBox();
+            this.pbBlue = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbYellow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGreen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlue)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRollDice
@@ -114,6 +122,73 @@ namespace PI3.Play
             this.btnMoviment.Text = "MOVIMENTAR";
             this.btnMoviment.UseVisualStyleBackColor = false;
             // 
+            // pbRed
+            // 
+            this.pbRed.BackColor = System.Drawing.Color.Transparent;
+            this.pbRed.Image = global::PI3.Properties.Resources.vermelho1;
+            this.pbRed.Location = new System.Drawing.Point(112, 381);
+            this.pbRed.Name = "pbRed";
+            this.pbRed.Size = new System.Drawing.Size(15, 14);
+            this.pbRed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRed.TabIndex = 36;
+            this.pbRed.TabStop = false;
+            this.pbRed.Visible = false;
+            // 
+            // pb6
+            // 
+            this.pb6.Image = global::PI3.Properties.Resources._61;
+            this.pb6.Location = new System.Drawing.Point(326, 468);
+            this.pb6.Name = "pb6";
+            this.pb6.Size = new System.Drawing.Size(44, 47);
+            this.pb6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb6.TabIndex = 34;
+            this.pb6.TabStop = false;
+            this.pb6.Visible = false;
+            // 
+            // pb5
+            // 
+            this.pb5.Image = global::PI3.Properties.Resources._51;
+            this.pb5.Location = new System.Drawing.Point(266, 523);
+            this.pb5.Name = "pb5";
+            this.pb5.Size = new System.Drawing.Size(44, 47);
+            this.pb5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb5.TabIndex = 33;
+            this.pb5.TabStop = false;
+            this.pb5.Visible = false;
+            // 
+            // pb4
+            // 
+            this.pb4.Image = global::PI3.Properties.Resources._41;
+            this.pb4.Location = new System.Drawing.Point(326, 521);
+            this.pb4.Name = "pb4";
+            this.pb4.Size = new System.Drawing.Size(44, 47);
+            this.pb4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb4.TabIndex = 35;
+            this.pb4.TabStop = false;
+            this.pb4.Visible = false;
+            // 
+            // pb3
+            // 
+            this.pb3.Image = global::PI3.Properties.Resources._31;
+            this.pb3.Location = new System.Drawing.Point(266, 468);
+            this.pb3.Name = "pb3";
+            this.pb3.Size = new System.Drawing.Size(44, 47);
+            this.pb3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb3.TabIndex = 32;
+            this.pb3.TabStop = false;
+            this.pb3.Visible = false;
+            // 
+            // pb2
+            // 
+            this.pb2.Image = global::PI3.Properties.Resources._21;
+            this.pb2.Location = new System.Drawing.Point(266, 468);
+            this.pb2.Name = "pb2";
+            this.pb2.Size = new System.Drawing.Size(44, 47);
+            this.pb2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb2.TabIndex = 31;
+            this.pb2.TabStop = false;
+            this.pb2.Visible = false;
+            // 
             // pb1
             // 
             this.pb1.Image = global::PI3.Properties.Resources._11;
@@ -136,70 +211,51 @@ namespace PI3.Play
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // pbBackground
             // 
-            this.pictureBox2.Image = global::PI3.Properties.Resources.montanha;
-            this.pictureBox2.Location = new System.Drawing.Point(41, -46);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(538, 495);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
+            this.pbBackground.Image = global::PI3.Properties.Resources.montanha;
+            this.pbBackground.Location = new System.Drawing.Point(41, -46);
+            this.pbBackground.Name = "pbBackground";
+            this.pbBackground.Size = new System.Drawing.Size(538, 495);
+            this.pbBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBackground.TabIndex = 21;
+            this.pbBackground.TabStop = false;
             // 
-            // pb2
+            // pbYellow
             // 
-            this.pb2.Image = global::PI3.Properties.Resources._21;
-            this.pb2.Location = new System.Drawing.Point(266, 468);
-            this.pb2.Name = "pb2";
-            this.pb2.Size = new System.Drawing.Size(44, 47);
-            this.pb2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb2.TabIndex = 31;
-            this.pb2.TabStop = false;
-            this.pb2.Visible = false;
+            this.pbYellow.BackColor = System.Drawing.Color.Transparent;
+            this.pbYellow.Image = global::PI3.Properties.Resources.amarelo1;
+            this.pbYellow.Location = new System.Drawing.Point(112, 393);
+            this.pbYellow.Name = "pbYellow";
+            this.pbYellow.Size = new System.Drawing.Size(15, 14);
+            this.pbYellow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbYellow.TabIndex = 37;
+            this.pbYellow.TabStop = false;
+            this.pbYellow.Visible = false;
             // 
-            // pb3
+            // pbGreen
             // 
-            this.pb3.Image = global::PI3.Properties.Resources._31;
-            this.pb3.Location = new System.Drawing.Point(266, 468);
-            this.pb3.Name = "pb3";
-            this.pb3.Size = new System.Drawing.Size(44, 47);
-            this.pb3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb3.TabIndex = 32;
-            this.pb3.TabStop = false;
-            this.pb3.Visible = false;
+            this.pbGreen.BackColor = System.Drawing.Color.Transparent;
+            this.pbGreen.Image = global::PI3.Properties.Resources.verde1;
+            this.pbGreen.Location = new System.Drawing.Point(127, 393);
+            this.pbGreen.Name = "pbGreen";
+            this.pbGreen.Size = new System.Drawing.Size(15, 14);
+            this.pbGreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbGreen.TabIndex = 39;
+            this.pbGreen.TabStop = false;
+            this.pbGreen.Visible = false;
             // 
-            // pb5
+            // pbBlue
             // 
-            this.pb5.Image = global::PI3.Properties.Resources._51;
-            this.pb5.Location = new System.Drawing.Point(266, 523);
-            this.pb5.Name = "pb5";
-            this.pb5.Size = new System.Drawing.Size(44, 47);
-            this.pb5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb5.TabIndex = 33;
-            this.pb5.TabStop = false;
-            this.pb5.Visible = false;
-            // 
-            // pb6
-            // 
-            this.pb6.Image = global::PI3.Properties.Resources._61;
-            this.pb6.Location = new System.Drawing.Point(326, 468);
-            this.pb6.Name = "pb6";
-            this.pb6.Size = new System.Drawing.Size(44, 47);
-            this.pb6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb6.TabIndex = 34;
-            this.pb6.TabStop = false;
-            this.pb6.Visible = false;
-            // 
-            // pb4
-            // 
-            this.pb4.Image = global::PI3.Properties.Resources._41;
-            this.pb4.Location = new System.Drawing.Point(326, 521);
-            this.pb4.Name = "pb4";
-            this.pb4.Size = new System.Drawing.Size(44, 47);
-            this.pb4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb4.TabIndex = 35;
-            this.pb4.TabStop = false;
-            this.pb4.Visible = false;
+            this.pbBlue.BackColor = System.Drawing.Color.Transparent;
+            this.pbBlue.Image = global::PI3.Properties.Resources.azul1;
+            this.pbBlue.Location = new System.Drawing.Point(127, 381);
+            this.pbBlue.Name = "pbBlue";
+            this.pbBlue.Size = new System.Drawing.Size(15, 14);
+            this.pbBlue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBlue.TabIndex = 38;
+            this.pbBlue.TabStop = false;
+            this.pbBlue.Visible = false;
             // 
             // CantStop
             // 
@@ -207,6 +263,10 @@ namespace PI3.Play
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
             this.ClientSize = new System.Drawing.Size(621, 604);
+            this.Controls.Add(this.pbGreen);
+            this.Controls.Add(this.pbBlue);
+            this.Controls.Add(this.pbYellow);
+            this.Controls.Add(this.pbRed);
             this.Controls.Add(this.pb6);
             this.Controls.Add(this.pb5);
             this.Controls.Add(this.pb4);
@@ -219,17 +279,21 @@ namespace PI3.Play
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.btnRollDice);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pbBackground);
             this.Name = "CantStop";
             this.Text = "CantStop";
+            ((System.ComponentModel.ISupportInitialize)(this.pbRed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbYellow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGreen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,7 +302,7 @@ namespace PI3.Play
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pbBackground;
         private System.Windows.Forms.Button btnRollDice;
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.TextBox tbName;
@@ -250,5 +314,9 @@ namespace PI3.Play
         private System.Windows.Forms.PictureBox pb5;
         private System.Windows.Forms.PictureBox pb6;
         private System.Windows.Forms.PictureBox pb4;
+        private System.Windows.Forms.PictureBox pbRed;
+        private System.Windows.Forms.PictureBox pbYellow;
+        private System.Windows.Forms.PictureBox pbGreen;
+        private System.Windows.Forms.PictureBox pbBlue;
     }
 }

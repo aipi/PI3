@@ -42,5 +42,10 @@ namespace PI3
         private void showBoard(int i, int j)
         {
         }
+
+        private void Tabuleiro_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
