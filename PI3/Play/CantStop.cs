@@ -14,10 +14,10 @@ namespace PI3.Play
 
     public partial class CantStop : Form
     {
-        private int GamerID;
-        private string MatchID;
-        private string Password;
-        private string Color;
+        private readonly int GamerID;
+        private readonly string MatchID;
+        private readonly string Password;
+        private readonly string Color;
         private int[,] Dices;
         private PictureBox[,] pBDices;
 
@@ -37,7 +37,7 @@ namespace PI3.Play
 
         private void btnRollDice_Click(object sender, EventArgs e)
         {
-            string rollDice = "11\r\n23\r\n35\r\n41\r\n";
+            string rollDice = Jogo.RolarDados(this.GamerID, this.Password);
             string[] lines = rollDice.Replace("\r", "").Split('\n');
             for (int i = 0; i < lines.Length - 1; i++)
             {
