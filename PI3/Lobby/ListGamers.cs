@@ -53,9 +53,5 @@ namespace PI3.Lobby
             createGamer.Show();
         }
 
-        private void btnStartMatch_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -91,45 +91,46 @@ namespace PI3.Play
         private void showBoard(Play.Board gameBoard)
         {
             Gamer gamer = this.getGamer(gameBoard.gamerID);
-            pb1 = new PictureBox();
+            PictureBox pbGamer = new PictureBox();
             switch (gamer.color)
             {
                 case "Vermelho":
-                    pb1.Image = pbRed.Image;
-                    pb1.Width = pbRed.Width;
-                    pb1.Height = pbRed.Height;
-                    pb1.Location = new Point(46 + (gameBoard.trilha * 23), 292 - (gameBoard.position * 14));
+                    pbGamer.Image = pbRed.Image;
+                    pbGamer.Width = pbRed.Width;
+                    pbGamer.Height = pbRed.Height;
+                    pbGamer.Location = new Point(46 + (gameBoard.trilha * 23), 292 - (gameBoard.position * 14));
                     break;
                 case "Azul":
-                    pb1.Image = pbBlue.Image;
-                    pb1.Width = pbBlue.Width;
-                    pb1.Height = pbBlue.Height;
-                    pb1.Location = new Point(54 + (gameBoard.trilha * 23), 292 - (gameBoard.position * 14));
+                    pbGamer.Image = pbBlue.Image;
+                    pbGamer.Width = pbBlue.Width;
+                    pbGamer.Height = pbBlue.Height;
+                    pbGamer.Location = new Point(54 + (gameBoard.trilha * 23), 292 - (gameBoard.position * 14));
                     break;
                 case "Verde":
-                    pb1.Image = pbGreen.Image;
-                    pb1.Width = pbGreen.Width;
-                    pb1.Height = pbGreen.Height;
-                    pb1.Location = new Point(46 + (gameBoard.trilha * 23), 299 - (gameBoard.position * 14));
+                    pbGamer.Image = pbGreen.Image;
+                    pbGamer.Width = pbGreen.Width;
+                    pbGamer.Height = pbGreen.Height;
+                    pbGamer.Location = new Point(46 + (gameBoard.trilha * 23), 299 - (gameBoard.position * 14));
                     break;
                 case "Amarelo":
-                    pb1.Image = pbYellow.Image;
-                    pb1.Width = pbYellow.Width;
-                    pb1.Height = pbYellow.Height;
-                    pb1.Location = new Point(54 + (gameBoard.trilha * 23), 299 - (gameBoard.position * 14));
+                    pbGamer.Image = pbYellow.Image;
+                    pbGamer.Width = pbYellow.Width;
+                    pbGamer.Height = pbYellow.Height;
+                    pbGamer.Location = new Point(54 + (gameBoard.trilha * 23), 299 - (gameBoard.position * 14));
                     break;
                 default:
                     break;
             }
-                    
-            pb1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pb1.BackColor = Color.Transparent;
-            pbBackground.Controls.Add(pb1);
+
+            pbGamer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pbGamer.BackColor = Color.Transparent;
+            pbBackground.Controls.Add(pbGamer);
         }
 
         private void btnRollDice_Click(object sender, EventArgs e)
         {
-            string rollDice = Jogo.RolarDados(this.GamerID, this.Password);
+            string rollDice = "11\r\n26\r\n34\r\n41\r\n";
+                //Jogo.RolarDados(this.GamerID, this.Password);
             string[] lines = rollDice.Replace("\r", "").Split('\n');
             for (int i = 0; i < lines.Length - 1; i++)
             {
@@ -195,7 +196,6 @@ namespace PI3.Play
                     this.pBDices[i, j].Location = pb4.Location;
                     break;
                 default:
-                    this.pBDices[i, j].Location = pb1.Location;
                     break;
             }
             this.Controls.Add(this.pBDices[i, j]);

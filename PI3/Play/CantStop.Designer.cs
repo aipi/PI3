@@ -271,7 +271,6 @@ namespace PI3.Play
             this.Controls.Add(this.pb6);
             this.Controls.Add(this.pb5);
             this.Controls.Add(this.pb4);
-            this.Controls.Add(this.pb3);
             this.Controls.Add(this.pb2);
             this.Controls.Add(this.btnMoviment);
             this.Controls.Add(this.pb1);
@@ -281,6 +280,7 @@ namespace PI3.Play
             this.Controls.Add(this.btnRollDice);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbBackground);
+            this.Controls.Add(this.pb3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CantStop";
             this.Text = "Can\'t Stop";

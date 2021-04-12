@@ -31,7 +31,6 @@ namespace PI3.Lobby
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListGamers));
             this.dgvListGamers = new System.Windows.Forms.DataGridView();
-            this.btnStartMatch = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnCreateGamer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListGamers)).BeginInit();
@@ -50,21 +49,6 @@ namespace PI3.Lobby
             this.dgvListGamers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListGamers.Size = new System.Drawing.Size(546, 165);
             this.dgvListGamers.TabIndex = 10;
-            // 
-            // btnStartMatch
-            // 
-            this.btnStartMatch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(193)))), ((int)(((byte)(125)))));
-            this.btnStartMatch.FlatAppearance.BorderSize = 0;
-            this.btnStartMatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStartMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartMatch.ForeColor = System.Drawing.Color.White;
-            this.btnStartMatch.Location = new System.Drawing.Point(157, 260);
-            this.btnStartMatch.Name = "btnStartMatch";
-            this.btnStartMatch.Size = new System.Drawing.Size(307, 85);
-            this.btnStartMatch.TabIndex = 11;
-            this.btnStartMatch.Text = "INICIAR PARTIDA";
-            this.btnStartMatch.UseVisualStyleBackColor = false;
-            this.btnStartMatch.Click += new System.EventHandler(this.btnStartMatch_Click);
             // 
             // btnBack
             // 
@@ -104,7 +88,6 @@ namespace PI3.Lobby
             this.ClientSize = new System.Drawing.Size(621, 604);
             this.Controls.Add(this.btnCreateGamer);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnStartMatch);
             this.Controls.Add(this.dgvListGamers);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ListGamers";
@@ -117,7 +100,6 @@ namespace PI3.Lobby
         #endregion
 
         private System.Windows.Forms.DataGridView dgvListGamers;
-        private System.Windows.Forms.Button btnStartMatch;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnCreateGamer;
     }
