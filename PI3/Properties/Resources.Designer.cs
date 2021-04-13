@@ -333,6 +333,16 @@ namespace PI3.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap thumbsup {
+            get {
+                object obj = ResourceManager.GetObject("thumbsup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tipo {
             get {
                 object obj = ResourceManager.GetObject("tipo", resourceCulture);

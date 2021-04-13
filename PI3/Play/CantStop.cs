@@ -21,7 +21,8 @@ namespace PI3.Play
         private List<Gamer> gamers;
         private int[,] Dices;
         private string[,] Gamers;
-        private PictureBox[,] pBDices;
+        private PictureBox[] pBDices;
+        private PictureBox[] pbGamersPositions;
 
         public CantStop(int GamerID, string MatchID, string GamerColor, string Password)
         {
@@ -29,9 +30,9 @@ namespace PI3.Play
             this.MatchID = MatchID;
             this.Password = Password;
             this.GamerColor = GamerColor;
-            this.Dices = new int[4, 2];
             this.Gamers = new string[4, 3];
-            this.pBDices = new PictureBox[4, 2];
+            this.pBDices = new PictureBox[4];
+            this.Dices = new int[4, 2];
             InitializeComponent();
             btnRollDice.MouseEnter += OnMouseEnterBtnRollDice;
             btnPause.MouseEnter += OnMouseEnterBtnPause;
@@ -60,25 +61,64 @@ namespace PI3.Play
 
         private void setBoardData()
         {
-            string boardData = Jogo.ExibirTabuleiro(1);
+            string boardData = Jogo.ExibirTabuleiro(Convert.ToInt32(MatchID));
             string[] lines = boardData.Replace("\r", "").Split('\n');
             string[,] board = new string[lines.Length, 4];
-            
+            this.pbGamersPositions = new PictureBox[lines.Length];
+
             for (int i = 0; i < lines.Length - 1; i++)
             {
                 if (lines[i] != "")
                 {
                     Play.Board gameBoard = new Play.Board();
                     gameBoard.setter(lines[i]);
-                    showBoard(gameBoard);
+                    showBoard(gameBoard, i);
                 }
             }
-            Console.WriteLine(lines);
+        }
+
+        private void showBoard(Play.Board gameBoard, int i)
+        {
+            Gamer gamer = this.getGamer(gameBoard.gamerID);
+            this.pbGamersPositions[i] = new PictureBox();
+            switch (gamer.color)
+            {
+                case "Vermelho":
+                    this.pbGamersPositions[i].Image = pbRed.Image;
+                    this.pbGamersPositions[i].Width = pbRed.Width;
+                    this.pbGamersPositions[i].Height = pbRed.Height;
+                    this.pbGamersPositions[i].Location = new Point(46 + (gameBoard.trilha * 23), 292 - (gameBoard.position * 14));
+                    break;
+                case "Azul":
+                    this.pbGamersPositions[i].Image = pbBlue.Image;
+                    this.pbGamersPositions[i].Width = pbBlue.Width;
+                    this.pbGamersPositions[i].Height = pbBlue.Height;
+                    this.pbGamersPositions[i].Location = new Point(54 + (gameBoard.trilha * 23), 292 - (gameBoard.position * 14));
+                    break;
+                case "Verde":
+                    this.pbGamersPositions[i].Image = pbGreen.Image;
+                    this.pbGamersPositions[i].Width = pbGreen.Width;
+                    this.pbGamersPositions[i].Height = pbGreen.Height;
+                    this.pbGamersPositions[i].Location = new Point(46 + (gameBoard.trilha * 23), 299 - (gameBoard.position * 14));
+                    break;
+                case "Amarelo":
+                    this.pbGamersPositions[i].Image = pbYellow.Image;
+                    this.pbGamersPositions[i].Width = pbYellow.Width;
+                    this.pbGamersPositions[i].Height = pbYellow.Height;
+                    this.pbGamersPositions[i].Location = new Point(54 + (gameBoard.trilha * 23), 299 - (gameBoard.position * 14));
+                    break;
+                default:
+                    break;
+            }
+
+            this.pbGamersPositions[i].SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbGamersPositions[i].BackColor = Color.Transparent;
+            pbBackground.Controls.Add(this.pbGamersPositions[i]);
         }
 
         private Gamer getGamer(string gamerID)
         {
-            for (int i = 0; i < this.gamers.Count ; i++)
+            for (int i = 0; i < this.gamers.Count; i++)
             {
                 if (this.gamers[i].id == gamerID)
                 {
@@ -88,63 +128,46 @@ namespace PI3.Play
             return this.gamers[0];
         }
 
-        private void showBoard(Play.Board gameBoard)
+        private void resetDices()
         {
-            Gamer gamer = this.getGamer(gameBoard.gamerID);
-            PictureBox pbGamer = new PictureBox();
-            switch (gamer.color)
+            PictureBox[] dices = { pb1, pb2, pb3, pb4, pb5, pb6};
+            foreach (PictureBox dice in dices)
             {
-                case "Vermelho":
-                    pbGamer.Image = pbRed.Image;
-                    pbGamer.Width = pbRed.Width;
-                    pbGamer.Height = pbRed.Height;
-                    pbGamer.Location = new Point(46 + (gameBoard.trilha * 23), 292 - (gameBoard.position * 14));
-                    break;
-                case "Azul":
-                    pbGamer.Image = pbBlue.Image;
-                    pbGamer.Width = pbBlue.Width;
-                    pbGamer.Height = pbBlue.Height;
-                    pbGamer.Location = new Point(54 + (gameBoard.trilha * 23), 292 - (gameBoard.position * 14));
-                    break;
-                case "Verde":
-                    pbGamer.Image = pbGreen.Image;
-                    pbGamer.Width = pbGreen.Width;
-                    pbGamer.Height = pbGreen.Height;
-                    pbGamer.Location = new Point(46 + (gameBoard.trilha * 23), 299 - (gameBoard.position * 14));
-                    break;
-                case "Amarelo":
-                    pbGamer.Image = pbYellow.Image;
-                    pbGamer.Width = pbYellow.Width;
-                    pbGamer.Height = pbYellow.Height;
-                    pbGamer.Location = new Point(54 + (gameBoard.trilha * 23), 299 - (gameBoard.position * 14));
-                    break;
-                default:
-                    break;
+                dice.Visible = false;
             }
-
-            pbGamer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pbGamer.BackColor = Color.Transparent;
-            pbBackground.Controls.Add(pbGamer);
+            foreach (PictureBox dice in this.pBDices)
+            {
+                this.Controls.Remove(dice);
+            }
+            Array.Clear(this.Dices, 0, this.Dices.Length);
         }
 
         private void btnRollDice_Click(object sender, EventArgs e)
         {
-            string rollDice = "11\r\n26\r\n34\r\n41\r\n";
-                //Jogo.RolarDados(this.GamerID, this.Password);
-            string[] lines = rollDice.Replace("\r", "").Split('\n');
-            for (int i = 0; i < lines.Length - 1; i++)
+            lblError.Visible = false;
+            string rollDice = Jogo.RolarDados(this.GamerID, this.Password);
+            if (rollDice.Contains("ERRO"))
             {
-                if (lines[i] != "")
+                lblError.Text = rollDice;
+            }
+            else
+            {
+                string[] lines = rollDice.Replace("\r", "").Split('\n');
+                for (int i = 0; i < lines.Length - 1; i++)
                 {
-                    string value = lines[i];
-                    char[] values = value.ToCharArray();
-                    for (int j = 0; j < values.Length; j++)
+                    if (lines[i] != "")
                     {
-                        this.Dices[i, j] = (int)Char.GetNumericValue(values[j]);
-                        if (j == 1)
-                            this.showDices(i, j);
+                        string value = lines[i];
+                        char[] values = value.ToCharArray();
+                        for (int j = 0; j < values.Length; j++)
+                        {
+                            this.Dices[i, j] = (int)Char.GetNumericValue(values[j]);
+                            if (j == 1)
+                                this.showDices(i, j);
+                        }
                     }
                 }
+                Console.WriteLine(this.Dices);
             }
         }
 
@@ -175,30 +198,30 @@ namespace PI3.Play
                     pbDice = pb1;
                     break;
             }
-            this.pBDices[i, j] = new PictureBox();
-            this.pBDices[i, j].Image = pbDice.Image;
-            this.pBDices[i, j].Width = pbDice.Width;
-            this.pBDices[i, j].Height = pbDice.Height;
-            this.pBDices[i, j].Visible = true;
-            this.pBDices[i, j].SizeMode = PictureBoxSizeMode.StretchImage;
+            this.pBDices[i] = new PictureBox();
+            this.pBDices[i].Image = pbDice.Image;
+            this.pBDices[i].Width = pbDice.Width;
+            this.pBDices[i].Height = pbDice.Height;
+            this.pBDices[i].Visible = true;
+            this.pBDices[i].SizeMode = PictureBoxSizeMode.StretchImage;
             switch (i)
             {
                 case 0:
-                    this.pBDices[i, j].Location = pb1.Location;
+                    this.pBDices[i].Location = pb1.Location;
                     break;
                 case 1:
-                    this.pBDices[i, j].Location = pb6.Location;
+                    this.pBDices[i].Location = pb6.Location;
                     break;
                 case 2:
-                    this.pBDices[i, j].Location = pb5.Location;
+                    this.pBDices[i].Location = pb5.Location;
                     break;
                 case 3:
-                    this.pBDices[i, j].Location = pb4.Location;
+                    this.pBDices[i].Location = pb4.Location;
                     break;
                 default:
                     break;
             }
-            this.Controls.Add(this.pBDices[i, j]);
+            this.Controls.Add(this.pBDices[i]);
         }
 
         private void OnMouseEnterBtnCreateMatch(object sender, EventArgs e)
@@ -221,5 +244,43 @@ namespace PI3.Play
             btnMoviment.Cursor = System.Windows.Forms.Cursors.Hand;
         }
 
+        private void resetGamersPosition()
+        {
+            foreach (PictureBox gamerPosition in this.pbGamersPositions)
+            {
+                pbBackground.Controls.Remove(gamerPosition);
+            }
+            Array.Clear(this.pbGamersPositions, 0, this.pbGamersPositions.Length);
+        }
+
+        private void btnMoviment_Click(object sender, EventArgs e)
+        {
+            lblError.Visible = false;
+            string moviment = tbMove.Text;
+            string movimentReturn = Jogo.Mover(this.GamerID, this.Password, "1234", moviment);
+            if (movimentReturn.Contains("ERRO"))
+            {
+                lblError.Text = movimentReturn;
+                lblError.Visible = true;
+            } else
+            {
+                resetGamersPosition();
+                string result = Jogo.ExibirTabuleiro(Convert.ToInt32(this.MatchID));
+                this.resetDices();
+                setBoardData();
+            }
+            tbMove.Text = "";
+
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            lblError.Visible = false;
+            string pause = Jogo.Parar(this.GamerID, this.Password);
+            if (pause.Contains("ERRO"))
+            {
+                lblError.Text = pause;
+            }
+        }
     }
 }

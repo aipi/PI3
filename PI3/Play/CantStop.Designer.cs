@@ -32,7 +32,7 @@ namespace PI3.Play
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CantStop));
             this.btnRollDice = new System.Windows.Forms.Button();
             this.btnPause = new System.Windows.Forms.Button();
-            this.tbName = new System.Windows.Forms.TextBox();
+            this.tbMove = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.btnMoviment = new System.Windows.Forms.Button();
             this.pbRed = new System.Windows.Forms.PictureBox();
@@ -47,6 +47,7 @@ namespace PI3.Play
             this.pbYellow = new System.Windows.Forms.PictureBox();
             this.pbGreen = new System.Windows.Forms.PictureBox();
             this.pbBlue = new System.Windows.Forms.PictureBox();
+            this.lblError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbRed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb5)).BeginInit();
@@ -89,15 +90,16 @@ namespace PI3.Play
             this.btnPause.TabIndex = 23;
             this.btnPause.Text = "PAUSAR";
             this.btnPause.UseVisualStyleBackColor = false;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
-            // tbName
+            // tbMove
             // 
-            this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbName.Location = new System.Drawing.Point(431, 480);
-            this.tbName.Multiline = true;
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(148, 37);
-            this.tbName.TabIndex = 24;
+            this.tbMove.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMove.Location = new System.Drawing.Point(431, 480);
+            this.tbMove.Multiline = true;
+            this.tbMove.Name = "tbMove";
+            this.tbMove.Size = new System.Drawing.Size(148, 37);
+            this.tbMove.TabIndex = 24;
             // 
             // lblName
             // 
@@ -122,6 +124,7 @@ namespace PI3.Play
             this.btnMoviment.TabIndex = 30;
             this.btnMoviment.Text = "MOVIMENTAR";
             this.btnMoviment.UseVisualStyleBackColor = false;
+            this.btnMoviment.Click += new System.EventHandler(this.btnMoviment_Click);
             // 
             // pbRed
             // 
@@ -258,12 +261,24 @@ namespace PI3.Play
             this.pbBlue.TabStop = false;
             this.pbBlue.Visible = false;
             // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(37, 578);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(68, 20);
+            this.lblError.TabIndex = 40;
+            this.lblError.Text = "ERROR";
+            this.lblError.Visible = false;
+            // 
             // CantStop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
             this.ClientSize = new System.Drawing.Size(621, 604);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.pbGreen);
             this.Controls.Add(this.pbBlue);
             this.Controls.Add(this.pbYellow);
@@ -275,7 +290,7 @@ namespace PI3.Play
             this.Controls.Add(this.btnMoviment);
             this.Controls.Add(this.pb1);
             this.Controls.Add(this.lblName);
-            this.Controls.Add(this.tbName);
+            this.Controls.Add(this.tbMove);
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.btnRollDice);
             this.Controls.Add(this.pictureBox1);
@@ -307,7 +322,7 @@ namespace PI3.Play
         private System.Windows.Forms.PictureBox pbBackground;
         private System.Windows.Forms.Button btnRollDice;
         private System.Windows.Forms.Button btnPause;
-        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.TextBox tbMove;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnMoviment;
         private System.Windows.Forms.PictureBox pb1;
@@ -320,5 +335,6 @@ namespace PI3.Play
         private System.Windows.Forms.PictureBox pbYellow;
         private System.Windows.Forms.PictureBox pbGreen;
         private System.Windows.Forms.PictureBox pbBlue;
+        private System.Windows.Forms.Label lblError;
     }
 }

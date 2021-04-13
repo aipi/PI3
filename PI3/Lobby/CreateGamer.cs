@@ -54,7 +54,7 @@ namespace PI3.Lobby
                 string Password = data[1];
                 string Color = data[2];
                 this.Hide();
-                StartGame gamerList = new StartGame(ID, Password, Color);
+                StartGame gamerList = new StartGame(ID, Password, Color, this.matchID.ToString());
                 gamerList.Show();
             }
         }

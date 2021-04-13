@@ -19,6 +19,18 @@ namespace PI3.Lobby
             InitializeComponent();
             this.matchID = matchID;
             this.listGamers();
+            btnBack.MouseEnter += OnMouseEnterBtnBack;
+            btnCreateGamer.MouseEnter += OnMouseEnterBtnCreateGamer;
+        }
+
+        private void OnMouseEnterBtnCreateGamer(object sender, EventArgs e)
+        {
+            btnCreateGamer.Cursor = System.Windows.Forms.Cursors.Hand;
+        }
+
+        private void OnMouseEnterBtnBack(object sender, EventArgs e)
+        {
+            btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -41,9 +53,29 @@ namespace PI3.Lobby
                     Gamer gamer = new Gamer();
                     gamer.setter(lines[i]);
                     gamers.Add(gamer);
+                    switch (gamer.color)
+                    {
+                        case "Vermelho":
+                            lblActiveRed.Visible = true;
+                            lblInactivateRed.Visible = false;
+                            break;
+                        case "Amarelo":
+                            lblActiveYellow.Visible = true;
+                            lblInactivateYellow.Visible = false;
+                            break;
+                        case "Verde":
+                            lblActiveGreen.Visible = true;
+                            lblInactivateGreen.Visible = false;
+                            break;
+                        case "Azul":
+                            lblActiveBlue.Visible = true;
+                            lblInactivateBlue.Visible = false;
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
-            dgvListGamers.DataSource = gamers;
         }
 
         private void btnCreateGamer_Click(object sender, EventArgs e)
@@ -52,6 +84,5 @@ namespace PI3.Lobby
             CreateGamer createGamer = new CreateGamer(this.matchID);
             createGamer.Show();
         }
-
     }
 }

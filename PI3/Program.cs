@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace PI3.Play
+namespace PI3.Lobby
 {
     static class Program
     {
@@ -13,8 +13,8 @@ namespace PI3.Play
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CantStop(1, "1", "Azul", "asda"));
-            //Application.Run(new GameLobby());
+            //Application.Run(new CantStop(326, "1", "Azul", "asda"));
+            Application.Run(new GameLobby());
         }
     }
 }

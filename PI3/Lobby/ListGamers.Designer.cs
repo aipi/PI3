@@ -30,25 +30,29 @@ namespace PI3.Lobby
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListGamers));
-            this.dgvListGamers = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnCreateGamer = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListGamers)).BeginInit();
+            this.lblRed = new System.Windows.Forms.Label();
+            this.lblYellow = new System.Windows.Forms.Label();
+            this.lblBlue = new System.Windows.Forms.Label();
+            this.lblGreen = new System.Windows.Forms.Label();
+            this.pbBlue = new System.Windows.Forms.PictureBox();
+            this.pbYellow = new System.Windows.Forms.PictureBox();
+            this.pbRed = new System.Windows.Forms.PictureBox();
+            this.pbGreen = new System.Windows.Forms.PictureBox();
+            this.lblActiveYellow = new System.Windows.Forms.Label();
+            this.lblActiveBlue = new System.Windows.Forms.Label();
+            this.lblActiveGreen = new System.Windows.Forms.Label();
+            this.lblInactivateRed = new System.Windows.Forms.Label();
+            this.lblInactivateYellow = new System.Windows.Forms.Label();
+            this.lblInactivateBlue = new System.Windows.Forms.Label();
+            this.lblInactivateGreen = new System.Windows.Forms.Label();
+            this.lblActiveRed = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbYellow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGreen)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvListGamers
-            // 
-            this.dgvListGamers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListGamers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvListGamers.Location = new System.Drawing.Point(27, 56);
-            this.dgvListGamers.MultiSelect = false;
-            this.dgvListGamers.Name = "dgvListGamers";
-            this.dgvListGamers.RowHeadersVisible = false;
-            this.dgvListGamers.RowHeadersWidth = 62;
-            this.dgvListGamers.RowTemplate.Height = 28;
-            this.dgvListGamers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListGamers.Size = new System.Drawing.Size(546, 165);
-            this.dgvListGamers.TabIndex = 10;
             // 
             // btnBack
             // 
@@ -80,27 +84,236 @@ namespace PI3.Lobby
             this.btnCreateGamer.UseVisualStyleBackColor = false;
             this.btnCreateGamer.Click += new System.EventHandler(this.btnCreateGamer_Click);
             // 
+            // lblRed
+            // 
+            this.lblRed.AutoSize = true;
+            this.lblRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.lblRed.Location = new System.Drawing.Point(47, 112);
+            this.lblRed.Name = "lblRed";
+            this.lblRed.Size = new System.Drawing.Size(85, 20);
+            this.lblRed.TabIndex = 21;
+            this.lblRed.Text = "Vermelho";
+            // 
+            // lblYellow
+            // 
+            this.lblYellow.AutoSize = true;
+            this.lblYellow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYellow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(202)))), ((int)(((byte)(18)))));
+            this.lblYellow.Location = new System.Drawing.Point(200, 112);
+            this.lblYellow.Name = "lblYellow";
+            this.lblYellow.Size = new System.Drawing.Size(75, 20);
+            this.lblYellow.TabIndex = 22;
+            this.lblYellow.Text = "Amarelo";
+            // 
+            // lblBlue
+            // 
+            this.lblBlue.AutoSize = true;
+            this.lblBlue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBlue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(103)))), ((int)(((byte)(179)))));
+            this.lblBlue.Location = new System.Drawing.Point(353, 112);
+            this.lblBlue.Name = "lblBlue";
+            this.lblBlue.Size = new System.Drawing.Size(44, 20);
+            this.lblBlue.TabIndex = 23;
+            this.lblBlue.Text = "Azul";
+            // 
+            // lblGreen
+            // 
+            this.lblGreen.AutoSize = true;
+            this.lblGreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(179)))), ((int)(((byte)(86)))));
+            this.lblGreen.Location = new System.Drawing.Point(492, 112);
+            this.lblGreen.Name = "lblGreen";
+            this.lblGreen.Size = new System.Drawing.Size(57, 20);
+            this.lblGreen.TabIndex = 24;
+            this.lblGreen.Text = "Verde";
+            // 
+            // pbBlue
+            // 
+            this.pbBlue.Image = global::PI3.Properties.Resources.azul1;
+            this.pbBlue.Location = new System.Drawing.Point(329, 135);
+            this.pbBlue.Name = "pbBlue";
+            this.pbBlue.Size = new System.Drawing.Size(100, 101);
+            this.pbBlue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBlue.TabIndex = 20;
+            this.pbBlue.TabStop = false;
+            // 
+            // pbYellow
+            // 
+            this.pbYellow.Image = global::PI3.Properties.Resources.amarelo1;
+            this.pbYellow.Location = new System.Drawing.Point(188, 135);
+            this.pbYellow.Name = "pbYellow";
+            this.pbYellow.Size = new System.Drawing.Size(100, 101);
+            this.pbYellow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbYellow.TabIndex = 19;
+            this.pbYellow.TabStop = false;
+            // 
+            // pbRed
+            // 
+            this.pbRed.Image = global::PI3.Properties.Resources.vermelho1;
+            this.pbRed.Location = new System.Drawing.Point(40, 135);
+            this.pbRed.Name = "pbRed";
+            this.pbRed.Size = new System.Drawing.Size(100, 101);
+            this.pbRed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRed.TabIndex = 18;
+            this.pbRed.TabStop = false;
+            // 
+            // pbGreen
+            // 
+            this.pbGreen.Image = global::PI3.Properties.Resources.verde1;
+            this.pbGreen.Location = new System.Drawing.Point(473, 135);
+            this.pbGreen.Name = "pbGreen";
+            this.pbGreen.Size = new System.Drawing.Size(100, 101);
+            this.pbGreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbGreen.TabIndex = 17;
+            this.pbGreen.TabStop = false;
+            // 
+            // lblActiveYellow
+            // 
+            this.lblActiveYellow.AutoSize = true;
+            this.lblActiveYellow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActiveYellow.ForeColor = System.Drawing.Color.Black;
+            this.lblActiveYellow.Location = new System.Drawing.Point(214, 239);
+            this.lblActiveYellow.Name = "lblActiveYellow";
+            this.lblActiveYellow.Size = new System.Drawing.Size(49, 20);
+            this.lblActiveYellow.TabIndex = 26;
+            this.lblActiveYellow.Text = "Ativo";
+            this.lblActiveYellow.Visible = false;
+            // 
+            // lblActiveBlue
+            // 
+            this.lblActiveBlue.AutoSize = true;
+            this.lblActiveBlue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActiveBlue.ForeColor = System.Drawing.Color.Black;
+            this.lblActiveBlue.Location = new System.Drawing.Point(353, 239);
+            this.lblActiveBlue.Name = "lblActiveBlue";
+            this.lblActiveBlue.Size = new System.Drawing.Size(49, 20);
+            this.lblActiveBlue.TabIndex = 27;
+            this.lblActiveBlue.Text = "Ativo";
+            this.lblActiveBlue.Visible = false;
+            // 
+            // lblActiveGreen
+            // 
+            this.lblActiveGreen.AutoSize = true;
+            this.lblActiveGreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActiveGreen.ForeColor = System.Drawing.Color.Black;
+            this.lblActiveGreen.Location = new System.Drawing.Point(500, 239);
+            this.lblActiveGreen.Name = "lblActiveGreen";
+            this.lblActiveGreen.Size = new System.Drawing.Size(49, 20);
+            this.lblActiveGreen.TabIndex = 28;
+            this.lblActiveGreen.Text = "Ativo";
+            this.lblActiveGreen.Visible = false;
+            // 
+            // lblInactivateRed
+            // 
+            this.lblInactivateRed.AutoSize = true;
+            this.lblInactivateRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInactivateRed.ForeColor = System.Drawing.Color.Black;
+            this.lblInactivateRed.Location = new System.Drawing.Point(57, 239);
+            this.lblInactivateRed.Name = "lblInactivateRed";
+            this.lblInactivateRed.Size = new System.Drawing.Size(63, 20);
+            this.lblInactivateRed.TabIndex = 29;
+            this.lblInactivateRed.Text = "Inativo";
+            // 
+            // lblInactivateYellow
+            // 
+            this.lblInactivateYellow.AutoSize = true;
+            this.lblInactivateYellow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInactivateYellow.ForeColor = System.Drawing.Color.Black;
+            this.lblInactivateYellow.Location = new System.Drawing.Point(206, 239);
+            this.lblInactivateYellow.Name = "lblInactivateYellow";
+            this.lblInactivateYellow.Size = new System.Drawing.Size(63, 20);
+            this.lblInactivateYellow.TabIndex = 30;
+            this.lblInactivateYellow.Text = "Inativo";
+            // 
+            // lblInactivateBlue
+            // 
+            this.lblInactivateBlue.AutoSize = true;
+            this.lblInactivateBlue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInactivateBlue.ForeColor = System.Drawing.Color.Black;
+            this.lblInactivateBlue.Location = new System.Drawing.Point(348, 239);
+            this.lblInactivateBlue.Name = "lblInactivateBlue";
+            this.lblInactivateBlue.Size = new System.Drawing.Size(63, 20);
+            this.lblInactivateBlue.TabIndex = 31;
+            this.lblInactivateBlue.Text = "Inativo";
+            // 
+            // lblInactivateGreen
+            // 
+            this.lblInactivateGreen.AutoSize = true;
+            this.lblInactivateGreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInactivateGreen.ForeColor = System.Drawing.Color.Black;
+            this.lblInactivateGreen.Location = new System.Drawing.Point(490, 239);
+            this.lblInactivateGreen.Name = "lblInactivateGreen";
+            this.lblInactivateGreen.Size = new System.Drawing.Size(63, 20);
+            this.lblInactivateGreen.TabIndex = 32;
+            this.lblInactivateGreen.Text = "Inativo";
+            // 
+            // lblActiveRed
+            // 
+            this.lblActiveRed.AutoSize = true;
+            this.lblActiveRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActiveRed.ForeColor = System.Drawing.Color.Black;
+            this.lblActiveRed.Location = new System.Drawing.Point(57, 239);
+            this.lblActiveRed.Name = "lblActiveRed";
+            this.lblActiveRed.Size = new System.Drawing.Size(49, 20);
+            this.lblActiveRed.TabIndex = 25;
+            this.lblActiveRed.Text = "Ativo";
+            this.lblActiveRed.Visible = false;
+            // 
             // ListGamers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
             this.ClientSize = new System.Drawing.Size(621, 604);
+            this.Controls.Add(this.lblInactivateGreen);
+            this.Controls.Add(this.lblInactivateBlue);
+            this.Controls.Add(this.lblInactivateYellow);
+            this.Controls.Add(this.lblInactivateRed);
+            this.Controls.Add(this.lblActiveGreen);
+            this.Controls.Add(this.lblActiveBlue);
+            this.Controls.Add(this.lblActiveYellow);
+            this.Controls.Add(this.lblActiveRed);
+            this.Controls.Add(this.lblGreen);
+            this.Controls.Add(this.lblBlue);
+            this.Controls.Add(this.lblYellow);
+            this.Controls.Add(this.lblRed);
+            this.Controls.Add(this.pbBlue);
+            this.Controls.Add(this.pbYellow);
+            this.Controls.Add(this.pbRed);
+            this.Controls.Add(this.pbGreen);
             this.Controls.Add(this.btnCreateGamer);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.dgvListGamers);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ListGamers";
             this.Text = "Listar Jogadores";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListGamers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbYellow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGreen)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvListGamers;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnCreateGamer;
+        private System.Windows.Forms.PictureBox pbGreen;
+        private System.Windows.Forms.PictureBox pbRed;
+        private System.Windows.Forms.PictureBox pbYellow;
+        private System.Windows.Forms.PictureBox pbBlue;
+        private System.Windows.Forms.Label lblRed;
+        private System.Windows.Forms.Label lblYellow;
+        private System.Windows.Forms.Label lblBlue;
+        private System.Windows.Forms.Label lblGreen;
+        private System.Windows.Forms.Label lblActiveYellow;
+        private System.Windows.Forms.Label lblActiveBlue;
+        private System.Windows.Forms.Label lblActiveGreen;
+        private System.Windows.Forms.Label lblInactivateRed;
+        private System.Windows.Forms.Label lblInactivateYellow;
+        private System.Windows.Forms.Label lblInactivateBlue;
+        private System.Windows.Forms.Label lblInactivateGreen;
+        private System.Windows.Forms.Label lblActiveRed;
     }
 }

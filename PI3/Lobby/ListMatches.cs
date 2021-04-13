@@ -17,6 +17,18 @@ namespace PI3.Lobby
         {
             InitializeComponent();
             filterMatches.SelectedItem = "Todos";
+            btnBack.MouseEnter += OnMouseEnterBtnBack;
+            btnListMatches.MouseEnter += OnMouseEnterBtnListMatches;
+        }
+
+        private void OnMouseEnterBtnListMatches(object sender, EventArgs e)
+        {
+            btnListMatches.Cursor = System.Windows.Forms.Cursors.Hand;
+        }
+
+        private void OnMouseEnterBtnBack(object sender, EventArgs e)
+        {
+            btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
