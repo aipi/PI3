@@ -13,8 +13,8 @@ namespace PI3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Play.CantStop(1, "1", "Azul", "asda"));
-            //Application.Run(new Lobby.GameLobby());
+            //Application.Run(new Play.CantStop(1, "1", "Azul", "asda"));
+            Application.Run(new Lobby.GameLobby());
         }
     }
 }

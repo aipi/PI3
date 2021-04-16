@@ -172,10 +172,11 @@ namespace PI3.Play
                 default:
                     break;
             }
-
+            this.pbGamersPositions[i].Visible = true;
             this.pbGamersPositions[i].SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbGamersPositions[i].BackColor = Color.Transparent;
             pbBackground.Controls.Add(this.pbGamersPositions[i]);
+            this.pbGamersPositions[i].BringToFront();
         }
 
         private Gamer getGamer(string gamerID)
