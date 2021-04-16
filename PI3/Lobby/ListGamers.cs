@@ -14,18 +14,45 @@ namespace PI3.Lobby
     public partial class ListGamers : Form
     {
         private int matchID;
-        public ListGamers(int matchID)
+        private string status;
+        public ListGamers(int matchID, string status)
         {
             InitializeComponent();
             this.matchID = matchID;
-            this.listGamers();
+            this.status = status;
+            lblVersion.Text = lblVersion.Text + Jogo.Versao;
+
             btnBack.MouseEnter += OnMouseEnterBtnBack;
             btnCreateGamer.MouseEnter += OnMouseEnterBtnCreateGamer;
+            btnShowMatch.MouseEnter += OnMouseEnterBtnShowMatch;
+        }
+
+        private void setGameStatus()
+        {
+            if (status == "J")
+            {
+                lblStatus.Text = "Status: Jogando";
+                btnShowMatch.Visible = true;
+            }
+            else if (status == "A")
+            {
+                lblStatus.Text = "Status: Aberta";
+                btnCreateGamer.Visible = true;
+            }
+            else
+            {
+                lblStatus.Text = "Status: Excluída";
+            }
         }
 
         private void OnMouseEnterBtnCreateGamer(object sender, EventArgs e)
         {
             btnCreateGamer.Cursor = System.Windows.Forms.Cursors.Hand;
+        }
+
+        private void OnMouseEnterBtnShowMatch(object sender, EventArgs e)
+        {
+            btnShowMatch.Cursor = System.Windows.Forms.Cursors.Hand;
         }
 
         private void OnMouseEnterBtnBack(object sender, EventArgs e)
@@ -45,7 +72,7 @@ namespace PI3.Lobby
             listGamers = listGamers.Replace("\r", "");
             string[] lines = listGamers.Split('\n');
             List<Gamer> gamers = new List<Gamer>();
-
+            // TODO: Partida J Exibir partida
             for (int i = 0; i < lines.Length - 1; i++)
             {
                 if (lines[i] != "")
@@ -83,6 +110,19 @@ namespace PI3.Lobby
             this.Hide();
             CreateGamer createGamer = new CreateGamer(this.matchID);
             createGamer.Show();
+        }
+
+        private void ListGamers_Load(object sender, EventArgs e)
+        {
+            this.setGameStatus();
+            this.listGamers();
+        }
+
+        private void btnShowMatch_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Play.CantStop showMatch = new Play.CantStop(0, this.matchID.ToString(), "", "");
+            showMatch.Show();
         }
     }
 }

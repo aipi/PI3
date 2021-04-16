@@ -26,6 +26,7 @@ namespace PI3.Lobby
             this.MatchID = matchID;
             Jogo.IniciarPartida(this.GamerID, this.Password);
             btnStartGame.MouseEnter += OnMouseEnterBtnStartGame;
+            lblVersion.Text = lblVersion.Text + Jogo.Versao;
         }
 
         private void btnStartGame_Click(object sender, EventArgs e)

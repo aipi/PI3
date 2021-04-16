@@ -30,26 +30,13 @@ namespace PI3.Lobby
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListMatches));
-            this.dgvListMatches = new System.Windows.Forms.DataGridView();
             this.btnListMatches = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.filterMatches = new System.Windows.Forms.ComboBox();
+            this.lblVersion = new System.Windows.Forms.Label();
+            this.dgvListMatches = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListMatches)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvListMatches
-            // 
-            this.dgvListMatches.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListMatches.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvListMatches.Location = new System.Drawing.Point(12, 80);
-            this.dgvListMatches.MultiSelect = false;
-            this.dgvListMatches.Name = "dgvListMatches";
-            this.dgvListMatches.RowHeadersVisible = false;
-            this.dgvListMatches.RowHeadersWidth = 62;
-            this.dgvListMatches.RowTemplate.Height = 28;
-            this.dgvListMatches.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListMatches.Size = new System.Drawing.Size(597, 254);
-            this.dgvListMatches.TabIndex = 6;
             // 
             // btnListMatches
             // 
@@ -95,12 +82,46 @@ namespace PI3.Lobby
             this.filterMatches.TabIndex = 18;
             this.filterMatches.SelectedIndexChanged += new System.EventHandler(this.filterMatches_SelectedIndexChanged);
             // 
+            // lblVersion
+            // 
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersion.Location = new System.Drawing.Point(533, 584);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(54, 15);
+            this.lblVersion.TabIndex = 37;
+            this.lblVersion.Text = "Version: ";
+            // 
+            // dgvListMatches
+            // 
+            this.dgvListMatches.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
+            this.dgvListMatches.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListMatches.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvListMatches.Location = new System.Drawing.Point(12, 90);
+            this.dgvListMatches.MultiSelect = false;
+            this.dgvListMatches.Name = "dgvListMatches";
+            this.dgvListMatches.RowHeadersVisible = false;
+            this.dgvListMatches.RowHeadersWidth = 62;
+            this.dgvListMatches.RowTemplate.Height = 28;
+            this.dgvListMatches.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListMatches.Size = new System.Drawing.Size(597, 254);
+            this.dgvListMatches.TabIndex = 6;
+            this.dgvListMatches.EnableHeadersVisualStyles = false;
+            this.dgvListMatches.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(164, 151, 127);
+            this.dgvListMatches.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvListMatches.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(199, 199, 181);
+            this.dgvListMatches.ColumnHeadersDefaultCellStyle.SelectionBackColor = System.Drawing.Color.Transparent;
+            this.dgvListMatches.ColumnHeadersDefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvListMatches.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvListMatches.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
+            // 
             // ListMatches
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
             this.ClientSize = new System.Drawing.Size(621, 604);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.filterMatches);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnListMatches);
@@ -111,14 +132,15 @@ namespace PI3.Lobby
             this.Text = "Listar Partidas";
             ((System.ComponentModel.ISupportInitialize)(this.dgvListMatches)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvListMatches;
         private System.Windows.Forms.Button btnListMatches;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.ComboBox filterMatches;
+        private System.Windows.Forms.Label lblVersion;
+        private System.Windows.Forms.DataGridView dgvListMatches;
     }
 }

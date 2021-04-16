@@ -20,6 +20,7 @@ namespace PI3.Lobby
             btnCancel.MouseEnter += this.OnMouseEnterBtnCancel;
             btnCreate.MouseEnter += this.OnMouseEnterBtnCreate;
             this.matchID = matchID;
+            lblVersion.Text = lblVersion.Text + Jogo.Versao;
         }
 
         private void OnMouseEnterBtnCreate(object sender, EventArgs e)
@@ -34,7 +35,7 @@ namespace PI3.Lobby
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ListGamers gamersList = new ListGamers(this.matchID);
+            ListGamers gamersList = new ListGamers(this.matchID, "A");
             gamersList.Show();
         }
 

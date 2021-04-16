@@ -233,6 +233,16 @@ namespace PI3.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bluewhite {
+            get {
+                object obj = ResourceManager.GetObject("bluewhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dice1 {
             get {
                 object obj = ResourceManager.GetObject("dice1", resourceCulture);
@@ -293,6 +303,16 @@ namespace PI3.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap greenwhite {
+            get {
+                object obj = ResourceManager.GetObject("greenwhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logotipo {
             get {
                 object obj = ResourceManager.GetObject("Logotipo", resourceCulture);
@@ -326,6 +346,36 @@ namespace PI3.Properties {
         internal static System.Drawing.Bitmap montanha2 {
             get {
                 object obj = ResourceManager.GetObject("montanha2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap redwhite {
+            get {
+                object obj = ResourceManager.GetObject("redwhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sair {
+            get {
+                object obj = ResourceManager.GetObject("sair", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sair2 {
+            get {
+                object obj = ResourceManager.GetObject("sair2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -386,6 +436,16 @@ namespace PI3.Properties {
         internal static System.Drawing.Bitmap vermellho {
             get {
                 object obj = ResourceManager.GetObject("vermellho", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yellowwhite {
+            get {
+                object obj = ResourceManager.GetObject("yellowwhite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

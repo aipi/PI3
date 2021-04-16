@@ -19,6 +19,7 @@ namespace PI3.Lobby
             filterMatches.SelectedItem = "Todos";
             btnBack.MouseEnter += OnMouseEnterBtnBack;
             btnListMatches.MouseEnter += OnMouseEnterBtnListMatches;
+            lblVersion.Text = lblVersion.Text + Jogo.Versao;
         }
 
         private void OnMouseEnterBtnListMatches(object sender, EventArgs e)
@@ -58,13 +59,14 @@ namespace PI3.Lobby
                 }
             }
             dgvListMatches.DataSource = matches;
+            dgvListMatches.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; ;
         }
 
         private void btnListMatches_Click(object sender, EventArgs e)
         {
             int matchID = Convert.ToInt32(dgvListMatches.CurrentRow.Cells["id"].Value);
             this.Hide();
-            ListGamers gamers = new ListGamers(matchID);
+            ListGamers gamers = new ListGamers(matchID, Convert.ToString(dgvListMatches.CurrentRow.Cells["status"].Value));
             gamers.Show();
         }
     }

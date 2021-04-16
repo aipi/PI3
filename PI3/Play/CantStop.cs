@@ -23,6 +23,7 @@ namespace PI3.Play
         private string[,] Gamers;
         private PictureBox[] pBDices;
         private PictureBox[] pbGamersPositions;
+        System.Windows.Forms.Timer t = null;
 
         public CantStop(int GamerID, string MatchID, string GamerColor, string Password)
         {
@@ -34,10 +35,41 @@ namespace PI3.Play
             this.pBDices = new PictureBox[4];
             this.Dices = new int[4, 2];
             InitializeComponent();
+            StartTimer();
+            lblVersion.Text = lblVersion.Text + Jogo.Versao;
             btnRollDice.MouseEnter += OnMouseEnterBtnRollDice;
             btnPause.MouseEnter += OnMouseEnterBtnPause;
             btnMoviment.MouseEnter += OnMouseEnterBtnMoviment;
+            btnExit.MouseEnter += OnMouseEnterBtnExit;
             this.setGamers();
+        }
+
+        private void StartTimer()
+        {
+            t = new System.Windows.Forms.Timer();
+            t.Interval = 10;
+            t.Tick += new EventHandler(t_Tick);
+            t.Enabled = true;
+
+        }
+
+        void t_Tick(object sender, EventArgs e)
+        {
+            string checkTurn = Jogo.VerificarVez(Convert.ToInt32(this.MatchID));
+
+            if (checkTurn.Contains("J") && checkTurn.Contains(this.GamerID.ToString()))
+            {
+                btnRollDiceDeactivated.Visible = false;
+                btnMovimentDeactivate.Visible = false;
+                btnPauseDeactivate.Visible = false;
+
+            }
+            else
+            {
+                btnRollDiceDeactivated.Visible = true;
+                btnMovimentDeactivate.Visible = true;
+                btnPauseDeactivate.Visible = true;
+            }
             this.setBoardData();
         }
 
@@ -84,25 +116,55 @@ namespace PI3.Play
             switch (gamer.color)
             {
                 case "Vermelho":
-                    this.pbGamersPositions[i].Image = pbRed.Image;
+                    
+                    if (gameBoard.type == "A")
+                    {
+                        this.pbGamersPositions[i].Image = pbRedWhite.Image;
+                    }
+                    else
+                    {
+                        this.pbGamersPositions[i].Image = pbRed.Image;
+                    }
+                    
                     this.pbGamersPositions[i].Width = pbRed.Width;
                     this.pbGamersPositions[i].Height = pbRed.Height;
                     this.pbGamersPositions[i].Location = new Point(46 + (gameBoard.trilha * 23), 292 - (gameBoard.position * 14));
                     break;
                 case "Azul":
-                    this.pbGamersPositions[i].Image = pbBlue.Image;
+                    if (gameBoard.type == "A")
+                    {
+                        this.pbGamersPositions[i].Image = pbBlueWhite.Image;
+                    }
+                    else
+                    {
+                        this.pbGamersPositions[i].Image = pbBlue.Image;
+                    }
                     this.pbGamersPositions[i].Width = pbBlue.Width;
                     this.pbGamersPositions[i].Height = pbBlue.Height;
                     this.pbGamersPositions[i].Location = new Point(54 + (gameBoard.trilha * 23), 292 - (gameBoard.position * 14));
                     break;
                 case "Verde":
-                    this.pbGamersPositions[i].Image = pbGreen.Image;
+                    if (gameBoard.type == "A")
+                    {
+                        this.pbGamersPositions[i].Image = pbGreenWhite.Image;
+                    }
+                    else
+                    {
+                        this.pbGamersPositions[i].Image = pbGreen.Image;
+                    }
                     this.pbGamersPositions[i].Width = pbGreen.Width;
                     this.pbGamersPositions[i].Height = pbGreen.Height;
                     this.pbGamersPositions[i].Location = new Point(46 + (gameBoard.trilha * 23), 299 - (gameBoard.position * 14));
                     break;
                 case "Amarelo":
-                    this.pbGamersPositions[i].Image = pbYellow.Image;
+                    if (gameBoard.type == "A")
+                    {
+                        this.pbGamersPositions[i].Image = pbYellowWhite.Image;
+                    }
+                    else
+                    {
+                        this.pbGamersPositions[i].Image = pbYellow.Image;
+                    }                    
                     this.pbGamersPositions[i].Width = pbYellow.Width;
                     this.pbGamersPositions[i].Height = pbYellow.Height;
                     this.pbGamersPositions[i].Location = new Point(54 + (gameBoard.trilha * 23), 299 - (gameBoard.position * 14));
@@ -145,6 +207,7 @@ namespace PI3.Play
         private void btnRollDice_Click(object sender, EventArgs e)
         {
             lblError.Visible = false;
+            //string rollDice = "11\r\n24\r\n32\r\n46\r\n";
             string rollDice = Jogo.RolarDados(this.GamerID, this.Password);
             if (rollDice.Contains("ERRO"))
             {
@@ -167,7 +230,6 @@ namespace PI3.Play
                         }
                     }
                 }
-                Console.WriteLine(this.Dices);
             }
         }
 
@@ -224,26 +286,6 @@ namespace PI3.Play
             this.Controls.Add(this.pBDices[i]);
         }
 
-        private void OnMouseEnterBtnCreateMatch(object sender, EventArgs e)
-        {
-            btnRollDice.Cursor = System.Windows.Forms.Cursors.Hand;
-        }
-
-        private void OnMouseEnterBtnRollDice(object sender, EventArgs e)
-        {
-            btnRollDice.Cursor = System.Windows.Forms.Cursors.Hand;
-        }
-
-        private void OnMouseEnterBtnPause(object sender, EventArgs e)
-        {
-            btnPause.Cursor = System.Windows.Forms.Cursors.Hand;
-        }
-
-        private void OnMouseEnterBtnMoviment(object sender, EventArgs e)
-        {
-            btnMoviment.Cursor = System.Windows.Forms.Cursors.Hand;
-        }
-
         private void resetGamersPosition()
         {
             foreach (PictureBox gamerPosition in this.pbGamersPositions)
@@ -258,6 +300,7 @@ namespace PI3.Play
             lblError.Visible = false;
             string moviment = tbMove.Text;
             string movimentReturn = Jogo.Mover(this.GamerID, this.Password, "1234", moviment);
+
             if (movimentReturn.Contains("ERRO"))
             {
                 lblError.Text = movimentReturn;
@@ -281,6 +324,43 @@ namespace PI3.Play
             {
                 lblError.Text = pause;
             }
+        }
+
+        private void checkedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.checkedListBox.ClearSelected();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Lobby.GameLobby gameLobby = new Lobby.GameLobby();
+            gameLobby.Show();
+        }
+
+        private void OnMouseEnterBtnExit(object sender, EventArgs e)
+        {
+            btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+        }
+
+        private void OnMouseEnterBtnCreateMatch(object sender, EventArgs e)
+        {
+            btnRollDice.Cursor = System.Windows.Forms.Cursors.Hand;
+        }
+
+        private void OnMouseEnterBtnRollDice(object sender, EventArgs e)
+        {
+            btnRollDice.Cursor = System.Windows.Forms.Cursors.Hand;
+        }
+
+        private void OnMouseEnterBtnPause(object sender, EventArgs e)
+        {
+            btnPause.Cursor = System.Windows.Forms.Cursors.Hand;
+        }
+
+        private void OnMouseEnterBtnMoviment(object sender, EventArgs e)
+        {
+            btnMoviment.Cursor = System.Windows.Forms.Cursors.Hand;
         }
     }
 }

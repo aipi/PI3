@@ -37,6 +37,7 @@ namespace PI3.Lobby
             this.lblName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblError = new System.Windows.Forms.Label();
+            this.lblVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,12 +128,23 @@ namespace PI3.Lobby
             this.lblError.Text = "Error";
             this.lblError.Visible = false;
             // 
+            // lblVersion
+            // 
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersion.Location = new System.Drawing.Point(533, 584);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(54, 15);
+            this.lblVersion.TabIndex = 38;
+            this.lblVersion.Text = "Version: ";
+            // 
             // CreateGamer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
             this.ClientSize = new System.Drawing.Size(621, 604);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblPassword);
@@ -159,5 +171,6 @@ namespace PI3.Lobby
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Label lblVersion;
     }
 }

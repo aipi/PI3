@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CantStopServer;
 
 namespace PI3.Lobby
 {
@@ -17,6 +18,7 @@ namespace PI3.Lobby
             InitializeComponent();
             btnCreateMatch.MouseEnter += OnMouseEnterBtnCreateMatch;
             btnListMatches.MouseEnter += OnMouseEnterBtnListMatches;
+            lblVersion.Text = lblVersion.Text + Jogo.Versao;
         }
 
         private void OnMouseEnterBtnCreateMatch(object sender, EventArgs e)

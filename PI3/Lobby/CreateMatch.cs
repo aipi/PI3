@@ -18,6 +18,7 @@ namespace PI3.Lobby
             InitializeComponent();
             btnCancel.MouseEnter += this.OnMouseEnterBtnCancel;
             btnCreate.MouseEnter += this.OnMouseEnterBtnCreate;
+            lblVersion.Text = lblVersion.Text + Jogo.Versao;
         }
 
         private void OnMouseEnterBtnCreate(object sender, EventArgs e)

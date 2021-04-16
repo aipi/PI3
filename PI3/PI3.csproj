@@ -216,5 +216,23 @@
   <ItemGroup>
     <None Include="Resources\thumbsup.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\greenwhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bluewhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redwhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yellowwhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sair2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
