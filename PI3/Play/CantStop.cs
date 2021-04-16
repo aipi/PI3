@@ -91,11 +91,23 @@ namespace PI3.Play
             }
         }
 
+        private void clearBoard()
+        {
+            if (this.pbGamersPositions != null)
+            {
+                foreach (PictureBox value in this.pbGamersPositions)
+                {
+                    pbBackground.Controls.Remove(value);
+                }
+            }
+        }
+
         private void setBoardData()
         {
             string boardData = Jogo.ExibirTabuleiro(Convert.ToInt32(MatchID));
             string[] lines = boardData.Replace("\r", "").Split('\n');
             string[,] board = new string[lines.Length, 4];
+            this.clearBoard();
             this.pbGamersPositions = new PictureBox[lines.Length];
 
             for (int i = 0; i < lines.Length - 1; i++)
@@ -113,6 +125,7 @@ namespace PI3.Play
         {
             Gamer gamer = this.getGamer(gameBoard.gamerID);
             this.pbGamersPositions[i] = new PictureBox();
+            this.pbGamersPositions[i].Visible = false;
             switch (gamer.color)
             {
                 case "Vermelho":
