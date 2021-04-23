@@ -32,15 +32,13 @@ namespace PI3.Play
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CantStop));
             this.btnRollDice = new System.Windows.Forms.Button();
             this.btnPause = new System.Windows.Forms.Button();
-            this.tbMove = new System.Windows.Forms.TextBox();
-            this.lblName = new System.Windows.Forms.Label();
+            this.lblMoviment = new System.Windows.Forms.Label();
             this.btnMoviment = new System.Windows.Forms.Button();
             this.lblError = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
             this.btnRollDiceDeactivated = new System.Windows.Forms.Button();
-            this.btnMovimentDeactivate = new System.Windows.Forms.Button();
             this.btnPauseDeactivate = new System.Windows.Forms.Button();
-            this.checkedListBox = new System.Windows.Forms.CheckedListBox();
+            this.clbDice = new System.Windows.Forms.CheckedListBox();
             this.btnExit = new System.Windows.Forms.PictureBox();
             this.pbGreenWhite = new System.Windows.Forms.PictureBox();
             this.pbBlueWhite = new System.Windows.Forms.PictureBox();
@@ -58,6 +56,8 @@ namespace PI3.Play
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbBackground = new System.Windows.Forms.PictureBox();
             this.pb3 = new System.Windows.Forms.PictureBox();
+            this.btnMovimentDeactivate = new System.Windows.Forms.Button();
+            this.listBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGreenWhite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlueWhite)).BeginInit();
@@ -84,7 +84,7 @@ namespace PI3.Play
             this.btnRollDice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRollDice.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRollDice.ForeColor = System.Drawing.Color.White;
-            this.btnRollDice.Location = new System.Drawing.Point(41, 468);
+            this.btnRollDice.Location = new System.Drawing.Point(40, 458);
             this.btnRollDice.Name = "btnRollDice";
             this.btnRollDice.Size = new System.Drawing.Size(148, 49);
             this.btnRollDice.TabIndex = 22;
@@ -99,7 +99,7 @@ namespace PI3.Play
             this.btnPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPause.ForeColor = System.Drawing.Color.White;
-            this.btnPause.Location = new System.Drawing.Point(41, 523);
+            this.btnPause.Location = new System.Drawing.Point(40, 523);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(148, 49);
             this.btnPause.TabIndex = 23;
@@ -107,24 +107,16 @@ namespace PI3.Play
             this.btnPause.UseVisualStyleBackColor = false;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
-            // tbMove
+            // lblMoviment
             // 
-            this.tbMove.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMove.Location = new System.Drawing.Point(431, 480);
-            this.tbMove.Multiline = true;
-            this.tbMove.Name = "tbMove";
-            this.tbMove.Size = new System.Drawing.Size(148, 37);
-            this.tbMove.TabIndex = 24;
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(428, 462);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(88, 15);
-            this.lblName.TabIndex = 25;
-            this.lblName.Text = "MOVIMENTAR";
+            this.lblMoviment.AutoSize = true;
+            this.lblMoviment.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMoviment.Location = new System.Drawing.Point(428, 448);
+            this.lblMoviment.Name = "lblMoviment";
+            this.lblMoviment.Size = new System.Drawing.Size(88, 15);
+            this.lblMoviment.TabIndex = 25;
+            this.lblMoviment.Text = "MOVIMENTAR";
+            this.lblMoviment.Visible = false;
             // 
             // btnMoviment
             // 
@@ -133,12 +125,13 @@ namespace PI3.Play
             this.btnMoviment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMoviment.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMoviment.ForeColor = System.Drawing.Color.White;
-            this.btnMoviment.Location = new System.Drawing.Point(431, 523);
+            this.btnMoviment.Location = new System.Drawing.Point(430, 523);
             this.btnMoviment.Name = "btnMoviment";
             this.btnMoviment.Size = new System.Drawing.Size(148, 49);
             this.btnMoviment.TabIndex = 30;
             this.btnMoviment.Text = "MOVIMENTAR";
             this.btnMoviment.UseVisualStyleBackColor = false;
+            this.btnMoviment.Visible = false;
             this.btnMoviment.Click += new System.EventHandler(this.btnMoviment_Click);
             // 
             // lblError
@@ -146,7 +139,7 @@ namespace PI3.Play
             this.lblError.AutoSize = true;
             this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(37, 583);
+            this.lblError.Location = new System.Drawing.Point(38, 583);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(51, 15);
             this.lblError.TabIndex = 40;
@@ -157,7 +150,7 @@ namespace PI3.Play
             // 
             this.lblVersion.AutoSize = true;
             this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersion.Location = new System.Drawing.Point(533, 584);
+            this.lblVersion.Location = new System.Drawing.Point(532, 585);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(54, 15);
             this.lblVersion.TabIndex = 41;
@@ -170,26 +163,12 @@ namespace PI3.Play
             this.btnRollDiceDeactivated.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRollDiceDeactivated.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRollDiceDeactivated.ForeColor = System.Drawing.Color.White;
-            this.btnRollDiceDeactivated.Location = new System.Drawing.Point(41, 468);
+            this.btnRollDiceDeactivated.Location = new System.Drawing.Point(40, 458);
             this.btnRollDiceDeactivated.Name = "btnRollDiceDeactivated";
             this.btnRollDiceDeactivated.Size = new System.Drawing.Size(148, 49);
             this.btnRollDiceDeactivated.TabIndex = 45;
             this.btnRollDiceDeactivated.Text = "ROLAR DADOS";
             this.btnRollDiceDeactivated.UseVisualStyleBackColor = false;
-            // 
-            // btnMovimentDeactivate
-            // 
-            this.btnMovimentDeactivate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(235)))));
-            this.btnMovimentDeactivate.FlatAppearance.BorderSize = 0;
-            this.btnMovimentDeactivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMovimentDeactivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMovimentDeactivate.ForeColor = System.Drawing.Color.White;
-            this.btnMovimentDeactivate.Location = new System.Drawing.Point(431, 523);
-            this.btnMovimentDeactivate.Name = "btnMovimentDeactivate";
-            this.btnMovimentDeactivate.Size = new System.Drawing.Size(148, 49);
-            this.btnMovimentDeactivate.TabIndex = 46;
-            this.btnMovimentDeactivate.Text = "MOVIMENTAR";
-            this.btnMovimentDeactivate.UseVisualStyleBackColor = false;
             // 
             // btnPauseDeactivate
             // 
@@ -198,30 +177,34 @@ namespace PI3.Play
             this.btnPauseDeactivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPauseDeactivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPauseDeactivate.ForeColor = System.Drawing.Color.White;
-            this.btnPauseDeactivate.Location = new System.Drawing.Point(41, 523);
+            this.btnPauseDeactivate.Location = new System.Drawing.Point(40, 523);
             this.btnPauseDeactivate.Name = "btnPauseDeactivate";
             this.btnPauseDeactivate.Size = new System.Drawing.Size(148, 49);
             this.btnPauseDeactivate.TabIndex = 47;
             this.btnPauseDeactivate.Text = "PAUSAR";
             this.btnPauseDeactivate.UseVisualStyleBackColor = false;
             // 
-            // checkedListBox
+            // clbDice
             // 
-            this.checkedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
-            this.checkedListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.checkedListBox.CheckOnClick = true;
-            this.checkedListBox.FormattingEnabled = true;
-            this.checkedListBox.Items.AddRange(new object[] {
+            this.clbDice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
+            this.clbDice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.clbDice.CheckOnClick = true;
+            this.clbDice.ColumnWidth = 32;
+            this.clbDice.FormattingEnabled = true;
+            this.clbDice.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
-            "4"});
-            this.checkedListBox.Location = new System.Drawing.Point(40, 139);
-            this.checkedListBox.Name = "checkedListBox";
-            this.checkedListBox.Size = new System.Drawing.Size(75, 92);
-            this.checkedListBox.TabIndex = 42;
-            this.checkedListBox.Visible = false;
-            this.checkedListBox.SelectedIndexChanged += new System.EventHandler(this.checkedListBox_SelectedIndexChanged);
+            "4",
+            "5",
+            "6"});
+            this.clbDice.Location = new System.Drawing.Point(430, 469);
+            this.clbDice.MultiColumn = true;
+            this.clbDice.Name = "clbDice";
+            this.clbDice.Size = new System.Drawing.Size(278, 46);
+            this.clbDice.TabIndex = 42;
+            this.clbDice.Visible = false;
+            this.clbDice.SelectedIndexChanged += new System.EventHandler(this.clbDice_SelectedIndexChanged);
             // 
             // btnExit
             // 
@@ -229,7 +212,7 @@ namespace PI3.Play
             this.btnExit.Image = global::PI3.Properties.Resources.sair2;
             this.btnExit.Location = new System.Drawing.Point(21, 12);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(35, 33);
+            this.btnExit.Size = new System.Drawing.Size(34, 32);
             this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnExit.TabIndex = 52;
             this.btnExit.TabStop = false;
@@ -239,7 +222,7 @@ namespace PI3.Play
             // 
             this.pbGreenWhite.BackColor = System.Drawing.Color.Transparent;
             this.pbGreenWhite.Image = global::PI3.Properties.Resources.greenwhite;
-            this.pbGreenWhite.Location = new System.Drawing.Point(127, 393);
+            this.pbGreenWhite.Location = new System.Drawing.Point(128, 392);
             this.pbGreenWhite.Name = "pbGreenWhite";
             this.pbGreenWhite.Size = new System.Drawing.Size(15, 14);
             this.pbGreenWhite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -251,7 +234,7 @@ namespace PI3.Play
             // 
             this.pbBlueWhite.BackColor = System.Drawing.Color.Transparent;
             this.pbBlueWhite.Image = global::PI3.Properties.Resources.bluewhite;
-            this.pbBlueWhite.Location = new System.Drawing.Point(127, 381);
+            this.pbBlueWhite.Location = new System.Drawing.Point(128, 382);
             this.pbBlueWhite.Name = "pbBlueWhite";
             this.pbBlueWhite.Size = new System.Drawing.Size(15, 14);
             this.pbBlueWhite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -263,7 +246,7 @@ namespace PI3.Play
             // 
             this.pbYellowWhite.BackColor = System.Drawing.Color.Transparent;
             this.pbYellowWhite.Image = global::PI3.Properties.Resources.yellowwhite;
-            this.pbYellowWhite.Location = new System.Drawing.Point(112, 393);
+            this.pbYellowWhite.Location = new System.Drawing.Point(112, 392);
             this.pbYellowWhite.Name = "pbYellowWhite";
             this.pbYellowWhite.Size = new System.Drawing.Size(15, 14);
             this.pbYellowWhite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -275,7 +258,7 @@ namespace PI3.Play
             // 
             this.pbRedWhite.BackColor = System.Drawing.Color.Transparent;
             this.pbRedWhite.Image = global::PI3.Properties.Resources.redwhite;
-            this.pbRedWhite.Location = new System.Drawing.Point(112, 381);
+            this.pbRedWhite.Location = new System.Drawing.Point(112, 382);
             this.pbRedWhite.Name = "pbRedWhite";
             this.pbRedWhite.Size = new System.Drawing.Size(15, 14);
             this.pbRedWhite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -287,7 +270,7 @@ namespace PI3.Play
             // 
             this.pbGreen.BackColor = System.Drawing.Color.Transparent;
             this.pbGreen.Image = global::PI3.Properties.Resources.verde1;
-            this.pbGreen.Location = new System.Drawing.Point(127, 393);
+            this.pbGreen.Location = new System.Drawing.Point(128, 392);
             this.pbGreen.Name = "pbGreen";
             this.pbGreen.Size = new System.Drawing.Size(15, 14);
             this.pbGreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -299,7 +282,7 @@ namespace PI3.Play
             // 
             this.pbBlue.BackColor = System.Drawing.Color.Transparent;
             this.pbBlue.Image = global::PI3.Properties.Resources.azul1;
-            this.pbBlue.Location = new System.Drawing.Point(127, 381);
+            this.pbBlue.Location = new System.Drawing.Point(128, 382);
             this.pbBlue.Name = "pbBlue";
             this.pbBlue.Size = new System.Drawing.Size(15, 14);
             this.pbBlue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -311,7 +294,7 @@ namespace PI3.Play
             // 
             this.pbYellow.BackColor = System.Drawing.Color.Transparent;
             this.pbYellow.Image = global::PI3.Properties.Resources.amarelo1;
-            this.pbYellow.Location = new System.Drawing.Point(112, 393);
+            this.pbYellow.Location = new System.Drawing.Point(112, 392);
             this.pbYellow.Name = "pbYellow";
             this.pbYellow.Size = new System.Drawing.Size(15, 14);
             this.pbYellow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -323,7 +306,7 @@ namespace PI3.Play
             // 
             this.pbRed.BackColor = System.Drawing.Color.Transparent;
             this.pbRed.Image = global::PI3.Properties.Resources.vermelho1;
-            this.pbRed.Location = new System.Drawing.Point(112, 381);
+            this.pbRed.Location = new System.Drawing.Point(112, 382);
             this.pbRed.Name = "pbRed";
             this.pbRed.Size = new System.Drawing.Size(15, 14);
             this.pbRed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -334,9 +317,9 @@ namespace PI3.Play
             // pb6
             // 
             this.pb6.Image = global::PI3.Properties.Resources._61;
-            this.pb6.Location = new System.Drawing.Point(309, 470);
+            this.pb6.Location = new System.Drawing.Point(309, 469);
             this.pb6.Name = "pb6";
-            this.pb6.Size = new System.Drawing.Size(44, 47);
+            this.pb6.Size = new System.Drawing.Size(44, 48);
             this.pb6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb6.TabIndex = 34;
             this.pb6.TabStop = false;
@@ -345,9 +328,9 @@ namespace PI3.Play
             // pb5
             // 
             this.pb5.Image = global::PI3.Properties.Resources._51;
-            this.pb5.Location = new System.Drawing.Point(259, 523);
+            this.pb5.Location = new System.Drawing.Point(260, 523);
             this.pb5.Name = "pb5";
-            this.pb5.Size = new System.Drawing.Size(44, 47);
+            this.pb5.Size = new System.Drawing.Size(44, 48);
             this.pb5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb5.TabIndex = 33;
             this.pb5.TabStop = false;
@@ -358,7 +341,7 @@ namespace PI3.Play
             this.pb4.Image = global::PI3.Properties.Resources._41;
             this.pb4.Location = new System.Drawing.Point(309, 523);
             this.pb4.Name = "pb4";
-            this.pb4.Size = new System.Drawing.Size(44, 47);
+            this.pb4.Size = new System.Drawing.Size(44, 48);
             this.pb4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb4.TabIndex = 35;
             this.pb4.TabStop = false;
@@ -367,9 +350,9 @@ namespace PI3.Play
             // pb2
             // 
             this.pb2.Image = global::PI3.Properties.Resources._21;
-            this.pb2.Location = new System.Drawing.Point(259, 470);
+            this.pb2.Location = new System.Drawing.Point(260, 469);
             this.pb2.Name = "pb2";
-            this.pb2.Size = new System.Drawing.Size(44, 47);
+            this.pb2.Size = new System.Drawing.Size(44, 48);
             this.pb2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb2.TabIndex = 31;
             this.pb2.TabStop = false;
@@ -378,9 +361,9 @@ namespace PI3.Play
             // pb1
             // 
             this.pb1.Image = global::PI3.Properties.Resources._11;
-            this.pb1.Location = new System.Drawing.Point(259, 470);
+            this.pb1.Location = new System.Drawing.Point(260, 469);
             this.pb1.Name = "pb1";
-            this.pb1.Size = new System.Drawing.Size(44, 47);
+            this.pb1.Size = new System.Drawing.Size(44, 48);
             this.pb1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb1.TabIndex = 26;
             this.pb1.TabStop = false;
@@ -392,7 +375,7 @@ namespace PI3.Play
             this.pictureBox1.Image = global::PI3.Properties.Resources.tipo;
             this.pictureBox1.Location = new System.Drawing.Point(246, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(133, 63);
+            this.pictureBox1.Size = new System.Drawing.Size(134, 63);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
@@ -400,7 +383,7 @@ namespace PI3.Play
             // pbBackground
             // 
             this.pbBackground.Image = global::PI3.Properties.Resources.montanha;
-            this.pbBackground.Location = new System.Drawing.Point(41, -46);
+            this.pbBackground.Location = new System.Drawing.Point(40, -46);
             this.pbBackground.Name = "pbBackground";
             this.pbBackground.Size = new System.Drawing.Size(538, 495);
             this.pbBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -410,29 +393,57 @@ namespace PI3.Play
             // pb3
             // 
             this.pb3.Image = global::PI3.Properties.Resources._31;
-            this.pb3.Location = new System.Drawing.Point(259, 470);
+            this.pb3.Location = new System.Drawing.Point(260, 469);
             this.pb3.Name = "pb3";
-            this.pb3.Size = new System.Drawing.Size(44, 47);
+            this.pb3.Size = new System.Drawing.Size(44, 48);
             this.pb3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb3.TabIndex = 32;
             this.pb3.TabStop = false;
             this.pb3.Visible = false;
+            // 
+            // btnMovimentDeactivate
+            // 
+            this.btnMovimentDeactivate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(235)))));
+            this.btnMovimentDeactivate.FlatAppearance.BorderSize = 0;
+            this.btnMovimentDeactivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMovimentDeactivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMovimentDeactivate.ForeColor = System.Drawing.Color.White;
+            this.btnMovimentDeactivate.Location = new System.Drawing.Point(430, 523);
+            this.btnMovimentDeactivate.Name = "btnMovimentDeactivate";
+            this.btnMovimentDeactivate.Size = new System.Drawing.Size(148, 49);
+            this.btnMovimentDeactivate.TabIndex = 53;
+            this.btnMovimentDeactivate.Text = "MOVIMENTAR";
+            this.btnMovimentDeactivate.UseVisualStyleBackColor = false;
+            this.btnMovimentDeactivate.Visible = false;
+            // 
+            // listBox
+            // 
+            this.listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
+            this.listBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox.FormattingEnabled = true;
+            this.listBox.ItemHeight = 15;
+            this.listBox.Location = new System.Drawing.Point(197, 575);
+            this.listBox.Name = "listBox";
+            this.listBox.Size = new System.Drawing.Size(222, 30);
+            this.listBox.TabIndex = 54;
             // 
             // CantStop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
-            this.ClientSize = new System.Drawing.Size(621, 604);
+            this.ClientSize = new System.Drawing.Size(621, 605);
+            this.Controls.Add(this.listBox);
+            this.Controls.Add(this.btnMovimentDeactivate);
+            this.Controls.Add(this.clbDice);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pbGreenWhite);
             this.Controls.Add(this.pbBlueWhite);
             this.Controls.Add(this.pbYellowWhite);
             this.Controls.Add(this.pbRedWhite);
             this.Controls.Add(this.btnPauseDeactivate);
-            this.Controls.Add(this.btnMovimentDeactivate);
             this.Controls.Add(this.btnRollDiceDeactivated);
-            this.Controls.Add(this.checkedListBox);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.pbGreen);
@@ -445,8 +456,7 @@ namespace PI3.Play
             this.Controls.Add(this.pb2);
             this.Controls.Add(this.btnMoviment);
             this.Controls.Add(this.pb1);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.tbMove);
+            this.Controls.Add(this.lblMoviment);
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.btnRollDice);
             this.Controls.Add(this.pictureBox1);
@@ -483,8 +493,7 @@ namespace PI3.Play
         private System.Windows.Forms.PictureBox pbBackground;
         private System.Windows.Forms.Button btnRollDice;
         private System.Windows.Forms.Button btnPause;
-        private System.Windows.Forms.TextBox tbMove;
-        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblMoviment;
         private System.Windows.Forms.Button btnMoviment;
         private System.Windows.Forms.PictureBox pb1;
         private System.Windows.Forms.PictureBox pb2;
@@ -499,13 +508,14 @@ namespace PI3.Play
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.Button btnRollDiceDeactivated;
-        private System.Windows.Forms.Button btnMovimentDeactivate;
         private System.Windows.Forms.Button btnPauseDeactivate;
-        private System.Windows.Forms.CheckedListBox checkedListBox;
+        private System.Windows.Forms.CheckedListBox clbDice;
         private System.Windows.Forms.PictureBox pbGreenWhite;
         private System.Windows.Forms.PictureBox pbBlueWhite;
         private System.Windows.Forms.PictureBox pbYellowWhite;
         private System.Windows.Forms.PictureBox pbRedWhite;
         private System.Windows.Forms.PictureBox btnExit;
+        private System.Windows.Forms.Button btnMovimentDeactivate;
+        private System.Windows.Forms.ListBox listBox;
     }
 }

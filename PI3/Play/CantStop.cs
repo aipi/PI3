@@ -23,10 +23,12 @@ namespace PI3.Play
         private string[,] Gamers;
         private PictureBox[] pBDices;
         private PictureBox[] pbGamersPositions;
+        List<Permutation> Permutations;
         System.Windows.Forms.Timer t = null;
 
         public CantStop(int GamerID, string MatchID, string GamerColor, string Password)
         {
+            this.Permutations = new List<Permutation>();
             this.GamerID = GamerID;
             this.MatchID = MatchID;
             this.Password = Password;
@@ -41,13 +43,14 @@ namespace PI3.Play
             btnPause.MouseEnter += OnMouseEnterBtnPause;
             btnMoviment.MouseEnter += OnMouseEnterBtnMoviment;
             btnExit.MouseEnter += OnMouseEnterBtnExit;
+            clbDice.ItemCheck += clbDice_ItemCheck;
             this.setGamers();
         }
 
         private void StartTimer()
         {
             t = new System.Windows.Forms.Timer();
-            t.Interval = 10;
+            t.Interval = 1000;
             t.Tick += new EventHandler(t_Tick);
             t.Enabled = true;
 
@@ -56,18 +59,20 @@ namespace PI3.Play
         void t_Tick(object sender, EventArgs e)
         {
             string checkTurn = Jogo.VerificarVez(Convert.ToInt32(this.MatchID));
+            string history = Jogo.ExibirHistorico(Convert.ToInt32(this.MatchID));
+            //string checkTurn = "J1";
+            if (listBox.Items.Count < 1 || listBox.Items[listBox.Items.Count - 1].ToString() != history)
+                listBox.Items.Add(history);
 
             if (checkTurn.Contains("J") && checkTurn.Contains(this.GamerID.ToString()))
             {
                 btnRollDiceDeactivated.Visible = false;
-                btnMovimentDeactivate.Visible = false;
                 btnPauseDeactivate.Visible = false;
 
             }
             else
             {
                 btnRollDiceDeactivated.Visible = true;
-                btnMovimentDeactivate.Visible = true;
                 btnPauseDeactivate.Visible = true;
             }
             this.setBoardData();
@@ -218,10 +223,35 @@ namespace PI3.Play
             Array.Clear(this.Dices, 0, this.Dices.Length);
         }
 
+        private void permuteDices()
+        {
+            this.Permutations.Clear();
+            var Dices1 =  Enumerable.Range(0, this.Dices.GetLength(0))
+                            .Select(row => Enumerable.Range(0, this.Dices.GetLength(1))
+                            .Select(col => this.Dices[row, col]).ToList()).ToList();
+
+            clbDice.Items.Clear();
+            for (int i = 0; i < Dices1.Count; i++)
+            {
+                var Dices2 = Dices1.GetRange(i, Dices1.Count - i);
+                Console.WriteLine(Permutations);
+                for (int j = 0; j < Dices2.Count; j++)
+                {
+                    if (Dices1[i][0] != Dices2[j][0])
+                    {
+                        Permutation permutation = new Permutation();
+                        permutation.setter(Dices1[i], Dices2[j]);
+                        this.Permutations.Add(permutation);
+                        clbDice.Items.Add(permutation.diceSum.ToString());
+                    }
+                }
+            }
+        }
+
         private void btnRollDice_Click(object sender, EventArgs e)
         {
             lblError.Visible = false;
-            //string rollDice = "11\r\n24\r\n32\r\n46\r\n";
+            //string rollDice = "11\r\n24\r\n34\r\n46\r\n";
             string rollDice = Jogo.RolarDados(this.GamerID, this.Password);
             if (rollDice.Contains("ERRO"))
             {
@@ -244,6 +274,10 @@ namespace PI3.Play
                         }
                     }
                 }
+                permuteDices();
+                lblMoviment.Visible = true;
+                clbDice.Visible = true;
+                btnMovimentDeactivate.Visible = true;
             }
         }
 
@@ -309,41 +343,99 @@ namespace PI3.Play
             Array.Clear(this.pbGamersPositions, 0, this.pbGamersPositions.Length);
         }
 
+        private (string, string) getMoviment()
+        {
+            string movimentValue = "";
+            string movimentDices = "";
+            List<Permutation> permutations = new List<Permutation>();
+            permutations.Add(this.Permutations.ElementAt(clbDice.CheckedIndices[0]));
+            if (clbDice.CheckedIndices.Count > 1)
+                permutations.Add(this.Permutations.ElementAt(clbDice.CheckedIndices[1]));
+            
+            foreach (var permutation in permutations)
+            {
+                string value = "";
+                if (permutation.diceSum.ToString() == "10")
+                    value = "A";
+                else if (permutation.diceSum.ToString() == "11")
+                    value = "B";
+                else if (permutation.diceSum.ToString() == "12")
+                    value = "C";
+                else
+                    value = permutation.diceSum.ToString();
+
+                movimentValue += value;
+                movimentDices += permutation.idDice1.ToString() + permutation.idDice2.ToString();
+            }
+            if (clbDice.CheckedIndices.Count <= 1)
+            {
+                string rest = permutations[0].idDice1.ToString() + permutations[0].idDice2.ToString();
+                movimentValue += "0";
+                if (rest == "12") { movimentDices += "34"; }
+                else if (rest == "21") { movimentDices += "34"; }
+                else if (rest == "13") { movimentDices += "24"; }
+                else if (rest == "31") { movimentDices += "24"; }
+                else if (rest == "14") { movimentDices += "23"; }
+                else if (rest == "41") { movimentDices += "23"; }
+                else if (rest == "23") { movimentDices += "12"; }
+                else if (rest == "32") { movimentDices += "12"; }
+                else if (rest == "24") { movimentDices += "31"; }
+                else if (rest == "42") { movimentDices += "31"; }
+                else if (rest == "34") { movimentDices += "12"; }
+                else if (rest == "43") { movimentDices += "12"; }
+            }
+            return (movimentValue, movimentDices);
+        }
+
         private void btnMoviment_Click(object sender, EventArgs e)
         {
+            (string movimentValue, string movimentDices) = this.getMoviment();
             lblError.Visible = false;
-            string moviment = tbMove.Text;
-            string movimentReturn = Jogo.Mover(this.GamerID, this.Password, "1234", moviment);
+            string movimentReturn = Jogo.Mover(this.GamerID, this.Password, movimentDices, movimentValue);
 
             if (movimentReturn.Contains("ERRO"))
             {
                 lblError.Text = movimentReturn;
                 lblError.Visible = true;
+                btnMovimentDeactivate.Visible = true;
+                btnMoviment.Visible = true;
+                clbDice.Visible = true;
+                lblMoviment.Visible = true;
             } else
             {
+                btnMovimentDeactivate.Visible = false;
+                btnMoviment.Visible = false;
+                clbDice.Visible = false;
+                lblMoviment.Visible = false;
                 resetGamersPosition();
                 string result = Jogo.ExibirTabuleiro(Convert.ToInt32(this.MatchID));
                 this.resetDices();
                 setBoardData();
             }
-            tbMove.Text = "";
-
         }
 
         private void btnPause_Click(object sender, EventArgs e)
         {
+            btnMovimentDeactivate.Visible = false;
+            btnMoviment.Visible = false;
+            clbDice.Visible = false;
+            lblMoviment.Visible = false;
             lblError.Visible = false;
+            pb1.Visible = false;
+            pb2.Visible = false;
+            pb3.Visible = false;
+            pb4.Visible = false;
+            pb5.Visible = false;
+            pb6.Visible = false;
             string pause = Jogo.Parar(this.GamerID, this.Password);
             if (pause.Contains("ERRO"))
             {
                 lblError.Text = pause;
             }
-        }
-
-        private void checkedListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.checkedListBox.ClearSelected();
-        }
+            lblMoviment.Visible = false;
+            clbDice.Visible = false;
+            btnMoviment.Visible = false;
+        }        
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -376,5 +468,49 @@ namespace PI3.Play
         {
             btnMoviment.Cursor = System.Windows.Forms.Cursors.Hand;
         }
+
+        private void clbDice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.clbDice.ClearSelected();
+        }
+
+        private void clbDice_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (lblError.Visible)
+                lblError.Visible = false;
+
+            if (e.NewValue == CheckState.Checked && clbDice.CheckedItems.Count >= 2)
+            {
+                e.NewValue = CheckState.Unchecked;
+                lblError.Text = "ERRO: Só é possível escolher até 2 opções para movimentar";
+                lblError.Visible = true;
+                btnMoviment.Visible = true;
+            }
+
+            if (e.NewValue == CheckState.Unchecked && clbDice.CheckedItems.Count != 0)
+                btnMovimentDeactivate.Visible = true;
+            else
+            {
+                btnMovimentDeactivate.Visible = false;
+                btnMoviment.Visible = true;
+            }
+
+            if (e.NewValue == CheckState.Checked && clbDice.CheckedItems.Count != 0)
+            {
+                Permutation selectPermutation = this.Permutations.ElementAt(clbDice.SelectedIndex);
+                Permutation selectedPermutation = this.Permutations.ElementAt(clbDice.CheckedIndices[0]);
+                
+                if (selectPermutation.idDice1 == selectedPermutation.idDice1 ||
+                    selectPermutation.idDice2 == selectedPermutation.idDice2 ||
+                    selectPermutation.idDice1 == selectedPermutation.idDice2 ||
+                    selectPermutation.idDice2 == selectedPermutation.idDice1)
+                {
+                    btnMovimentDeactivate.Visible = true;
+                    lblError.Text = "ERRO: O dado número " + selectPermutation.diceSum.ToString() + " já está sendo utilizado. Selecione outra combinação de dados.";
+                    lblError.Visible = true;
+                }
+            }   
+        }
+
     }
 }

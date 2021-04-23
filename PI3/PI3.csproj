@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Match.cs" />
     <Compile Include="Play\Board.cs" />
+    <Compile Include="Play\Permutation.cs" />
     <Compile Include="Play\Gamer.cs" />
     <Compile Include="Lobby\CreateGamer.cs">
       <SubType>Form</SubType>
