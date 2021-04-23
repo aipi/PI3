@@ -20,6 +20,7 @@ namespace PI3.Play
         private readonly string GamerColor;
         private List<Gamer> gamers;
         private int[,] Dices;
+        private int[,] trail;
         private string[,] Gamers;
         private PictureBox[] pBDices;
         private PictureBox[] pbGamersPositions;
@@ -34,6 +35,9 @@ namespace PI3.Play
             this.Password = Password;
             this.GamerColor = GamerColor;
             this.Gamers = new string[4, 3];
+            this.trail = new int[,] { { 0, 2}, { 0, 4 }, { 0, 6 },  { 0, 8 }, 
+                                      { 0, 10 }, { 0, 12 }, { 0, 10 }, { 0, 8 }, 
+                                      { 0, 6 }, { 0, 4 }, { 0, 2 } };
             this.pBDices = new PictureBox[4];
             this.Dices = new int[4, 2];
             InitializeComponent();
@@ -251,6 +255,7 @@ namespace PI3.Play
         private void btnRollDice_Click(object sender, EventArgs e)
         {
             lblError.Visible = false;
+            listBox.Visible = true;
             //string rollDice = "11\r\n24\r\n34\r\n46\r\n";
             string rollDice = Jogo.RolarDados(this.GamerID, this.Password);
             if (rollDice.Contains("ERRO"))
@@ -354,6 +359,15 @@ namespace PI3.Play
             
             foreach (var permutation in permutations)
             {
+                if (this.trail[permutation.diceSum - 2, 0] != this.trail[permutation.diceSum - 2, 1])
+                {
+                    this.trail[permutation.diceSum - 2, 0] += 1;
+                }
+                else
+                {
+                    return ("", "");
+                }
+                
                 string value = "";
                 if (permutation.diceSum.ToString() == "10")
                     value = "A";
@@ -389,14 +403,21 @@ namespace PI3.Play
 
         private void btnMoviment_Click(object sender, EventArgs e)
         {
-            (string movimentValue, string movimentDices) = this.getMoviment();
+            
+            (string movimentValue, string movimentDicesOrder) = this.getMoviment();
             lblError.Visible = false;
-            string movimentReturn = Jogo.Mover(this.GamerID, this.Password, movimentDices, movimentValue);
+            listBox.Visible = true;
+            string movimentReturn = "";
+            if (movimentValue != "" && movimentDicesOrder != "")
+                movimentReturn = Jogo.Mover(this.GamerID, this.Password, movimentDicesOrder, movimentValue);
+            else
+                movimentReturn = "ERRO: Trilha completa!";
 
             if (movimentReturn.Contains("ERRO"))
             {
                 lblError.Text = movimentReturn;
                 lblError.Visible = true;
+                listBox.Visible = false;
                 btnMovimentDeactivate.Visible = true;
                 btnMoviment.Visible = true;
                 clbDice.Visible = true;
@@ -421,6 +442,7 @@ namespace PI3.Play
             clbDice.Visible = false;
             lblMoviment.Visible = false;
             lblError.Visible = false;
+            listBox.Visible = true;
             pb1.Visible = false;
             pb2.Visible = false;
             pb3.Visible = false;
@@ -478,6 +500,7 @@ namespace PI3.Play
         {
             if (lblError.Visible)
                 lblError.Visible = false;
+                listBox.Visible = false;
 
             if (e.NewValue == CheckState.Checked && clbDice.CheckedItems.Count >= 2)
             {
@@ -485,6 +508,7 @@ namespace PI3.Play
                 lblError.Text = "ERRO: Só é possível escolher até 2 opções para movimentar";
                 lblError.Visible = true;
                 btnMoviment.Visible = true;
+                listBox.Visible = false;
             }
 
             if (e.NewValue == CheckState.Unchecked && clbDice.CheckedItems.Count != 0)
@@ -494,7 +518,7 @@ namespace PI3.Play
                 btnMovimentDeactivate.Visible = false;
                 btnMoviment.Visible = true;
             }
-
+            
             if (e.NewValue == CheckState.Checked && clbDice.CheckedItems.Count != 0)
             {
                 Permutation selectPermutation = this.Permutations.ElementAt(clbDice.SelectedIndex);
@@ -508,9 +532,9 @@ namespace PI3.Play
                     btnMovimentDeactivate.Visible = true;
                     lblError.Text = "ERRO: O dado número " + selectPermutation.diceSum.ToString() + " já está sendo utilizado. Selecione outra combinação de dados.";
                     lblError.Visible = true;
+                    listBox.Visible = false;
                 }
-            }   
+            }
         }
-
     }
 }

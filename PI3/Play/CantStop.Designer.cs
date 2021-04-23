@@ -139,7 +139,7 @@ namespace PI3.Play
             this.lblError.AutoSize = true;
             this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(38, 583);
+            this.lblError.Location = new System.Drawing.Point(37, 581);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(51, 15);
             this.lblError.TabIndex = 40;
@@ -423,9 +423,9 @@ namespace PI3.Play
             this.listBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox.FormattingEnabled = true;
             this.listBox.ItemHeight = 15;
-            this.listBox.Location = new System.Drawing.Point(197, 575);
+            this.listBox.Location = new System.Drawing.Point(40, 577);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(222, 30);
+            this.listBox.Size = new System.Drawing.Size(321, 30);
             this.listBox.TabIndex = 54;
             // 
             // CantStop
