@@ -52,6 +52,8 @@
   <ItemGroup>
     <Compile Include="Match.cs" />
     <Compile Include="Play\Board.cs" />
+    <Compile Include="Play\Options.cs" />
+    <Compile Include="Play\Match.cs" />
     <Compile Include="Play\Permutation.cs" />
     <Compile Include="Play\Gamer.cs" />
     <Compile Include="Lobby\CreateGamer.cs">
@@ -234,6 +236,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sair2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redOpacity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yellowOpacity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blueOpacity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\greenOpacity.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

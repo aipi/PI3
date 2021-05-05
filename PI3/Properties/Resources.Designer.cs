@@ -233,6 +233,16 @@ namespace PI3.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blueOpacity {
+            get {
+                object obj = ResourceManager.GetObject("blueOpacity", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bluewhite {
             get {
                 object obj = ResourceManager.GetObject("bluewhite", resourceCulture);
@@ -303,6 +313,16 @@ namespace PI3.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap greenOpacity {
+            get {
+                object obj = ResourceManager.GetObject("greenOpacity", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap greenwhite {
             get {
                 object obj = ResourceManager.GetObject("greenwhite", resourceCulture);
@@ -346,6 +366,16 @@ namespace PI3.Properties {
         internal static System.Drawing.Bitmap montanha2 {
             get {
                 object obj = ResourceManager.GetObject("montanha2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap redOpacity {
+            get {
+                object obj = ResourceManager.GetObject("redOpacity", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -436,6 +466,16 @@ namespace PI3.Properties {
         internal static System.Drawing.Bitmap vermellho {
             get {
                 object obj = ResourceManager.GetObject("vermellho", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yellowOpacity {
+            get {
+                object obj = ResourceManager.GetObject("yellowOpacity", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

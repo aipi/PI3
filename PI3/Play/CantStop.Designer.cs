@@ -32,13 +32,26 @@ namespace PI3.Play
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CantStop));
             this.btnRollDice = new System.Windows.Forms.Button();
             this.btnPause = new System.Windows.Forms.Button();
-            this.lblMoviment = new System.Windows.Forms.Label();
+            this.lblOptions = new System.Windows.Forms.Label();
             this.btnMoviment = new System.Windows.Forms.Button();
             this.lblError = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
             this.btnRollDiceDeactivated = new System.Windows.Forms.Button();
             this.btnPauseDeactivate = new System.Windows.Forms.Button();
-            this.clbDice = new System.Windows.Forms.CheckedListBox();
+            this.btnMovimentDeactivate = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.lblPlaying = new System.Windows.Forms.Label();
+            this.statusBox = new System.Windows.Forms.Label();
+            this.pbGreenO = new System.Windows.Forms.PictureBox();
+            this.pbYellowO = new System.Windows.Forms.PictureBox();
+            this.pbBlueO = new System.Windows.Forms.PictureBox();
+            this.pbRedO = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.PictureBox();
             this.pbGreenWhite = new System.Windows.Forms.PictureBox();
             this.pbBlueWhite = new System.Windows.Forms.PictureBox();
@@ -56,8 +69,15 @@ namespace PI3.Play
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbBackground = new System.Windows.Forms.PictureBox();
             this.pb3 = new System.Windows.Forms.PictureBox();
-            this.btnMovimentDeactivate = new System.Windows.Forms.Button();
-            this.listBox = new System.Windows.Forms.ListBox();
+            this.lblColor = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGreenO)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbYellowO)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlueO)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRedO)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGreenWhite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlueWhite)).BeginInit();
@@ -107,16 +127,16 @@ namespace PI3.Play
             this.btnPause.UseVisualStyleBackColor = false;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
-            // lblMoviment
+            // lblOptions
             // 
-            this.lblMoviment.AutoSize = true;
-            this.lblMoviment.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMoviment.Location = new System.Drawing.Point(428, 448);
-            this.lblMoviment.Name = "lblMoviment";
-            this.lblMoviment.Size = new System.Drawing.Size(88, 15);
-            this.lblMoviment.TabIndex = 25;
-            this.lblMoviment.Text = "MOVIMENTAR";
-            this.lblMoviment.Visible = false;
+            this.lblOptions.AutoSize = true;
+            this.lblOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOptions.Location = new System.Drawing.Point(328, 459);
+            this.lblOptions.Name = "lblOptions";
+            this.lblOptions.Size = new System.Drawing.Size(60, 15);
+            this.lblOptions.TabIndex = 25;
+            this.lblOptions.Text = "OPÇÕES:";
+            this.lblOptions.Visible = false;
             // 
             // btnMoviment
             // 
@@ -125,7 +145,7 @@ namespace PI3.Play
             this.btnMoviment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMoviment.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMoviment.ForeColor = System.Drawing.Color.White;
-            this.btnMoviment.Location = new System.Drawing.Point(430, 523);
+            this.btnMoviment.Location = new System.Drawing.Point(430, 534);
             this.btnMoviment.Name = "btnMoviment";
             this.btnMoviment.Size = new System.Drawing.Size(148, 49);
             this.btnMoviment.TabIndex = 30;
@@ -150,7 +170,7 @@ namespace PI3.Play
             // 
             this.lblVersion.AutoSize = true;
             this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersion.Location = new System.Drawing.Point(532, 585);
+            this.lblVersion.Location = new System.Drawing.Point(540, 685);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(54, 15);
             this.lblVersion.TabIndex = 41;
@@ -184,27 +204,165 @@ namespace PI3.Play
             this.btnPauseDeactivate.Text = "PAUSAR";
             this.btnPauseDeactivate.UseVisualStyleBackColor = false;
             // 
-            // clbDice
+            // btnMovimentDeactivate
             // 
-            this.clbDice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
-            this.clbDice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.clbDice.CheckOnClick = true;
-            this.clbDice.ColumnWidth = 32;
-            this.clbDice.FormattingEnabled = true;
-            this.clbDice.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6"});
-            this.clbDice.Location = new System.Drawing.Point(430, 469);
-            this.clbDice.MultiColumn = true;
-            this.clbDice.Name = "clbDice";
-            this.clbDice.Size = new System.Drawing.Size(278, 46);
-            this.clbDice.TabIndex = 42;
-            this.clbDice.Visible = false;
-            this.clbDice.SelectedIndexChanged += new System.EventHandler(this.clbDice_SelectedIndexChanged);
+            this.btnMovimentDeactivate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(235)))));
+            this.btnMovimentDeactivate.FlatAppearance.BorderSize = 0;
+            this.btnMovimentDeactivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMovimentDeactivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMovimentDeactivate.ForeColor = System.Drawing.Color.White;
+            this.btnMovimentDeactivate.Location = new System.Drawing.Point(430, 534);
+            this.btnMovimentDeactivate.Name = "btnMovimentDeactivate";
+            this.btnMovimentDeactivate.Size = new System.Drawing.Size(148, 49);
+            this.btnMovimentDeactivate.TabIndex = 53;
+            this.btnMovimentDeactivate.Text = "MOVIMENTAR";
+            this.btnMovimentDeactivate.UseVisualStyleBackColor = false;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(329, 483);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(87, 24);
+            this.radioButton1.TabIndex = 55;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "10 e 12";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.Visible = false;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(329, 546);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(87, 24);
+            this.radioButton2.TabIndex = 56;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "10 e 12";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.Visible = false;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(329, 514);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(87, 24);
+            this.radioButton3.TabIndex = 57;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "10 e 12";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.Visible = false;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // lblPlaying
+            // 
+            this.lblPlaying.AutoSize = true;
+            this.lblPlaying.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaying.Location = new System.Drawing.Point(427, 459);
+            this.lblPlaying.Name = "lblPlaying";
+            this.lblPlaying.Size = new System.Drawing.Size(114, 15);
+            this.lblPlaying.TabIndex = 59;
+            this.lblPlaying.Text = "VEZ DO JOGADOR:";
+            // 
+            // statusBox
+            // 
+            this.statusBox.AutoSize = true;
+            this.statusBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusBox.Location = new System.Drawing.Point(37, 611);
+            this.statusBox.Name = "statusBox";
+            this.statusBox.Size = new System.Drawing.Size(0, 15);
+            this.statusBox.TabIndex = 63;
+            // 
+            // pbGreenO
+            // 
+            this.pbGreenO.BackColor = System.Drawing.Color.Transparent;
+            this.pbGreenO.Image = global::PI3.Properties.Resources.greenOpacity;
+            this.pbGreenO.Location = new System.Drawing.Point(553, 484);
+            this.pbGreenO.Name = "pbGreenO";
+            this.pbGreenO.Size = new System.Drawing.Size(25, 23);
+            this.pbGreenO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbGreenO.TabIndex = 67;
+            this.pbGreenO.TabStop = false;
+            // 
+            // pbYellowO
+            // 
+            this.pbYellowO.BackColor = System.Drawing.Color.Transparent;
+            this.pbYellowO.Image = global::PI3.Properties.Resources.yellowOpacity;
+            this.pbYellowO.Location = new System.Drawing.Point(470, 484);
+            this.pbYellowO.Name = "pbYellowO";
+            this.pbYellowO.Size = new System.Drawing.Size(25, 23);
+            this.pbYellowO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbYellowO.TabIndex = 66;
+            this.pbYellowO.TabStop = false;
+            // 
+            // pbBlueO
+            // 
+            this.pbBlueO.BackColor = System.Drawing.Color.Transparent;
+            this.pbBlueO.Image = global::PI3.Properties.Resources.blueOpacity;
+            this.pbBlueO.Location = new System.Drawing.Point(511, 484);
+            this.pbBlueO.Name = "pbBlueO";
+            this.pbBlueO.Size = new System.Drawing.Size(25, 23);
+            this.pbBlueO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBlueO.TabIndex = 65;
+            this.pbBlueO.TabStop = false;
+            // 
+            // pbRedO
+            // 
+            this.pbRedO.BackColor = System.Drawing.Color.Transparent;
+            this.pbRedO.Image = global::PI3.Properties.Resources.redOpacity;
+            this.pbRedO.Location = new System.Drawing.Point(430, 484);
+            this.pbRedO.Name = "pbRedO";
+            this.pbRedO.Size = new System.Drawing.Size(25, 23);
+            this.pbRedO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRedO.TabIndex = 64;
+            this.pbRedO.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.Image = global::PI3.Properties.Resources.verde1;
+            this.pictureBox5.Location = new System.Drawing.Point(553, 484);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(25, 23);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 62;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = global::PI3.Properties.Resources.amarelo1;
+            this.pictureBox4.Location = new System.Drawing.Point(470, 484);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(25, 23);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 61;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = global::PI3.Properties.Resources.azul1;
+            this.pictureBox3.Location = new System.Drawing.Point(511, 484);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(25, 23);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 60;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::PI3.Properties.Resources.vermelho1;
+            this.pictureBox2.Location = new System.Drawing.Point(430, 484);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 23);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 58;
+            this.pictureBox2.TabStop = false;
             // 
             // btnExit
             // 
@@ -317,7 +475,7 @@ namespace PI3.Play
             // pb6
             // 
             this.pb6.Image = global::PI3.Properties.Resources._61;
-            this.pb6.Location = new System.Drawing.Point(309, 469);
+            this.pb6.Location = new System.Drawing.Point(265, 458);
             this.pb6.Name = "pb6";
             this.pb6.Size = new System.Drawing.Size(44, 48);
             this.pb6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -328,7 +486,7 @@ namespace PI3.Play
             // pb5
             // 
             this.pb5.Image = global::PI3.Properties.Resources._51;
-            this.pb5.Location = new System.Drawing.Point(260, 523);
+            this.pb5.Location = new System.Drawing.Point(206, 526);
             this.pb5.Name = "pb5";
             this.pb5.Size = new System.Drawing.Size(44, 48);
             this.pb5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -339,7 +497,7 @@ namespace PI3.Play
             // pb4
             // 
             this.pb4.Image = global::PI3.Properties.Resources._41;
-            this.pb4.Location = new System.Drawing.Point(309, 523);
+            this.pb4.Location = new System.Drawing.Point(265, 527);
             this.pb4.Name = "pb4";
             this.pb4.Size = new System.Drawing.Size(44, 48);
             this.pb4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -350,7 +508,7 @@ namespace PI3.Play
             // pb2
             // 
             this.pb2.Image = global::PI3.Properties.Resources._21;
-            this.pb2.Location = new System.Drawing.Point(260, 469);
+            this.pb2.Location = new System.Drawing.Point(206, 459);
             this.pb2.Name = "pb2";
             this.pb2.Size = new System.Drawing.Size(44, 48);
             this.pb2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -361,7 +519,7 @@ namespace PI3.Play
             // pb1
             // 
             this.pb1.Image = global::PI3.Properties.Resources._11;
-            this.pb1.Location = new System.Drawing.Point(260, 469);
+            this.pb1.Location = new System.Drawing.Point(207, 459);
             this.pb1.Name = "pb1";
             this.pb1.Size = new System.Drawing.Size(44, 48);
             this.pb1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -393,7 +551,7 @@ namespace PI3.Play
             // pb3
             // 
             this.pb3.Image = global::PI3.Properties.Resources._31;
-            this.pb3.Location = new System.Drawing.Point(260, 469);
+            this.pb3.Location = new System.Drawing.Point(207, 459);
             this.pb3.Name = "pb3";
             this.pb3.Size = new System.Drawing.Size(44, 48);
             this.pb3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -401,42 +559,37 @@ namespace PI3.Play
             this.pb3.TabStop = false;
             this.pb3.Visible = false;
             // 
-            // btnMovimentDeactivate
+            // lblColor
             // 
-            this.btnMovimentDeactivate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(235)))));
-            this.btnMovimentDeactivate.FlatAppearance.BorderSize = 0;
-            this.btnMovimentDeactivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMovimentDeactivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMovimentDeactivate.ForeColor = System.Drawing.Color.White;
-            this.btnMovimentDeactivate.Location = new System.Drawing.Point(430, 523);
-            this.btnMovimentDeactivate.Name = "btnMovimentDeactivate";
-            this.btnMovimentDeactivate.Size = new System.Drawing.Size(148, 49);
-            this.btnMovimentDeactivate.TabIndex = 53;
-            this.btnMovimentDeactivate.Text = "MOVIMENTAR";
-            this.btnMovimentDeactivate.UseVisualStyleBackColor = false;
-            this.btnMovimentDeactivate.Visible = false;
-            // 
-            // listBox
-            // 
-            this.listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
-            this.listBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox.FormattingEnabled = true;
-            this.listBox.ItemHeight = 15;
-            this.listBox.Location = new System.Drawing.Point(40, 577);
-            this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(321, 30);
-            this.listBox.TabIndex = 54;
+            this.lblColor.AutoSize = true;
+            this.lblColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblColor.Location = new System.Drawing.Point(427, 512);
+            this.lblColor.Name = "lblColor";
+            this.lblColor.Size = new System.Drawing.Size(33, 15);
+            this.lblColor.TabIndex = 68;
+            this.lblColor.Text = "COR";
             // 
             // CantStop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
-            this.ClientSize = new System.Drawing.Size(621, 605);
-            this.Controls.Add(this.listBox);
+            this.ClientSize = new System.Drawing.Size(621, 709);
+            this.Controls.Add(this.lblColor);
+            this.Controls.Add(this.pbGreenO);
+            this.Controls.Add(this.pbYellowO);
+            this.Controls.Add(this.pbBlueO);
+            this.Controls.Add(this.pbRedO);
+            this.Controls.Add(this.statusBox);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.lblPlaying);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.radioButton3);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.btnMovimentDeactivate);
-            this.Controls.Add(this.clbDice);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pbGreenWhite);
             this.Controls.Add(this.pbBlueWhite);
@@ -456,7 +609,7 @@ namespace PI3.Play
             this.Controls.Add(this.pb2);
             this.Controls.Add(this.btnMoviment);
             this.Controls.Add(this.pb1);
-            this.Controls.Add(this.lblMoviment);
+            this.Controls.Add(this.lblOptions);
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.btnRollDice);
             this.Controls.Add(this.pictureBox1);
@@ -465,6 +618,14 @@ namespace PI3.Play
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CantStop";
             this.Text = "Can\'t Stop";
+            ((System.ComponentModel.ISupportInitialize)(this.pbGreenO)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbYellowO)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlueO)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRedO)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGreenWhite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlueWhite)).EndInit();
@@ -493,7 +654,7 @@ namespace PI3.Play
         private System.Windows.Forms.PictureBox pbBackground;
         private System.Windows.Forms.Button btnRollDice;
         private System.Windows.Forms.Button btnPause;
-        private System.Windows.Forms.Label lblMoviment;
+        private System.Windows.Forms.Label lblOptions;
         private System.Windows.Forms.Button btnMoviment;
         private System.Windows.Forms.PictureBox pb1;
         private System.Windows.Forms.PictureBox pb2;
@@ -509,13 +670,25 @@ namespace PI3.Play
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.Button btnRollDiceDeactivated;
         private System.Windows.Forms.Button btnPauseDeactivate;
-        private System.Windows.Forms.CheckedListBox clbDice;
         private System.Windows.Forms.PictureBox pbGreenWhite;
         private System.Windows.Forms.PictureBox pbBlueWhite;
         private System.Windows.Forms.PictureBox pbYellowWhite;
         private System.Windows.Forms.PictureBox pbRedWhite;
         private System.Windows.Forms.PictureBox btnExit;
         private System.Windows.Forms.Button btnMovimentDeactivate;
-        private System.Windows.Forms.ListBox listBox;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblPlaying;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label statusBox;
+        private System.Windows.Forms.PictureBox pbGreenO;
+        private System.Windows.Forms.PictureBox pbYellowO;
+        private System.Windows.Forms.PictureBox pbBlueO;
+        private System.Windows.Forms.PictureBox pbRedO;
+        private System.Windows.Forms.Label lblColor;
     }
 }
