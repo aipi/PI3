@@ -48,7 +48,7 @@ namespace PI3.Lobby
             string[] lines = listMatches.Split('\n');
             List<Match> matches = new List<Match>();
 
-            for (int i = 0; i < lines.Length - 1; i++)
+            for (int i = lines.Length - 1; i != 0; i--)
             {
 
                 if (lines[i] != "")

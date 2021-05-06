@@ -72,7 +72,6 @@ namespace PI3.Lobby
             listGamers = listGamers.Replace("\r", "");
             string[] lines = listGamers.Split('\n');
             List<Gamer> gamers = new List<Gamer>();
-            // TODO: Partida J Exibir partida
             for (int i = 0; i < lines.Length - 1; i++)
             {
                 if (lines[i] != "")

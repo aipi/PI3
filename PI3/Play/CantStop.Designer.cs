@@ -69,7 +69,10 @@ namespace PI3.Play
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbBackground = new System.Windows.Forms.PictureBox();
             this.pb3 = new System.Windows.Forms.PictureBox();
-            this.lblColor = new System.Windows.Forms.Label();
+            this.lblRed = new System.Windows.Forms.Label();
+            this.lblYellow = new System.Windows.Forms.Label();
+            this.lblBlue = new System.Windows.Forms.Label();
+            this.lblGreen = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbGreenO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbYellowO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlueO)).BeginInit();
@@ -172,9 +175,9 @@ namespace PI3.Play
             this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVersion.Location = new System.Drawing.Point(540, 685);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(54, 15);
+            this.lblVersion.Size = new System.Drawing.Size(77, 23);
             this.lblVersion.TabIndex = 41;
-            this.lblVersion.Text = "Version: ";
+            this.lblVersion.Text = "Versão: ";
             // 
             // btnRollDiceDeactivated
             // 
@@ -559,15 +562,53 @@ namespace PI3.Play
             this.pb3.TabStop = false;
             this.pb3.Visible = false;
             // 
-            // lblColor
+            // lblRed
             // 
-            this.lblColor.AutoSize = true;
-            this.lblColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblColor.Location = new System.Drawing.Point(427, 512);
-            this.lblColor.Name = "lblColor";
-            this.lblColor.Size = new System.Drawing.Size(33, 15);
-            this.lblColor.TabIndex = 68;
-            this.lblColor.Text = "COR";
+            this.lblRed.AutoSize = true;
+            this.lblRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.lblRed.Location = new System.Drawing.Point(427, 512);
+            this.lblRed.Name = "lblRed";
+            this.lblRed.Size = new System.Drawing.Size(75, 15);
+            this.lblRed.TabIndex = 68;
+            this.lblRed.Text = "VERMELHO";
+            this.lblRed.Visible = false;
+            // 
+            // lblYellow
+            // 
+            this.lblYellow.AutoSize = true;
+            this.lblYellow.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYellow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(202)))), ((int)(((byte)(18)))));
+            this.lblYellow.Location = new System.Drawing.Point(467, 512);
+            this.lblYellow.Name = "lblYellow";
+            this.lblYellow.Size = new System.Drawing.Size(65, 15);
+            this.lblYellow.TabIndex = 69;
+            this.lblYellow.Text = "AMARELO";
+            this.lblYellow.Visible = false;
+            // 
+            // lblBlue
+            // 
+            this.lblBlue.AutoSize = true;
+            this.lblBlue.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBlue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(103)))), ((int)(((byte)(179)))));
+            this.lblBlue.Location = new System.Drawing.Point(508, 512);
+            this.lblBlue.Name = "lblBlue";
+            this.lblBlue.Size = new System.Drawing.Size(56, 23);
+            this.lblBlue.TabIndex = 70;
+            this.lblBlue.Text = "AZUL";
+            this.lblBlue.Visible = false;
+            // 
+            // lblGreen
+            // 
+            this.lblGreen.AutoSize = true;
+            this.lblGreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(179)))), ((int)(((byte)(86)))));
+            this.lblGreen.Location = new System.Drawing.Point(550, 512);
+            this.lblGreen.Name = "lblGreen";
+            this.lblGreen.Size = new System.Drawing.Size(72, 23);
+            this.lblGreen.TabIndex = 71;
+            this.lblGreen.Text = "VERDE";
+            this.lblGreen.Visible = false;
             // 
             // CantStop
             // 
@@ -575,7 +616,10 @@ namespace PI3.Play
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
             this.ClientSize = new System.Drawing.Size(621, 709);
-            this.Controls.Add(this.lblColor);
+            this.Controls.Add(this.lblGreen);
+            this.Controls.Add(this.lblBlue);
+            this.Controls.Add(this.lblYellow);
+            this.Controls.Add(this.lblRed);
             this.Controls.Add(this.pbGreenO);
             this.Controls.Add(this.pbYellowO);
             this.Controls.Add(this.pbBlueO);
@@ -689,6 +733,9 @@ namespace PI3.Play
         private System.Windows.Forms.PictureBox pbYellowO;
         private System.Windows.Forms.PictureBox pbBlueO;
         private System.Windows.Forms.PictureBox pbRedO;
-        private System.Windows.Forms.Label lblColor;
+        private System.Windows.Forms.Label lblRed;
+        private System.Windows.Forms.Label lblYellow;
+        private System.Windows.Forms.Label lblBlue;
+        private System.Windows.Forms.Label lblGreen;
     }
 }

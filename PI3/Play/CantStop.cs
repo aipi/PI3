@@ -58,35 +58,52 @@ namespace PI3.Play
         }
         void checkTurn(string turn)
         {
-            pbYellowO.Visible = true;
-            pbRedO.Visible = true;
-            pbBlueO.Visible = true;
-            pbGreenO.Visible = true;
-            if (turn.Contains("1"))
+            string gamers = Jogo.ListarJogadores(Convert.ToInt32(MatchID));
+            string[] listGamers = gamers.Replace("\r", "").Split('\n');
+            foreach (string gamer in listGamers)
             {
-                lblColor.Text = "Vermelho";
-                lblColor.ForeColor = System.Drawing.Color.FromArgb(206, 44, 44);
-                pbRedO.Visible = false;
-            } 
-            else if (turn.Contains("2"))
-            {
-                lblColor.Text = "Blue";
-                lblColor.ForeColor = System.Drawing.Color.FromArgb(80, 103, 179);
-                pbBlueO.Visible = false;
+                pbYellowO.Visible = true;
+                pbRedO.Visible = true;
+                pbBlueO.Visible = true;
+                pbGreenO.Visible = true;
+                ;
+                var x = turn.Replace("\r\n", "").Split(',')[1];
+                if (gamer.Contains(x))
+                {
+                    if (gamer.Contains("Vermelho"))
+                    {
+                        lblRed.Visible = true;
+                        pbRedO.Visible = false;
+                        lblGreen.Visible = false;
+                        lblYellow.Visible = false;
+                        lblBlue.Visible = false;
+                    }
+                    else if (gamer.Contains("Azul"))
+                    {
+                        lblBlue.Visible = true;
+                        pbBlueO.Visible = false;
+                        lblRed.Visible = false;
+                        lblGreen.Visible = false;
+                        lblYellow.Visible = false;
+                    }
+                    else if (gamer.Contains("Amarelo"))
+                    {
+                        lblYellow.Visible = true;
+                        pbYellowO.Visible = false;
+                        lblRed.Visible = false;
+                        lblGreen.Visible = false;
+                        lblBlue.Visible = false;
+                    }
+                    else if (gamer.Contains("Verde"))
+                    {
+                        lblGreen.Visible = true;
+                        pbGreenO.Visible = false;
+                        lblRed.Visible = false;
+                        lblYellow.Visible = false;
+                        lblBlue.Visible = false;
+                    }
+                }
             }
-            else if (turn.Contains("3"))
-            {
-                lblColor.Text = "Yellow";
-                lblColor.ForeColor = System.Drawing.Color.FromArgb(221, 202, 18);
-                pbYellowO.Visible = false;
-            }
-            else if (turn.Contains("4"))
-            {
-                lblColor.Text = "Green";
-                lblColor.ForeColor = System.Drawing.Color.FromArgb(147, 179, 86);
-                pbGreenO.Visible = false;
-            }
-
         }
 
         void t_Tick(object sender, EventArgs e)
@@ -96,17 +113,14 @@ namespace PI3.Play
             string history = Jogo.ExibirHistorico(Convert.ToInt32(this.MatchID));
             string[] statusBoxText = statusBox.Text.Replace("\n", "").Split('\r');
             
-            if (statusBoxText.Length == 1)
+            if (statusBoxText.Length == 1 || statusBoxText.Length == 2 || statusBoxText.Length == 3 || statusBoxText.Length == 4)
                 statusBox.Text = history;
-            else
+           
+            if (statusBoxText.Length >= 5)
             {
-                if (statusBoxText.Length == 5)
-                {
-                    statusBox.Text = "";
-                    for (int i = 0; i <= 5; i++)
-                        statusBox.Text += statusBoxText[i] + "\n\r";
-                }
-                    
+                statusBox.Text = "";
+                for (int i = 0; i < 5; i++)
+                    statusBox.Text += statusBoxText[i] + "\n\r";
             }           
                     
             if (turn.Contains("J") && turn.Contains(this.GamerID.ToString()))
@@ -295,10 +309,9 @@ namespace PI3.Play
             {
                 foreach (Permutation in_permutation in this.Permutations)
                 {
-                    if (in_permutation.idDice1 == out_permutation.idDice1 ||
-                        in_permutation.idDice2 == out_permutation.idDice2 ||
-                        in_permutation.idDice1 == out_permutation.idDice2 ||
-                        in_permutation.idDice2 == out_permutation.idDice1)
+                    if (in_permutation.idDice1 != out_permutation.idDice1 &&
+                        in_permutation.idDice2 != out_permutation.idDice2 &&
+                        in_permutation.idDice1 != out_permutation.idDice2)
                     {
                         string text = "";
                         if (checkBoxNumber == 0)
@@ -336,7 +349,7 @@ namespace PI3.Play
         {
             lblError.Visible = false;
             statusBox.Visible = true;
-            // string rollDice = "11\r\n24\r\n34\r\n46\r\n";
+            //string rollDice = "11\r\n26\r\n35\r\n44\r\n";
             string rollDice = Jogo.RolarDados(this.GamerID, this.Password);
             if (rollDice.Contains("ERRO"))
             {
@@ -361,12 +374,6 @@ namespace PI3.Play
                 }
                 permuteDices();
                 btnMovimentDeactivate.Visible = true;
-                pb1.Visible = true;
-                pb2.Visible = true;
-                pb3.Visible = true;
-                pb4.Visible = true;
-                pb5.Visible = true;
-                pb6.Visible = true;
                 radioButton1.Visible = true;
                 radioButton2.Visible = true;
                 radioButton3.Visible = true;
@@ -456,7 +463,6 @@ namespace PI3.Play
                     choseOption = option;
                 }
             }
-            ;
             foreach (var permutation in choseOption.permutations)
             {
                 string value = "";
@@ -472,23 +478,6 @@ namespace PI3.Play
                 movimentValue += value;
                 movimentDices += permutation.idDice1.ToString() + permutation.idDice2.ToString();
             }
-
-            string rest = choseOption.permutations[0].idDice1.ToString() + 
-                choseOption.permutations[0].idDice2.ToString();
-            movimentValue += "0";
-            if (rest == "12") { movimentDices += "34"; }
-            else if (rest == "21") { movimentDices += "34"; }
-            else if (rest == "13") { movimentDices += "24"; }
-            else if (rest == "31") { movimentDices += "24"; }
-            else if (rest == "14") { movimentDices += "23"; }
-            else if (rest == "41") { movimentDices += "23"; }
-            else if (rest == "23") { movimentDices += "12"; }
-            else if (rest == "32") { movimentDices += "12"; }
-            else if (rest == "24") { movimentDices += "31"; }
-            else if (rest == "42") { movimentDices += "31"; }
-            else if (rest == "34") { movimentDices += "12"; }
-            else if (rest == "43") { movimentDices += "12"; }
-
             return (movimentValue, movimentDices);
         }
 
@@ -509,33 +498,44 @@ namespace PI3.Play
                 lblError.Text = movimentReturn;
                 lblError.Visible = true;
                 statusBox.Visible = false;
-                btnMovimentDeactivate.Visible = true;
                 btnMoviment.Visible = true;
                 lblOptions.Visible = true;
             } else
             {
-                btnMovimentDeactivate.Visible = false;
+                btnMovimentDeactivate.Visible = true;
                 btnMoviment.Visible = false;
                 resetGamersPosition();
-                string result = Jogo.ExibirTabuleiro(Convert.ToInt32(this.MatchID));
                 this.resetDices();
                 setBoardData();
+                radioButton1.Visible = false;
+                radioButton2.Visible = false;
+                radioButton3.Visible = false;
+                lblOptions.Visible = false;
             }
         }
 
         private void btnPause_Click(object sender, EventArgs e)
         {
-            btnMovimentDeactivate.Visible = false;
-            lblError.Visible = false;
-            statusBox.Visible = true;
-            radioButton1.Visible = false;
-            radioButton2.Visible = false;
-            radioButton3.Visible = false;
-            lblOptions.Visible = false;
             string pause = Jogo.Parar(this.GamerID, this.Password);
             if (pause.Contains("ERRO"))
             {
                 lblError.Text = pause;
+            }
+            else
+            {
+                btnMovimentDeactivate.Visible = true;
+                lblError.Visible = false;
+                pb1.Visible = false;
+                pb2.Visible = false;
+                pb3.Visible = false;
+                pb4.Visible = false;
+                pb5.Visible = false;
+                pb6.Visible = false;
+                statusBox.Visible = true;
+                radioButton1.Visible = false;
+                radioButton2.Visible = false;
+                radioButton3.Visible = false;
+                lblOptions.Visible = false;
             }
             
         }        
@@ -577,6 +577,5 @@ namespace PI3.Play
             btnMovimentDeactivate.Visible = false;
             btnMoviment.Visible = true;
         }
-
     }
 }

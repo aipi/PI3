@@ -24,7 +24,6 @@ namespace PI3.Lobby
             this.Password = Password;
             this.Color = Color;
             this.MatchID = matchID;
-            Jogo.IniciarPartida(this.GamerID, this.Password);
             btnStartGame.MouseEnter += OnMouseEnterBtnStartGame;
             lblVersion.Text = lblVersion.Text + Jogo.Versao;
         }
@@ -33,6 +32,7 @@ namespace PI3.Lobby
         {
             this.Hide();
             Play.CantStop playGame = new Play.CantStop(this.GamerID, this.MatchID, this.Color, this.Password);
+            Jogo.IniciarPartida(this.GamerID, this.Password);
             playGame.Show();
         }
 
