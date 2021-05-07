@@ -60,13 +60,12 @@ namespace PI3.Play
         {
             string gamers = Jogo.ListarJogadores(Convert.ToInt32(MatchID));
             string[] listGamers = gamers.Replace("\r", "").Split('\n');
+            pbYellowO.Visible = true;
+            pbRedO.Visible = true;
+            pbBlueO.Visible = true;
+            pbGreenO.Visible = true;
             foreach (string gamer in listGamers)
             {
-                pbYellowO.Visible = true;
-                pbRedO.Visible = true;
-                pbBlueO.Visible = true;
-                pbGreenO.Visible = true;
-                ;
                 var x = turn.Replace("\r\n", "").Split(',')[1];
                 if (gamer.Contains(x))
                 {
@@ -113,9 +112,9 @@ namespace PI3.Play
             string history = Jogo.ExibirHistorico(Convert.ToInt32(this.MatchID));
             string[] statusBoxText = statusBox.Text.Replace("\n", "").Split('\r');
             
-            if (statusBoxText.Length == 1 || statusBoxText.Length == 2 || statusBoxText.Length == 3 || statusBoxText.Length == 4)
+            if (statusBoxText.Length == 1 || statusBoxText.Length == 2 || statusBoxText.Length == 3 || statusBoxText.Length == 4 || statusBoxText.Length == 5)
                 statusBox.Text = history;
-           
+            ;
             if (statusBoxText.Length >= 5)
             {
                 statusBox.Text = "";
@@ -289,57 +288,106 @@ namespace PI3.Play
             var Dices1 =  Enumerable.Range(0, this.Dices.GetLength(0))
                             .Select(row => Enumerable.Range(0, this.Dices.GetLength(1))
                             .Select(col => this.Dices[row, col]).ToList()).ToList();
-
             radioButton1.Checked = false;
             for (int i = 0; i < Dices1.Count; i++)
             {
+                Permutation outPermutation = new Permutation();
+                List<int> zeroDice2 = new List<int> { 0, 0 };
+                outPermutation.setter(Dices1[i], zeroDice2);
+                this.Permutations.Add(outPermutation);
                 var Dices2 = Dices1.GetRange(i, Dices1.Count - i);
                 for (int j = 0; j < Dices2.Count; j++)
                 {
                     if (Dices1[i][0] != Dices2[j][0])
                     {
-                        Permutation permutation = new Permutation();
-                        permutation.setter(Dices1[i], Dices2[j]);
-                        this.Permutations.Add(permutation);
+                        Permutation inPermutation = new Permutation();
+                        inPermutation.setter(Dices1[i], Dices2[j]);
+                        this.Permutations.Add(inPermutation);
                     }
                 }
             }
-            int checkBoxNumber = 0;
+            int checkBoxNumber = 1;
+            string text = "";
+            ;
             foreach (Permutation out_permutation in this.Permutations)
             {
                 foreach (Permutation in_permutation in this.Permutations)
                 {
+                    if (checkBoxNumber == 1)
+                    {
+                        text = Convert.ToString(out_permutation.diceSum) + " e 0";
+                        radioButton4.Text = text;
+                        Options inOptions = new Options();
+                        List<Permutation> inOptionsPermutation = new List<Permutation>();
+                        inOptionsPermutation.Add(in_permutation);
+                        inOptionsPermutation.Add(out_permutation);
+                        inOptions.setter(inOptionsPermutation, text);
+                        this.Options.Add(inOptions);
+                    } 
+                    else if (checkBoxNumber == 5) 
+                    {
+                        text = Convert.ToString(out_permutation.diceSum) + " e 0";
+                        radioButton5.Text = text;
+                        Options inOptions = new Options();
+                        List<Permutation> inOptionsPermutation = new List<Permutation>();
+                        inOptionsPermutation.Add(in_permutation);
+                        inOptionsPermutation.Add(out_permutation);
+                        inOptions.setter(inOptionsPermutation, text);
+                        this.Options.Add(inOptions);
+                    } 
+                    else if (checkBoxNumber == 7)
+                    {
+                        text = Convert.ToString(out_permutation.diceSum) + " e 0";
+                        radioButton6.Text = text;
+                        Options inOptions = new Options();
+                        List<Permutation> inOptionsPermutation = new List<Permutation>();
+                        inOptionsPermutation.Add(in_permutation);
+                        inOptionsPermutation.Add(out_permutation);
+                        inOptions.setter(inOptionsPermutation, text);
+                        this.Options.Add(inOptions);
+                    }
+                    else if (checkBoxNumber == 10)
+                    {
+                        text = Convert.ToString(out_permutation.diceSum) + " e 0";
+                        radioButton7.Text = text;
+                        Options inOptions = new Options();
+                        List<Permutation> inOptionsPermutation = new List<Permutation>();
+                        inOptionsPermutation.Add(in_permutation);
+                        inOptionsPermutation.Add(out_permutation);
+                        inOptions.setter(inOptionsPermutation, text);
+                        this.Options.Add(inOptions);
+                    } 
                     if (in_permutation.idDice1 != out_permutation.idDice1 &&
                         in_permutation.idDice2 != out_permutation.idDice2 &&
-                        in_permutation.idDice1 != out_permutation.idDice2)
+                        in_permutation.idDice1 != out_permutation.idDice2 &&
+                        out_permutation.idDice2 != "0" && 
+                        in_permutation.idDice2 != "0")
                     {
-                        string text = "";
-                        if (checkBoxNumber == 0)
+                        if (checkBoxNumber == 2)
                         {
                             text = Convert.ToString(in_permutation.diceSum) + " e " +
                                 Convert.ToString(out_permutation.diceSum);
                             radioButton1.Text = text;
                         }
-                        else if (checkBoxNumber == 1)
+                        else if (checkBoxNumber == 3)
                         {
                             text = Convert.ToString(in_permutation.diceSum) + " e " +
                                 Convert.ToString(out_permutation.diceSum);
                             radioButton2.Text = text;
                         } 
-                        else if (checkBoxNumber == 2)
+                        else if (checkBoxNumber == 4)
                         {
                             text = Convert.ToString(in_permutation.diceSum) + " e " +
                                 Convert.ToString(out_permutation.diceSum);
                             radioButton3.Text = text;
                         }
-                            
                         checkBoxNumber++;
-                        Options options = new Options();
-                        List<Permutation> optionsPermutation = new List<Permutation>();
-                        optionsPermutation.Add(in_permutation);
-                        optionsPermutation.Add(out_permutation);
-                        options.setter(optionsPermutation, text);
-                        this.Options.Add(options);
+                        Options inOptions = new Options();
+                        List<Permutation> inOptionsPermutation = new List<Permutation>();
+                        inOptionsPermutation.Add(in_permutation);
+                        inOptionsPermutation.Add(out_permutation);
+                        inOptions.setter(inOptionsPermutation, text);
+                        this.Options.Add(inOptions);
                     }
                 }
             }
@@ -377,6 +425,10 @@ namespace PI3.Play
                 radioButton1.Visible = true;
                 radioButton2.Visible = true;
                 radioButton3.Visible = true;
+                radioButton4.Visible = true;
+                radioButton5.Visible = true;
+                radioButton6.Visible = true;
+                radioButton7.Visible = true;
                 lblOptions.Visible = true;
             }
         }
@@ -453,16 +505,26 @@ namespace PI3.Play
                 checkedValue = radioButton1.Text;
             else if (radioButton2.Checked)
                 checkedValue = radioButton2.Text;
-            else
+            else if(radioButton3.Checked)
                 checkedValue = radioButton3.Text;
-            
+            else if (radioButton4.Checked)
+                checkedValue = radioButton4.Text;
+            else if (radioButton5.Checked)
+                checkedValue = radioButton5.Text;
+            else if(radioButton6.Checked)
+                checkedValue = radioButton6.Text;
+            else
+                checkedValue = radioButton7.Text;
+
             foreach (Options option in this.Options)
             {
                 if (option.options == checkedValue)
                 {
                     choseOption = option;
+                    break;
                 }
             }
+            ;
             foreach (var permutation in choseOption.permutations)
             {
                 string value = "";
@@ -510,6 +572,10 @@ namespace PI3.Play
                 radioButton1.Visible = false;
                 radioButton2.Visible = false;
                 radioButton3.Visible = false;
+                radioButton4.Visible = false;
+                radioButton5.Visible = false;
+                radioButton6.Visible = false;
+                radioButton7.Visible = false;
                 lblOptions.Visible = false;
             }
         }
@@ -535,6 +601,10 @@ namespace PI3.Play
                 radioButton1.Visible = false;
                 radioButton2.Visible = false;
                 radioButton3.Visible = false;
+                radioButton4.Visible = false;
+                radioButton5.Visible = false;
+                radioButton6.Visible = false;
+                radioButton7.Visible = false;
                 lblOptions.Visible = false;
             }
             
@@ -577,5 +647,6 @@ namespace PI3.Play
             btnMovimentDeactivate.Visible = false;
             btnMoviment.Visible = true;
         }
+
     }
 }

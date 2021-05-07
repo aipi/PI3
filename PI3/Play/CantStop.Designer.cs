@@ -73,6 +73,10 @@ namespace PI3.Play
             this.lblYellow = new System.Windows.Forms.Label();
             this.lblBlue = new System.Windows.Forms.Label();
             this.lblGreen = new System.Windows.Forms.Label();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbGreenO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbYellowO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlueO)).BeginInit();
@@ -107,7 +111,7 @@ namespace PI3.Play
             this.btnRollDice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRollDice.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRollDice.ForeColor = System.Drawing.Color.White;
-            this.btnRollDice.Location = new System.Drawing.Point(40, 458);
+            this.btnRollDice.Location = new System.Drawing.Point(41, 589);
             this.btnRollDice.Name = "btnRollDice";
             this.btnRollDice.Size = new System.Drawing.Size(148, 49);
             this.btnRollDice.TabIndex = 22;
@@ -122,7 +126,7 @@ namespace PI3.Play
             this.btnPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPause.ForeColor = System.Drawing.Color.White;
-            this.btnPause.Location = new System.Drawing.Point(40, 523);
+            this.btnPause.Location = new System.Drawing.Point(41, 646);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(148, 49);
             this.btnPause.TabIndex = 23;
@@ -148,7 +152,7 @@ namespace PI3.Play
             this.btnMoviment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMoviment.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMoviment.ForeColor = System.Drawing.Color.White;
-            this.btnMoviment.Location = new System.Drawing.Point(430, 534);
+            this.btnMoviment.Location = new System.Drawing.Point(41, 532);
             this.btnMoviment.Name = "btnMoviment";
             this.btnMoviment.Size = new System.Drawing.Size(148, 49);
             this.btnMoviment.TabIndex = 30;
@@ -162,7 +166,7 @@ namespace PI3.Play
             this.lblError.AutoSize = true;
             this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(37, 581);
+            this.lblError.Location = new System.Drawing.Point(38, 708);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(51, 15);
             this.lblError.TabIndex = 40;
@@ -173,9 +177,9 @@ namespace PI3.Play
             // 
             this.lblVersion.AutoSize = true;
             this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersion.Location = new System.Drawing.Point(540, 685);
+            this.lblVersion.Location = new System.Drawing.Point(542, 708);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(77, 23);
+            this.lblVersion.Size = new System.Drawing.Size(51, 15);
             this.lblVersion.TabIndex = 41;
             this.lblVersion.Text = "Versão: ";
             // 
@@ -186,7 +190,7 @@ namespace PI3.Play
             this.btnRollDiceDeactivated.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRollDiceDeactivated.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRollDiceDeactivated.ForeColor = System.Drawing.Color.White;
-            this.btnRollDiceDeactivated.Location = new System.Drawing.Point(40, 458);
+            this.btnRollDiceDeactivated.Location = new System.Drawing.Point(41, 589);
             this.btnRollDiceDeactivated.Name = "btnRollDiceDeactivated";
             this.btnRollDiceDeactivated.Size = new System.Drawing.Size(148, 49);
             this.btnRollDiceDeactivated.TabIndex = 45;
@@ -200,7 +204,7 @@ namespace PI3.Play
             this.btnPauseDeactivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPauseDeactivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPauseDeactivate.ForeColor = System.Drawing.Color.White;
-            this.btnPauseDeactivate.Location = new System.Drawing.Point(40, 523);
+            this.btnPauseDeactivate.Location = new System.Drawing.Point(41, 646);
             this.btnPauseDeactivate.Name = "btnPauseDeactivate";
             this.btnPauseDeactivate.Size = new System.Drawing.Size(148, 49);
             this.btnPauseDeactivate.TabIndex = 47;
@@ -214,7 +218,7 @@ namespace PI3.Play
             this.btnMovimentDeactivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMovimentDeactivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMovimentDeactivate.ForeColor = System.Drawing.Color.White;
-            this.btnMovimentDeactivate.Location = new System.Drawing.Point(430, 534);
+            this.btnMovimentDeactivate.Location = new System.Drawing.Point(41, 532);
             this.btnMovimentDeactivate.Name = "btnMovimentDeactivate";
             this.btnMovimentDeactivate.Size = new System.Drawing.Size(148, 49);
             this.btnMovimentDeactivate.TabIndex = 53;
@@ -226,10 +230,10 @@ namespace PI3.Play
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(329, 483);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(87, 24);
+            this.radioButton1.Size = new System.Drawing.Size(43, 24);
             this.radioButton1.TabIndex = 55;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "10 e 12";
+            this.radioButton1.Text = "0";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.Visible = false;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -239,10 +243,10 @@ namespace PI3.Play
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(329, 546);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(87, 24);
+            this.radioButton2.Size = new System.Drawing.Size(43, 24);
             this.radioButton2.TabIndex = 56;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "10 e 12";
+            this.radioButton2.Text = "0";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.Visible = false;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -252,10 +256,10 @@ namespace PI3.Play
             this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(329, 514);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(87, 24);
+            this.radioButton3.Size = new System.Drawing.Size(43, 24);
             this.radioButton3.TabIndex = 57;
             this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "10 e 12";
+            this.radioButton3.Text = "0";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.Visible = false;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -264,7 +268,7 @@ namespace PI3.Play
             // 
             this.lblPlaying.AutoSize = true;
             this.lblPlaying.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaying.Location = new System.Drawing.Point(427, 459);
+            this.lblPlaying.Location = new System.Drawing.Point(38, 455);
             this.lblPlaying.Name = "lblPlaying";
             this.lblPlaying.Size = new System.Drawing.Size(114, 15);
             this.lblPlaying.TabIndex = 59;
@@ -274,7 +278,7 @@ namespace PI3.Play
             // 
             this.statusBox.AutoSize = true;
             this.statusBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusBox.Location = new System.Drawing.Point(37, 611);
+            this.statusBox.Location = new System.Drawing.Point(328, 589);
             this.statusBox.Name = "statusBox";
             this.statusBox.Size = new System.Drawing.Size(0, 15);
             this.statusBox.TabIndex = 63;
@@ -283,7 +287,7 @@ namespace PI3.Play
             // 
             this.pbGreenO.BackColor = System.Drawing.Color.Transparent;
             this.pbGreenO.Image = global::PI3.Properties.Resources.greenOpacity;
-            this.pbGreenO.Location = new System.Drawing.Point(553, 484);
+            this.pbGreenO.Location = new System.Drawing.Point(164, 480);
             this.pbGreenO.Name = "pbGreenO";
             this.pbGreenO.Size = new System.Drawing.Size(25, 23);
             this.pbGreenO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -294,7 +298,7 @@ namespace PI3.Play
             // 
             this.pbYellowO.BackColor = System.Drawing.Color.Transparent;
             this.pbYellowO.Image = global::PI3.Properties.Resources.yellowOpacity;
-            this.pbYellowO.Location = new System.Drawing.Point(470, 484);
+            this.pbYellowO.Location = new System.Drawing.Point(81, 480);
             this.pbYellowO.Name = "pbYellowO";
             this.pbYellowO.Size = new System.Drawing.Size(25, 23);
             this.pbYellowO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -305,7 +309,7 @@ namespace PI3.Play
             // 
             this.pbBlueO.BackColor = System.Drawing.Color.Transparent;
             this.pbBlueO.Image = global::PI3.Properties.Resources.blueOpacity;
-            this.pbBlueO.Location = new System.Drawing.Point(511, 484);
+            this.pbBlueO.Location = new System.Drawing.Point(122, 480);
             this.pbBlueO.Name = "pbBlueO";
             this.pbBlueO.Size = new System.Drawing.Size(25, 23);
             this.pbBlueO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -316,7 +320,7 @@ namespace PI3.Play
             // 
             this.pbRedO.BackColor = System.Drawing.Color.Transparent;
             this.pbRedO.Image = global::PI3.Properties.Resources.redOpacity;
-            this.pbRedO.Location = new System.Drawing.Point(430, 484);
+            this.pbRedO.Location = new System.Drawing.Point(41, 480);
             this.pbRedO.Name = "pbRedO";
             this.pbRedO.Size = new System.Drawing.Size(25, 23);
             this.pbRedO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -327,7 +331,7 @@ namespace PI3.Play
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = global::PI3.Properties.Resources.verde1;
-            this.pictureBox5.Location = new System.Drawing.Point(553, 484);
+            this.pictureBox5.Location = new System.Drawing.Point(164, 480);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(25, 23);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -338,7 +342,7 @@ namespace PI3.Play
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = global::PI3.Properties.Resources.amarelo1;
-            this.pictureBox4.Location = new System.Drawing.Point(470, 484);
+            this.pictureBox4.Location = new System.Drawing.Point(81, 480);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(25, 23);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -349,7 +353,7 @@ namespace PI3.Play
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = global::PI3.Properties.Resources.azul1;
-            this.pictureBox3.Location = new System.Drawing.Point(511, 484);
+            this.pictureBox3.Location = new System.Drawing.Point(122, 480);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(25, 23);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -360,7 +364,7 @@ namespace PI3.Play
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::PI3.Properties.Resources.vermelho1;
-            this.pictureBox2.Location = new System.Drawing.Point(430, 484);
+            this.pictureBox2.Location = new System.Drawing.Point(41, 480);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(25, 23);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -478,7 +482,7 @@ namespace PI3.Play
             // pb6
             // 
             this.pb6.Image = global::PI3.Properties.Resources._61;
-            this.pb6.Location = new System.Drawing.Point(265, 458);
+            this.pb6.Location = new System.Drawing.Point(237, 652);
             this.pb6.Name = "pb6";
             this.pb6.Size = new System.Drawing.Size(44, 48);
             this.pb6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -489,7 +493,7 @@ namespace PI3.Play
             // pb5
             // 
             this.pb5.Image = global::PI3.Properties.Resources._51;
-            this.pb5.Location = new System.Drawing.Point(206, 526);
+            this.pb5.Location = new System.Drawing.Point(236, 524);
             this.pb5.Name = "pb5";
             this.pb5.Size = new System.Drawing.Size(44, 48);
             this.pb5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -500,7 +504,7 @@ namespace PI3.Play
             // pb4
             // 
             this.pb4.Image = global::PI3.Properties.Resources._41;
-            this.pb4.Location = new System.Drawing.Point(265, 527);
+            this.pb4.Location = new System.Drawing.Point(236, 588);
             this.pb4.Name = "pb4";
             this.pb4.Size = new System.Drawing.Size(44, 48);
             this.pb4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -511,7 +515,7 @@ namespace PI3.Play
             // pb2
             // 
             this.pb2.Image = global::PI3.Properties.Resources._21;
-            this.pb2.Location = new System.Drawing.Point(206, 459);
+            this.pb2.Location = new System.Drawing.Point(236, 459);
             this.pb2.Name = "pb2";
             this.pb2.Size = new System.Drawing.Size(44, 48);
             this.pb2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -522,7 +526,7 @@ namespace PI3.Play
             // pb1
             // 
             this.pb1.Image = global::PI3.Properties.Resources._11;
-            this.pb1.Location = new System.Drawing.Point(207, 459);
+            this.pb1.Location = new System.Drawing.Point(237, 459);
             this.pb1.Name = "pb1";
             this.pb1.Size = new System.Drawing.Size(44, 48);
             this.pb1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -554,7 +558,7 @@ namespace PI3.Play
             // pb3
             // 
             this.pb3.Image = global::PI3.Properties.Resources._31;
-            this.pb3.Location = new System.Drawing.Point(207, 459);
+            this.pb3.Location = new System.Drawing.Point(237, 459);
             this.pb3.Name = "pb3";
             this.pb3.Size = new System.Drawing.Size(44, 48);
             this.pb3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -567,7 +571,7 @@ namespace PI3.Play
             this.lblRed.AutoSize = true;
             this.lblRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.lblRed.Location = new System.Drawing.Point(427, 512);
+            this.lblRed.Location = new System.Drawing.Point(38, 508);
             this.lblRed.Name = "lblRed";
             this.lblRed.Size = new System.Drawing.Size(75, 15);
             this.lblRed.TabIndex = 68;
@@ -579,7 +583,7 @@ namespace PI3.Play
             this.lblYellow.AutoSize = true;
             this.lblYellow.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblYellow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(202)))), ((int)(((byte)(18)))));
-            this.lblYellow.Location = new System.Drawing.Point(467, 512);
+            this.lblYellow.Location = new System.Drawing.Point(78, 508);
             this.lblYellow.Name = "lblYellow";
             this.lblYellow.Size = new System.Drawing.Size(65, 15);
             this.lblYellow.TabIndex = 69;
@@ -591,9 +595,9 @@ namespace PI3.Play
             this.lblBlue.AutoSize = true;
             this.lblBlue.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBlue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(103)))), ((int)(((byte)(179)))));
-            this.lblBlue.Location = new System.Drawing.Point(508, 512);
+            this.lblBlue.Location = new System.Drawing.Point(119, 508);
             this.lblBlue.Name = "lblBlue";
-            this.lblBlue.Size = new System.Drawing.Size(56, 23);
+            this.lblBlue.Size = new System.Drawing.Size(37, 15);
             this.lblBlue.TabIndex = 70;
             this.lblBlue.Text = "AZUL";
             this.lblBlue.Visible = false;
@@ -603,19 +607,75 @@ namespace PI3.Play
             this.lblGreen.AutoSize = true;
             this.lblGreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(179)))), ((int)(((byte)(86)))));
-            this.lblGreen.Location = new System.Drawing.Point(550, 512);
+            this.lblGreen.Location = new System.Drawing.Point(161, 508);
             this.lblGreen.Name = "lblGreen";
-            this.lblGreen.Size = new System.Drawing.Size(72, 23);
+            this.lblGreen.Size = new System.Drawing.Size(48, 15);
             this.lblGreen.TabIndex = 71;
             this.lblGreen.Text = "VERDE";
             this.lblGreen.Visible = false;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(433, 483);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(43, 24);
+            this.radioButton4.TabIndex = 72;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "0";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.Visible = false;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(433, 514);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(43, 24);
+            this.radioButton5.TabIndex = 73;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "0";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton5.Visible = false;
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(433, 546);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(43, 24);
+            this.radioButton6.TabIndex = 74;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Text = "0";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            this.radioButton6.Visible = false;
+            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(535, 483);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(43, 24);
+            this.radioButton7.TabIndex = 75;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "0";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            this.radioButton7.Visible = false;
+            this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // CantStop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
-            this.ClientSize = new System.Drawing.Size(621, 709);
+            this.ClientSize = new System.Drawing.Size(621, 732);
+            this.Controls.Add(this.radioButton7);
+            this.Controls.Add(this.radioButton6);
+            this.Controls.Add(this.radioButton5);
+            this.Controls.Add(this.radioButton4);
             this.Controls.Add(this.lblGreen);
             this.Controls.Add(this.lblBlue);
             this.Controls.Add(this.lblYellow);
@@ -737,5 +797,9 @@ namespace PI3.Play
         private System.Windows.Forms.Label lblYellow;
         private System.Windows.Forms.Label lblBlue;
         private System.Windows.Forms.Label lblGreen;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton radioButton7;
     }
 }
