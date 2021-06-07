@@ -18,6 +18,11 @@ namespace PI3.Play
             this.idDice2 = dice2[0].ToString();
             this.diceSum = Convert.ToInt32(dice1[1]) + Convert.ToInt32(dice2[1]);
         }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
     
 }

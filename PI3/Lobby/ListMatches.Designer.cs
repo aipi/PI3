@@ -29,6 +29,8 @@ namespace PI3.Lobby
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListMatches));
             this.btnListMatches = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
@@ -88,15 +90,32 @@ namespace PI3.Lobby
             this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVersion.Location = new System.Drawing.Point(533, 584);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(54, 15);
+            this.lblVersion.Size = new System.Drawing.Size(51, 15);
             this.lblVersion.TabIndex = 37;
-            this.lblVersion.Text = "Version: ";
+            this.lblVersion.Text = "Versão: ";
             // 
             // dgvListMatches
             // 
             this.dgvListMatches.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(151)))), ((int)(((byte)(127)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListMatches.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListMatches.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(181)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListMatches.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvListMatches.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvListMatches.EnableHeadersVisualStyles = false;
             this.dgvListMatches.Location = new System.Drawing.Point(12, 90);
             this.dgvListMatches.MultiSelect = false;
             this.dgvListMatches.Name = "dgvListMatches";
@@ -106,14 +125,6 @@ namespace PI3.Lobby
             this.dgvListMatches.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListMatches.Size = new System.Drawing.Size(597, 254);
             this.dgvListMatches.TabIndex = 6;
-            this.dgvListMatches.EnableHeadersVisualStyles = false;
-            this.dgvListMatches.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(164, 151, 127);
-            this.dgvListMatches.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvListMatches.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(199, 199, 181);
-            this.dgvListMatches.ColumnHeadersDefaultCellStyle.SelectionBackColor = System.Drawing.Color.Transparent;
-            this.dgvListMatches.ColumnHeadersDefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvListMatches.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvListMatches.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
             // 
             // ListMatches
             // 

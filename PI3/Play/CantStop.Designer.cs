@@ -77,6 +77,8 @@ namespace PI3.Play
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbGreenO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbYellowO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlueO)).BeginInit();
@@ -617,7 +619,7 @@ namespace PI3.Play
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(433, 483);
+            this.radioButton4.Location = new System.Drawing.Point(424, 483);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(43, 24);
             this.radioButton4.TabIndex = 72;
@@ -630,7 +632,7 @@ namespace PI3.Play
             // radioButton5
             // 
             this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(433, 514);
+            this.radioButton5.Location = new System.Drawing.Point(424, 514);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(43, 24);
             this.radioButton5.TabIndex = 73;
@@ -643,7 +645,7 @@ namespace PI3.Play
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(433, 546);
+            this.radioButton6.Location = new System.Drawing.Point(424, 546);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(43, 24);
             this.radioButton6.TabIndex = 74;
@@ -656,7 +658,7 @@ namespace PI3.Play
             // radioButton7
             // 
             this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(535, 483);
+            this.radioButton7.Location = new System.Drawing.Point(517, 483);
             this.radioButton7.Name = "radioButton7";
             this.radioButton7.Size = new System.Drawing.Size(43, 24);
             this.radioButton7.TabIndex = 75;
@@ -666,12 +668,40 @@ namespace PI3.Play
             this.radioButton7.Visible = false;
             this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Location = new System.Drawing.Point(517, 514);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(43, 24);
+            this.radioButton8.TabIndex = 76;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "0";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            this.radioButton8.Visible = false;
+            this.radioButton8.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // radioButton9
+            // 
+            this.radioButton9.AutoSize = true;
+            this.radioButton9.Location = new System.Drawing.Point(517, 546);
+            this.radioButton9.Name = "radioButton9";
+            this.radioButton9.Size = new System.Drawing.Size(43, 24);
+            this.radioButton9.TabIndex = 77;
+            this.radioButton9.TabStop = true;
+            this.radioButton9.Text = "0";
+            this.radioButton9.UseVisualStyleBackColor = true;
+            this.radioButton9.Visible = false;
+            this.radioButton9.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
             // CantStop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(214)))));
-            this.ClientSize = new System.Drawing.Size(621, 732);
+            this.ClientSize = new System.Drawing.Size(621, 746);
+            this.Controls.Add(this.radioButton9);
+            this.Controls.Add(this.radioButton8);
             this.Controls.Add(this.radioButton7);
             this.Controls.Add(this.radioButton6);
             this.Controls.Add(this.radioButton5);
@@ -801,5 +831,7 @@ namespace PI3.Play
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.RadioButton radioButton6;
         private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.RadioButton radioButton9;
     }
 }

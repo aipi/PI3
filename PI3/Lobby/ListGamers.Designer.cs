@@ -309,9 +309,9 @@ namespace PI3.Lobby
             this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVersion.Location = new System.Drawing.Point(533, 584);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(54, 15);
+            this.lblVersion.Size = new System.Drawing.Size(48, 15);
             this.lblVersion.TabIndex = 36;
-            this.lblVersion.Text = "Version: ";
+            this.lblVersion.Text = "Versão:";
             // 
             // ListGamers
             // 
